@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.health.myapplication">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+            android:allowBackup="true"
+            android:icon="@drawable/icon"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/ic_launcher_round"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name="com.health.myapplication.activity.RecommendActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.RecommendActivity.ExpertActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.RecommendActivity.IntermediateActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.RecommendActivity.NoviceActivity" android:configChanges="screenSize|orientation">
+        </activity>
+
+        <meta-data
+                android:name="com.google.android.gms.ads.APPLICATION_ID"
+                android:value="@string/admob_app_id"/>
+
+        <activity android:name="com.health.myapplication.activity.InformationActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity.CalculatorActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity_program.FourDayProgram" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity_program.ThreeDayProgram" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity_program.TwoDayProgram" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity_program.FiveDayProgram" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity_program.OneDayProgram" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity.ProgramActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity
+                android:name="com.health.myapplication.activity.LoadingActivity"
+                android:theme="@android:style/Theme.NoTitleBar.Fullscreen"  android:configChanges="screenSize|orientation"/>
+        <activity android:name="com.health.myapplication.activity.CategoryDataActivity" android:configChanges="screenSize|orientation" >
+        </activity>
+        <activity android:name="com.health.myapplication.activity.BodyWeightActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity.ExerciseCategoryActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity.ExerciseDataActivity" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity.MainActivity" android:configChanges="screenSize|orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

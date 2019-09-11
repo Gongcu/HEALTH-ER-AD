@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout        xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" xmlns:card_cview="http://schemas.android.com/apk/res-auto">
+<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <TextView
+                    android:background="@color/colorMain"
+                    android:paddingLeft="16dp"
+                    android:textSize="15dp"
+                    android:textColor="@color/colorWhite"
+                    android:paddingVertical="5dp"
+                    android:textStyle="italic"
+                    android:text="HEARTH-ER"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/dateText"/>
+
+            <androidx.cardview.widget.CardView
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:id="@+id/view1"
+                    android:layout_marginTop="5dp"
+                    card_cview:cardCornerRadius="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp">>
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:id="@+id/linearItem"
+                        android:background="@color/colorWhite">
+                    <View android:layout_width="100dp"
+                          android:layout_height="100dp"
+                          android:layout_gravity="center"
+                          android:background="@drawable/dumbell2"
+                    ></View>
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@color/colorWhite">
+                    <TextView
+                            android:layout_marginTop="20dp"
+                            android:background="@color/colorWhite"
+                            android:textColor="@color/colorMain"
+                            android:text="운동정보" android:layout_marginLeft="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent" android:id="@+id/partTextView"
+                            android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                    />
+                    <TextView
+                            android:layout_marginTop="5dp"
+                            android:background="@color/colorWhite"
+                            android:textColor="@color/colorMain"
+                            android:text="무분할, 2분할 등 프로그램을 계획합니다" android:layout_marginLeft="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
+                    />
+                </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="10dp"
+                    android:id="@+id/view2"
+                    card_cview:cardCornerRadius="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">
+                <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@color/colorWhite">
+                    <View
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/program"
+                            android:id="@+id/view21"></View>
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                              android:background="@color/colorWhite">
+                    <TextView
+                            android:layout_marginTop="20dp"
+                            android:background="@color/colorWhite"
+                            android:textColor="@color/colorMain"
+                            android:text="프로그램" android:layout_marginLeft="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                    />
+                    <TextView
+                            android:layout_marginTop="5dp"
+                            android:background="@color/colorWhite"
+                            android:textColor="@color/colorMain"
+                            android:text="무분할, 2분할 등 프로그램을 계획합니다" android:layout_marginLeft="25dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
+                    />
+                </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="10dp"
+                    android:id="@+id/view6"
+                    card_cview:cardCornerRadius="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">>
+
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                              android:background="@color/colorWhite">
+                    <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
+                          android:background="@drawable/recommend_program" android:id="@+id/view62"
+                    ></View>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                                  android:background="@color/colorWhite">
+                        <TextView
+                                android:layout_marginTop="20dp"
+                                android:background="@color/colorWhite"
+                                android:textColor="@color/colorMain"
+                                android:text="추천 프로그램" android:layout_marginLeft="25dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                        <TextView
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorWhite"
+                                android:textColor="@color/colorMain"
+                                android:text="분할별로 프로그램을 추천해드립니다." android:layout_marginLeft="25dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="10dp"
+            android:id="@+id/view3"
+            card_cview:cardCornerRadius="3dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                      android:background="@color/colorWhite">
+            <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
+                  android:background="@drawable/note" android:id="@+id/view31"
+            ></View>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                          android:background="@color/colorWhite">
+                <TextView
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorMain"
+                        android:text="운동일지" android:layout_marginLeft="25dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                />
+                <TextView
+                        android:layout_marginTop="5dp"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorMain"
+                        android:text="날짜 별로 운동 내용을 기록합니다" android:layout_marginLeft="25dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
+                />
+            </LinearLayout>
+            />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="10dp"
+                    android:id="@+id/view4"
+                    card_cview:cardCornerRadius="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">>
+
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                              android:background="@color/colorWhite">
+                    <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
+                          android:background="@drawable/one_rm" android:id="@+id/view41"
+                    ></View>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                                  android:background="@color/colorWhite">
+                        <TextView
+                                android:layout_marginTop="20dp"
+                                android:background="@color/colorWhite"
+                                android:textColor="@color/colorMain"
+                                android:text="1-RM 계산기" android:layout_marginLeft="25dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                        <TextView
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorWhite"
+                                android:textColor="@color/colorMain"
+                                android:text="3대 운동 중량을 기록합니다." android:layout_marginLeft="25dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:padding="10dp"
+                    android:id="@+id/view5"
+                    card_cview:cardCornerRadius="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp">>
+
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                              android:background="@color/colorWhite">
+                    <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
+                          android:background="@drawable/weight2" android:id="@+id/view51"
+                    ></View>
+                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                                  android:background="@color/colorWhite">
+                        <TextView
+                                android:layout_marginTop="20dp"
+                                android:background="@color/colorWhite"
+                                android:textColor="@color/colorMain"
+                                android:text="몸무게 기록" android:layout_marginLeft="25dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                        <TextView
+                                android:layout_marginTop="5dp"
+                                android:background="@color/colorWhite"
+                                android:textColor="@color/colorMain"
+                                android:text="날짜별로 몸무게를 기록합니다" android:layout_marginLeft="25dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                ads:adSize="BANNER"
+                android:layout_gravity="center"
+                ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+        </LinearLayout>
+
+</ScrollView>
+</RelativeLayout>

@@ -1,0 +1,448 @@
+{
+  "전체운동": [
+    {
+      "name": "벤치프레스",
+      "desc": "1. 벤치에 누워 엉덩이와 견갑골을 등받이에 최대한 붙인다.\n2. 어깨너비 보다 넓게 바를 잡고 눈이 바벨과 수직이 되도록 위치시킨다.\n3. 바를 들어 올리고 명치를 향해 자연스럽게 내린다\n4. 겨드랑이에 힘을 주는 느낌으로 긴장이 풀리기 전까지 들어올린다.",
+      "imageR": "exercise_chest_benchpress1",
+      "imageF": "exercise_chest_benchpress2",
+      "tip": "넓을 수록 어깨, 좁을 수록 팔꿈치에 부하가 가게 됩니다."
+    },
+    {
+      "name": "인클라인 벤치프레스",
+      "desc": "1. 벤치 각도는 30~45도로 조절한다.\n2. 벤치에 누워 엉덩이와 견갑골을 등받이에 최대한 붙인다.\n3. 바를 들어 올리고 가슴 상부를 향해 자연스럽게 내린다.\n4. 겨드랑이에 힘을 주는 느낌으로 긴장이 풀리기 전까지 들어올린다.",
+      "imageR": "exercise_chest_inclinebenchpress1",
+      "imageF": "exercise_chest_inclinebenchpress2",
+      "tip": "넓을 수록 어깨, 좁을 수록 팔꿈치에 부하가 가게 됩니다."
+    },
+    {
+      "name": "디클라인 벤치프레스",
+      "desc": "1. 벤치 각도는 10~20도로 조절한다.\n2. 벤치에 누워 엉덩이와 견갑골을 등받이에 최대한 붙인다.\n3. 바를 들어 올리고 명치를 향해 자연스럽게 내린다.\n4. 겨드랑이에 힘을 주는 느낌으로 긴장이 풀리기 전까지 들어올린다.",
+      "imageR": "exercise_chest_declinebenchpress1",
+      "imageF": "exercise_chest_declinebenchpress2",
+      "tip": "디클라인 벤치프레스는 녹내장의 위험이 있습니다."
+
+    },
+    {
+      "name": "스미스 머신 벤치프레스",
+      "desc": "1. 바 높이를 조절한 뒤 벤치에 누워 견갑골과 엉텅이를 패드에 붙인다.\n2. 바를 들어 올리고 명치를 향해 자연스럽게 내린다 \n3. 겨드랑이에 힘을 주는 느낌으로 긴장이 풀리기 전까지 들어올린다.",
+      "imageR": "exercise_chest_smithbenchpress1",
+      "imageF": "exercise_chest_smithbenchpress2",
+      "tip": "고립에는 더 좋지만 일반 벤치프레스보다 코어, 균형을 키우기는 어렵습니다."
+    },
+    {
+      "name": "푸쉬업",
+      "desc": "1. 바닥에 손을 짚고 고개는 살짝 들어 복근과 엉덩이에 힘을 준다.\n2. 팔꿈치를 굽히며 내려간다.\n3. 바닥을 밀어내며 다시 올라온다.",
+      "imageR": "exercise_chest_pushup_1",
+      "imageF": "exercise_chest_pushup_2",
+      "tip": "가슴운동의 기본."
+    },
+    {
+      "name": "머신 체스트 프레스",
+      "desc": "1. 벤치에 앉아 견갑골과 엉텅이를 패드에 붙인다.\n2. 가슴을 열고 바를 밀어낸다. \n3. 다시 바를 내리며 원위치 한다.",
+      "imageR": "exercise_chest_machinepress_1",
+      "imageF": "exercise_chest_machinepress_2",
+      "tip": "고립을 유지하며 이완 시 긴장이 풀리기 전까지 움직여야 합니다."
+    },
+    {
+      "name": "딥스",
+      "desc": "1. 평행으로 된 바를 짚고 올라선다.\n2. 무릎을 구부리고 엉덩이를 살짝 뒤로 빼 중심을 잡는다.\n3. 팔꿈치를 굽히며 90도 정도의 각도로 내려간다\n4. 바를 누르며 긴장이 풀리기 전까지 올라간다.",
+      "imageR": "exercise_chest_dips1",
+      "imageF": "exercise_chest_dips2",
+      "tip": "유연성이 부족할 경우 90도 보다 밑으로 내려갈 때 어깨 부상 위험이 있습니다."
+    },
+    {
+      "name": "덤벨 체스트 프레스",
+      "desc": "1. 벤치에 앉아 덤벨를 무릎 위에 위치 시킨다.\n2. 벤치로 누우며 덤벨을 위를 향해 들어올린다.\n3. 가슴을 펴고 팔꿈치를 굽히며 덤벨을 내린다.\n4. 가슴을 수축하며 덤벨을 들어 올린다.",
+      "imageR": "exercise_chest_dumbbellpress1",
+      "imageF": "exercise_chest_dumbbellpress2",
+      "tip": "유연성이 부족할 경우 90도 보다 밑으로 내려갈 때 어깨 부상 위험이 있습니다."
+    },
+    {
+      "name": "덤벨 플라이",
+      "desc": "1. 벤치에 앉아 덤벨를 무릎 위에 위치 시킨다.\n2. 벤치로 누우며 덤벨을 위를 향해 들어올린다.\n3. 가슴 중앙을 스트레칭 하는 느낌으로 덤벨을 양 옆으로 벌린다.\n4. 다시 가슴을 수축하며 덤벨을 중앙으로 모은다.",
+      "imageR": "exercise_chest_dumbbellfly1",
+      "imageF": "exercise_chest_dumbbellfly2",
+      "tip": "덤벨 플라이는 안쪽 가슴을 채우는 운동이라기 보기 어렵습니다."
+    }
+  ,
+    {
+      "name": "케이블 크로스 오버",
+      "desc": "1. 양쪽 케이블을 잡고 중앙에 선다.\n2. 허리를 숙여 중심을 잡고 무언가를 안는다는 느낌으로 케이블을 당긴다.\n3. 가슴이 이완됨을 느끼며 다시 원위치 시킨다.",
+      "imageR": "exercise_chest_cablecrossover1",
+      "imageF": "exercise_chest_cablecrossover2",
+      "tip": "과하게 이완을 할 시 어깨 부상의 위험이 있습니다."
+    }
+  ,
+    {
+      "name": "펙덱 플라이",
+      "desc": "1. 기구에 앉아 견갑골과 엉덩이를 패드에 붙인다.\n2. 팔꿈치를 90도로 접고 전완을 패드에 붙인다.\n3. 팔꿈치를 모으는 느낌으로 힘을준다.\n4. 다시 가슴을 이완됨을 느끼며 원위치 시킨다.",
+      "imageR": "exercise_chest_pecdecfly1",
+      "imageF": "exercise_chest_pecdecfly2",
+      "tip": "팔꿈치에 힘을 준다는 느낌이 중요합니다."
+    },
+    {
+      "name": "덤벨 풀 오버",
+      "desc": "1. 기구에 앉아 견갑골과 엉덩이를 패드에 붙인다.\n2. 팔은 편채로 덤벨을 가슴 위에 위치시킨다.\n3. 가슴을 늘리며 덤벨을 정수리 쪽으로 옮긴다. \n4. 다시 가슴을 수축시키며 덤벨을 원위치 시킨다.",
+      "imageR": "exercise_chest_pullover1",
+      "imageF": "exercise_chest_pullover2",
+      "tip": "팔꿈치에 힘을 준다는 느낌이 중요합니다."
+    },
+    {
+      "name": "랫 풀 다운",
+      "desc": "1. 어깨넓이보다 살짝 넓게 바를 잡고 앉는다.\n2. 팔꿈치를 옆구리에 붙이는 느낌으로 당긴다.\n3. 천천히 긴장을 유지하며 바를 원위치 시킨다.",
+      "imageR": "exercise_back_latpulldown1",
+      "imageF": "exercise_back_latpulldown2",
+      "tip": "넓게 오버 그립으로 잡으면 상부, 좁고 언더 그립으로 잡을 경우 하부에 자극을 줄 수 있습니다."
+    },
+    {
+      "name": "풀업",
+      "desc": "1. 어깨넓이보다 살짝 넓게 바를 잡는다.\n2. 팔꿈치를 옆구리에 붙이는 느낌으로 당긴다.\n3. 천천히 긴장을 유지하며 내려간다.",
+      "imageR": "exercise_back_pullup1",
+      "imageF": "exercise_back_pullup2",
+      "tip": "넓게 오버 그립으로 잡으면 상부, 좁고 언더 그립으로 잡을 경우 하부에 자극을 줄 수 있습니다."
+    },
+    {
+      "name": "친업",
+      "desc": "1. 어깨넓이보다 살짝 넓게 바를 언더글비으로 잡는다.\n2. 팔꿈치를 옆구리에 붙이는 느낌으로 당긴다.\n3. 천천히 긴장을 유지하며 내려간다.",
+      "imageR": "exercise_back_chinup1",
+      "imageF": "exercise_back_chinup1",
+      "tip": "풀업보다 이두근 동원률이 높고 광배근 동원률이 낮습니다."
+    },
+    {
+      "name": "바벨 로우",
+      "desc": "1. 어깨넓이보다 살짝 넓게 바를 잡고 척추를 편채로 숙인다.\n2. 바를 팔꿈치가 옆구리를 스치는 느낌으로 견갑골을 모으며 당긴다.\n3. 천천히 긴장을 유지하며 바를 내린다.",
+      "imageR": "exercise_back_barbellrow1",
+      "imageF": "exercise_back_barbellrow2",
+      "tip": "상체의 각이 높으면 승모, 낮으면 광배가 주로 사용 됩니다."
+    },
+    {
+      "name": "스미스 머신 바벨 로우",
+      "desc": "1. 어깨넓이보다 살짝 넓게 바를 잡고 척추를 편채로 숙인다.\n2. 바를 팔꿈치가 옆구리를 스치는 느낌으로 견갑골을 모으며 당긴다.\n3. 천천히 긴장을 유지하며 바를 내린다.",
+      "imageR": "exercise_back_smithbarbellrow1",
+      "imageF": "exercise_back_smithbarbellrow1",
+      "tip": "상체의 각이 높으면 승모, 낮으면 광배가 주로 사용 됩니다."
+    },
+    {
+      "name": "T-BAR 로우",
+      "desc": "1. 어깨넓이로 바를 잡고 허리를 자연스럽게 편다.\n2. 바를 팔꿈치가 옆구리를 스치는 느낌으로 견갑골을 모으며 당긴다.\n3. 천천히 긴장을 유지하며 바를 내린다.",
+      "imageR": "exercise_back_tbarrow1",
+      "imageF": "exercise_back_tbarrow2",
+      "tip": "상체의 각이 높으면 승모, 낮으면 광배가 주로 사용 됩니다."
+    },
+    {
+      "name": "시티드 케이블 로우",
+      "desc": "1. 바를 쥐고 허리를 자연스럽게 편다.\n2. 바를 팔꿈치가 옆구리를 스치는 느낌으로 견갑골을 모으며 당긴다.\n3. 천천히 긴장을 유지하며 바를 원위치 시킨다.",
+      "imageR": "exercise_back_cablerow1",
+      "imageF": "exercise_back_cablerow2",
+      "tip": "견갑을 모아 수축하는 것 만큼 천천히 이완하는 것도 중요합니다."
+    },
+    {
+      "name": "원암 덤벨 로우",
+      "desc": "1. 한쪽 무릎과 손을 패드에 올리고 덤벨을 들어올린다.\n2. 허리를 펴고 시선은 자연스럽게 아래를 본다.\n3. 덤벨을 팔꿈치가 옆구리를 통과하는 느낌으로 당긴다.\n4. 천천히 긴장을 유지하며 덤벨을 내린다.",
+      "imageR": "exercise_back_onearmdumbbellrow1",
+      "imageF": "exercise_back_onearmdumbbellrow2",
+      "tip": "원암 덤벨 로우의 경우 골반과 어깨가 틀어지지 않게 자세를 잡아야 합니다."
+    },
+    {
+      "name": "스트레이트 암 풀 다운",
+      "desc": "1. 케이블에 설치된 바를 잡고 조금 떨어져 선다.\n2. 허리를 펴고 시선은 자연스럽게 45도 아래를 본다.\n3. 팔은 편채로 호를 그리며 바를 배꼽 쪽으로 당긴다.\n4. 천천히 긴장을 유지하며 원위치 한다.",
+      "imageR": "exercise_back_armpulldown1",
+      "imageF": "exercise_back_armpulldown2",
+      "tip": "케이블 머신에서 멀어질수록 큰 부하를 줄 수 있습니다."
+    },
+    {
+      "name": "슈러그",
+      "desc": "1. 자엽스럽게 선 뒤 바벨을 들어 올린다.\n2. 상부 승모근을 으쓱하며 바벨을 올린다. \n3. 천천히 긴장을 유지하며 바벨을 내린다.",
+      "imageR": "exercise_back_shrug1",
+      "imageF": "exercise_back_shrug2",
+      "tip": "승모근은 생각보다 커지기 어렵습니다."
+    },
+    {
+      "name": "인버티드 로우",
+      "desc": "1. 바를 잡고 그림과 같이 자세를 취한다.\n2. 겹갑골을 모아주는 느낌으로 바를 당긴다. \n3. 천천히 긴장을 유지하며 내려간다.",
+      "imageR": "exercise_back_invertedrow1",
+      "imageF": "exercise_back_invertedrow2",
+      "tip": "풀업과 같은 닫힌 사슬 운동으로 풀업이 안될 경우 하기에 좋습니다."
+    },
+    {
+      "name": "스쿼트",
+      "desc": "1. 랙에 걸린 바를 목뒤 승모근에 위치시킨다.\n2. 발바닥 중앙에 중심을 잡고 자엽스럽게 내려간다.\n3. 땅을 밀어내는 느낌으로 일어선다.",
+      "imageR": "exercise_leg_squat1",
+      "imageF": "exercise_leg_squat2",
+      "tip": "무릎은 살짝 앞으로 나와도 큰 문제 없습니다. 허리기 말리기 전까지 내려가는걸 권장합니다."
+    },
+    {
+      "name": "프론트 스쿼트",
+      "desc": "1. 랙에 걸린 바를 쇄골에 위치시킨다.\n2. 발바닥 중앙에 중심을 잡고 자엽스럽게 내려간다.\n3. 땅을 밀어내는 느낌으로 일어선다.",
+      "imageR": "exercise_leg_frontsquat1",
+      "imageF": "exercise_leg_frontsquat2",
+      "tip": "무릎은 살짝 앞으로 나와도 큰 문제 없습니다. 허리기 말리기 전까지 내려가는걸 권장합니다."
+    },
+    {
+      "name": "스미스 머신 스쿼트",
+      "desc": "1. 스미스 머신의 바를 쇄골에 위치시킨다.\n2. 발바닥 중앙에 중심을 잡고 자엽스럽게 내려간다.\n3. 땅을 밀어내는 느낌으로 일어선다.",
+      "imageR": "exercise_leg_smithsquat1",
+      "imageF": "exercise_leg_smithsquat2",
+      "tip": "무릎은 살짝 앞으로 나와도 큰 문제 없습니다. 허리기 말리기 전까지 내려가는걸 권장합니다."
+    },
+    {
+      "name": "레그 프레스",
+      "desc": "1. 기구에 앉아 발판 중앙보다 조금 위 2/3 지점에 어깨 넓이로 발을 올린다.\n2. 발바닥 중앙에 중심을 잡고 발판을 밀어낸다.\n3. 긴장을 유지하며 허리가 말리기 전까지 발판을 내린다.",
+      "imageR": "exercise_leg_press1",
+      "imageF": "exercise_leg_press2",
+      "tip": "긴장을 유지하며 적절한 가동범위를 유지해야 합니다."
+    },
+    {
+      "name": "레그 익스텐션",
+      "desc": "1. 기구에 앉아 발목에 패드를 위치시킨다.\n2. 다리를 들어올리며 수축을 느낀다.\n3. 긴장이 풀리기 전까지 천천히 다리를 내린다.",
+      "imageR": "exercise_leg_extension1",
+      "imageF": "exercise_leg_extension2",
+      "tip": "긴장을 유지하며 적절한 가동범위를 유지해야 합니다."
+    },
+    {
+      "name": "레그 컬",
+      "desc": "1. 기구에 아킬레스건에 패드를 위치시킨다.\n2. 다리를 아래로 당긴다.\n3. 긴장이 풀리기 전까지 천천히 다리를 원위치 시킨다.",
+      "imageR": "exercise_leg_curl1",
+      "imageF": "exercise_leg_curl2",
+      "tip": "긴장을 유지하며 적절한 가동범위를 유지해야 합니다."
+    },
+    {
+      "name": "데드리프트",
+      "desc": "1. 어깨넓이보다 약간 넓게 바벨을 잡고 허리가 말리지 않게 앉느다.\n2. 바벨을 땅에서 뽑는다는 느낌으로 바벨을 당기며 땅을 밀어내며 올라선다.\n3. 다시 동작을 반복한다.",
+      "imageR": "exercise_leg_deadlift1",
+      "imageF": "exercise_leg_deadlift2",
+      "tip": "허리가 말리지 않게 조심해야 합니다."
+    },
+    {
+      "name": "바벨 런지",
+      "desc": "1. 랙에 걸린 바를 목뒤 승모근에 위치시킨다.\n2. 앞뒤로 다리를 벌리고 무릎이 땅에 닿기 전까지 앉는다.\n3. 다시 반대 다리로 동작을 반복한다.",
+      "imageR": "exercise_leg_barbelllunge1",
+      "imageF": "exercise_leg_barbelllunge2",
+      "tip": "런지는 스쿼트보다 좋은 운동일 수 있습니다."
+    },
+    {
+      "name": "덤벨 런지",
+      "desc": "1. 양손에 덤벨을 쥐고 선다.\n2. 앞뒤로 다리를 벌리고 무릎이 땅에 닿기 전까지 앉는다.\n3. 다시 반대 다리로 동작을 반복한다.",
+      "imageR": "exercise_leg_lunge1",
+      "imageF": "exercise_leg_lunge2",
+      "tip": "런지는 균형을 잡기에 좋은 운동입니다."
+    },
+    {
+      "name": "오버 헤드 프레스",
+      "desc": "1. 바를 쇄골에 위치시킨다.\n2. 머리를 살짝 뒤로 움직이며 바벨을 수직으로 들어올린다.\n3. 다시 머리를 뒤로 움직이며. 바벨를 천천히 쇄골 위에 위치시킨다.",
+      "imageR": "exercise_shoulder_press1",
+      "imageF": "exercise_shoulder_press2",
+      "tip": "바벨을 코 끝까지만 내리며 긴장을 유지하는 방법도 있습니다."
+    },
+    {
+      "name": "덤벨 숄더 프레스",
+      "desc": "1. 덤벨을 무릎에 대고 들어올려 귀 옆에 위치시킨다.\n2. 덤벨을 그대로 천장을 향해 밀어올린다.\n3. 천천히 덤벨을 귀 옆까지 내린다.",
+      "imageR": "exercise_shoulder_dumbbellpress1",
+      "imageF": "exercise_shoulder_dumbbellpress2",
+      "tip": "가슴을 열고 척추 중립을 유지해야 합니다."
+    },
+    {
+      "name": "머신 숄더 프레스",
+      "desc": "1. 기구에 앉아 가슴을 열고 바를 잡는다.\n2. 바를 밀어 올린다.\n3. 천천히 긴장이 풀리기 전까지 바를 내린다.",
+      "imageR": "exercise_shoulder_machinepress1",
+      "imageF": "exercise_shoulder_machinepress2",
+      "tip": "머신운동은 안좋은 운동이 아닙니다."
+    },
+    {
+      "name": "아놀드 프레스",
+      "desc": "1. 벤치에 앉아 손바닥이 마주보게 덤벨을 잡아 귀 옆에 위치시킨다.\n2. 팔꿈치를 몸 바깥을 향해 회전시켜 손바닥이 정면을 보게 덤벨을 들어 올린다.\n3. 수축한 동선을 따라 덤벨을 원위치 한다.",
+      "imageR": "exercise_shoulder_arnoldpress1",
+      "imageF": "exercise_shoulder_arnoldpress2",
+      "tip": "머신운동은 안좋은 운동이 아닙니다."
+    },
+    {
+      "name": "페이스 풀",
+      "desc": "1. 케이블에 살짝 떨어져서 그림과 같이 케이블을 잡는다.\n2. 팔꿈치를 구부리며 케이블을 얼굴을 향해 당긴다. \n3. 긴장이 풀리기 전까지 원위치 시키고 다시 동작을 반복한다.",
+      "imageR": "exercise_shoulder_facepull_1",
+      "imageF": "exercise_shoulder_facepull_2",
+      "tip": "후면삼각근은 처음부터 자극을 찾기 어렵습니다."
+    },
+    {
+      "name": "프론트 레이즈",
+      "desc": "1. 양손에 덤벨을 쥐고 선다.\n2. 팔꿈치를 살짝 구부린 뒤 어깨 힘으로 앞을 향해 덤벨을 들어올린다. \n3. 천천히 긴장을 유지하며 팔을 내린 뒤 반대 팔로 동작을 반복한다.",
+      "imageR": "exercise_shoulder_frontraise1",
+      "imageF": "exercise_shoulder_frontraise2",
+      "tip": "손바닥이 안쪽을 보게 잡으면 어깨에 부담이 적습니다."
+    },
+    {
+      "name": "레터럴 레이즈",
+      "desc": "1. 양손에 덤벨을 쥐고 선다.\n2. 팔꿈치를 살짝 구부린 뒤 어깨 힘으로 양옆으로 덤벨을 들어올린다. \n3. 긴장이 풀리기 전까지 팔을 원위치 시키고 다시 동작을 반복한다.",
+      "imageR": "exercise_shoulder_lateralraise1",
+      "imageF": "exercise_shoulder_lateralraise2",
+      "tip": "운동은 본인에게 맞는 자세를 찾아야 합니다."
+    },
+    {
+      "name": "벤트 오버 레터럴 레이즈",
+      "desc": "1. 벤치에 엎드린 뒤 양손에 덤벨을 쥔다.\n2. 팔꿈치를 살짝 구부린 뒤 어깨 힘으로 양옆으로 덤벨을 들어올린다. \n3. 긴장이 풀리기 전까지 팔을 원위치 시키고 다시 동작을 반복한다.",
+      "imageR": "exercise_shoulder_rearraise1",
+      "imageF": "exercise_shoulder_rearraise2",
+      "tip": "벤치에 눕지 않고 허리를 숙이고 하는 방법도 있습니다."
+    },
+    {
+      "name": "업라이트 로우",
+      "desc": "1. 바벨을 어깨 넓이로 잡고 선다.\n2. 팔꿈치를 양 옆으로 구부리며 바벨을 수직으로 들어올린다. \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서다시 동작을 반복한다.",
+      "imageR": "exercise_shoulder_uprightrow1",
+      "imageF": "exercise_shoulder_uprightrow2",
+      "tip": "어깨부상 관련해 논란이 있는 운동입니다."
+    },
+    {
+      "name": "바벨 컬",
+      "desc": "1. 바벨을 어깨 넓이보다 약간 넓게 잡고 선다.\n2. 팔꿈치를 구부리며 바벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
+      "imageR": "exercise_bi_barbellcurl1",
+      "imageF": "exercise_bi_barbellcurl2",
+      "tip": "운동 내내 이두의 긴장을 유지해야 합니다."
+    },
+    {
+      "name": "덤벨 컬",
+      "desc": "1. 덤벨을 잡고 선다.\n2. 팔꿈치를 구부리며 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
+      "imageR": "exercise_bi_dumbbellcurl1",
+      "imageF": "exercise_bi_dumbbellcur2",
+      "tip": "양 팔을 번갈아 가며 하는 방법도 있습니다."
+    },
+    {
+      "name": "해머 컬",
+      "desc": "1. 덤벨을 잡고 선다.\n2. 팔꿈치를 구부리며 양손이 마주보게 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
+      "imageR": "exercise_bi_hammercurl1",
+      "imageF": "exercise_bi_hammercurl2",
+      "tip": "다른 컬보다 전완근 개입의 비중이 높습니다."
+    },
+    {
+      "name": "암 컬 머신",
+      "desc": "1. 기구에 앉아 양손에 바를 잡는다.\n2. 팔꿈치를 구부리며 바를 들어 올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴고 다시 동작을 반복한다",
+      "imageR": "exercise_bi_machinecurl1",
+      "imageF": "exercise_bi_machinecurl2",
+      "tip": "약지와 소지에 힘을 주면 더 큰 자극을 느낄 수 있습니다."
+    },
+    {
+      "name": "프리쳐 컬",
+      "desc": "1. 덤벨을 들고 팔을 패드에 댄다.\n2. 팔꿈치를 구부리며 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
+      "imageR": "exercise_bi_preachercurl1",
+      "imageF": "exercise_bi_preachercurl2",
+      "tip": "집중도를 유지하기 좋은 운동입니다."
+    },
+    {
+      "name": "컨센트레이션 컬",
+      "desc": "1. 덤벨을 잡고 벤치에 앉는다.\n2. 팔을 허벅지 안쪽에 대고 팔꿈치를 구부리며 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
+      "imageR": "exercise_bi_concentrationcurl1",
+      "imageF": "exercise_bi_concentrationcurl2",
+      "tip": "집중도를 유지하기 좋은 운동입니다."
+    },
+    {
+      "name": "인클라인 덤벨 컬",
+      "desc": "1. 덤벨을 잡고 45도 정도로 조절된 벤치에 앉는다.\n2. 양 팔을 번갈아가며 덤벨을 들어올린다.",
+      "imageR": "exercise_bi_inclinedumbbellcurl1",
+      "imageF": "exercise_bi_inclinedumbbellcurl2",
+      "tip": "이두와 어깨를 가르기에 좋은 운동입니다."
+    },
+    {
+      "name": "트라이셉스 푸쉬 다운",
+      "desc": "1. 바를 잡고 케이블 머신에서 살짝 떨어져 선다\n2. 팔꿈치를 펴며 삼두근의 수축을 느낀다. \n3. 긴장이 풀리기 전까지 다시 팔꿈치를 굽히고 다시 동작을 반복한다.",
+      "imageR": "exercise_tri_pushdown1",
+      "imageF": "exercise_tri_pushdown2",
+      "tip": "긴장을 유지해야 합니다."
+    },
+    {
+      "name": "덤벨 킥백",
+      "desc": "1. 덤벨을 잡고 무릎을 벤치에 기대어 자세를 취한다.\n2. 팔꿈치를 펴며 삼두근의 수축을 느낀다. \n3. 긴장이 풀리기 전까지 팔꿈치를 굽히고 다시 동작을 반복한다.",
+      "imageR": "exercise_tri_kickback1",
+      "imageF": "exercise_tri_kickback2",
+      "tip": "긴장을 유지해야 합니다."
+    },
+    {
+      "name": "라잉 트라이셉스 익스텐션",
+      "desc": "1. 벤치에 누워 바벨을 머리 위에 위치시킨다. \n2. 팔꿈치를 머리 뒤쪽으로 굽히며 삼두근의 이완을 느낀다. \n3. 다시 강하게 수축하며 바벨을 원위치 시킨다.",
+      "imageR": "exercise_tri_lyingextension1",
+      "imageF": "exercise_tri_lyingextension2",
+      "tip": "스컬 크러셔"
+    },
+    {
+      "name": "원 암 트라이셉스 익스텐션",
+      "desc": "1. 벤치에 앉아 덤벨을 머리 위에 위치시킨다. \n2. 팔꿈치를 머리 뒤쪽으로 굽히며 삼두근의 이완을 느낀다. \n3. 다시 강하게 수축하며 바벨을 원위치 시킨다.",
+      "imageR": "exercise_tri_onearmextension1",
+      "imageF": "exercise_tri_onearmextension2",
+      "tip": "긴장을 유지해야 합니다."
+    },
+    {
+      "name": "크런치",
+      "desc": "1. 벤치에 다리를 올리거나 편하게 매트에 눕는다. \n2. 허리를 바닥에 완전히 붙이며 상체의 상부만 구부린다.\n3. 긴장이 풀리기 전까지 천천히 상체를 눕힌다.",
+      "imageR": "exercise_ab_crunche1",
+      "imageF": "exercise_ab_crunche2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다."
+    },
+    {
+      "name": "윗몸 일으키기",
+      "desc": "1. 무릎을 굽히고 누운뒤 복근에 힘을 준다. \n2. 복근의 힘으로 상체를 일으킨다. \n3. 긴장이 풀리기 전까지 상체를 원위치 시킨다.",
+      "imageR": "exercise_ab_situp1",
+      "imageF": "exercise_ab_situp2",
+      "tip": "허리에 과하게 힘이 들어가면 부상의 위험이 있습니다."
+    },
+    {
+      "name": "V-싯업",
+      "desc": "1. 일자로 몸을 펴고 누운뒤 복근에 힘을 준채 다리를 살짝 든다. \n2. 복근의 힘으로 하체와 상체를 들어올려 발과 손이 닿게 한다. \n3. 긴장이 풀리기 전까지 원위치한다",
+      "imageR": "exercise_ab_vsitup1",
+      "imageF": "exercise_ab_vsitup2",
+      "tip": "허리가 바닥에서 뜨면 부상 위험이 있습니다."
+    },
+    {
+      "name": "레그 레이즈",
+      "desc": "1. 매트에 누워 허리를 바닥에 완전히 붙인다. \n2. 다리를 하늘을 향해 들어올린다. \n3. 긴장이 풀리기 전까지 천천히 다리를 내린다.",
+      "imageR": "exercise_ab_legraise1",
+      "imageF": "exercise_ab_legraise2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다."
+    },
+    {
+      "name": "행잉 레그 레이즈",
+      "desc": "1. 바에 매달려 가슴을 연다(후인하강). \n2. 복근의 힘으로 다리를 들어올린다. \n3. 긴장이 풀리기 전까지 천천히 다리를 내린다.",
+      "imageR": "exercise_ab_hanginglegraise1",
+      "imageF": "exercise_ab_hanginglegraise2",
+      "tip": "허리에 과하게 힘이 들어가면 부상의 위험이 있습니다."
+    },
+    {
+      "name": "바이시클",
+      "desc": "1. 매트에 누워 허리를 바닥에 완전히 붙인다. \n2. 고개를 들고 다리는 자전거를 타듯 허공을 젓는다.",
+      "imageR": "exercise_ab_bicycle1",
+      "imageF": "exercise_ab_bicycle2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다."
+    },
+    {
+      "name": "앱 롤 아웃",
+      "desc": "1. 허리를 굽혀 바벨을 잡는다. \n2. 바벨을 앞으로 밀며 복근이 스트레칭 됨을 느낀다.",
+      "imageR": "exercise_ab_rollout1",
+      "imageF": "exercise_ab_rollout2",
+      "tip": "힘이 빠져 얼굴이 땅에 닿지 않게 조심해야 합니다."
+    },
+    {
+      "name": "앱도미널 머신",
+      "desc": "1. 벤치에 앉아 허리를 패드에 붙인다. \n2. 복근의 힘으로 상체를 숙인다. \n3. 긴장이 풀리기 전까지 상체를 세운다.",
+      "imageR": "exercise_ab_machine1",
+      "imageF": "exercise_ab_machine2",
+      "tip": "허리가 패드에서 뜨면 부상 위험이 있습니다."
+    },
+    {
+      "name": "니 업",
+      "desc": "1. 벤치에 앉아 다리를 든다. \n2. 복근의 힘으로 무릎을 명치에 갖다 댄다. \n3. 긴장이 풀리기 전까지 다리를 원위치 시킨다.",
+      "imageR": "exercise_ab_kneeup1",
+      "imageF": "exercise_ab_kneeup2",
+      "tip": "허리에 과하게 힘이 들어가면 부상의 위험이 있습니다."
+    },
+    {
+      "name": "플랭크",
+      "desc": "1. 그림과 같이 자세를 잡고 복근과 엉덩이에 힘을 줍니다. \n2. 자세를 유지하며 버틴다.",
+      "imageR": "exercise_ab_plank1",
+      "imageF": "exercise_ab_plank2",
+      "tip": "자세를 유지할 수 있는 시간 동안 버티는게 좋습니다."
+    },
+    {
+      "name": "사이드 플랭크",
+      "desc": "1. 한쪽 전완으로 상체를 지지하며 옆을 보며 자세를 취한다. \n2. 자세를 유지하며 긴장을 느낀다.",
+      "imageR": "exercise_ab_sideplank1",
+      "imageF": "exercise_ab_sideplank2",
+      "tip": "외복사근 운동입니다."
+    }
+  ]
+}

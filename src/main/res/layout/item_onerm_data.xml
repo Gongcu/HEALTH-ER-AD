@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingLeft="16dp" android:paddingTop="8dp" android:paddingBottom="8dp" android:id="@+id/linearItem">
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+        <TextView
+                android:paddingLeft="8dp"
+                android:textColor="@color/colorMain"
+                android:text="운동" android:textSize="13dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/exerciseNameTextView"/>
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_weight="1">
+        <TextView
+                android:textColor="@color/colorMain"
+                android:layout_gravity="center_vertical"
+                android:text="1-RM "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/partTextView"
+                android:textSize="13dp" android:gravity="center"/>
+        <TextView
+                android:textColor="@color/colorMain"
+                android:textSize="13dp"
+                android:layout_width="wrap_content" android:layout_marginLeft="5dp" android:gravity="left"
+                android:layout_height="wrap_content"
+                android:hint="1rm"
+                android:ems="10"
+                android:id="@+id/onermTextView"/>
+        </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+android:padding="5dp">
+    <TextView
+            android:textColor="@color/colorMain"
+            android:paddingLeft="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/dateEditText" android:hint="날짜"/>
+    <TextView
+            android:textColor="@color/colorMain"
+            android:layout_weight="2"
+            android:gravity="left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/weightEditText" android:hint="값"/>
+</LinearLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent" android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical">
+    <TextView
+
+            android:paddingVertical="5dp"
+            android:paddingLeft="16dp"
+            android:textStyle="bold"
+            android:text="프로그램 추가"
+            android:textColor="@color/colorMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="22dp"/>
+
+    <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:textStyle="bold"
+                android:text="운동"
+                android:paddingLeft="16dp"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView14" />
+
+        <TextView
+                android:textStyle="bold"
+                android:text="운동"
+                android:paddingLeft="16dp"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/nameTextView" />
+
+
+    </LinearLayout>
+    <LinearLayout
+            android:layout_marginLeft="60dp"
+            android:id="@+id/linearItem"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+    </LinearLayout>
+    <LinearLayout
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:textStyle="bold"
+                android:text="세트"
+                android:paddingLeft="16dp"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView15" />
+
+        <EditText
+                android:textSize="14dp"
+                android:inputType="number"
+                android:hint="세트 수 입력"
+                android:maxLength="2"
+                android:layout_width="match_parent"
+                android:paddingLeft="16dp"
+                android:layout_height="wrap_content" android:id="@+id/setEditText"
+                android:background="@null"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:textStyle="bold"
+                android:text="횟수"
+                android:paddingLeft="16dp"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView16" />
+        <EditText
+                android:textSize="14dp"
+                android:hint="반복 횟수 입력"
+                android:inputType="number"
+                android:maxLength="2"
+                android:paddingLeft="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/repEditText"
+                android:background="@null"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <Button
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorMain"
+                android:background="@color/colorWhite"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="저장"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/saveBtn" android:layout_weight="1"/>
+        <Button
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorSub"
+                android:background="@color/colorWhite"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="취소"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/quitBtn" android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

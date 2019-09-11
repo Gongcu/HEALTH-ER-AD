@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:card_cview="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+            android:paddingVertical="5dp"
+            android:paddingLeft="16dp"
+            android:background="@color/colorMain" android:textStyle="bold"
+            android:text="운동부위"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/partNameTextView" android:textSize="20dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@+id/partNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/recycler_view"/>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"></com.google.android.gms.ads.AdView>
+
+</RelativeLayout>

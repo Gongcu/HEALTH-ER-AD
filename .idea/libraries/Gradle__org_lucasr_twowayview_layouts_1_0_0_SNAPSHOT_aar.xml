@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.lucasr.twowayview:layouts:1.0.0-SNAPSHOT@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5163af8eb2bc5007fb12a2ddcdf529f0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5163af8eb2bc5007fb12a2ddcdf529f0/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.lucasr.twowayview/layouts/1.0.0-SNAPSHOT/290f5819f346ad43da88c43d7c333269a608ba2a/layouts-1.0.0-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

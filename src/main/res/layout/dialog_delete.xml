@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent" android:layout_height="wrap_content"
+              android:orientation="vertical" >
+
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView
+                android:paddingLeft="8dp"
+                android:background="@color/colorWhite" android:textStyle="bold"
+                android:text="WARNING"
+                android:textColor="@color/colorSub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="15dp"/>
+        <TextView
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorMain"
+                android:paddingLeft="16dp"
+                android:text="프로그램 삭제 시 해당 프로그램의 데이터가 모두 삭제 됩니다."
+                android:textSize="12dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView12"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <Button
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:background="@color/colorWhite"
+                android:textColor="@color/colorMain"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="삭제"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/saveBtn" android:layout_weight="1"/>
+        <Button
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:background="@color/colorWhite"
+                android:textColor="@color/colorSub"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="취소"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/quitBtn" android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>
