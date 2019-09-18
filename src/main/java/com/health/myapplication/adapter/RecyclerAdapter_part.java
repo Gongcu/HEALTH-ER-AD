@@ -20,16 +20,12 @@ import com.health.myapplication.listener.AdapterListener;
 import java.util.ArrayList;
 
 public class RecyclerAdapter_part extends RecyclerView.Adapter<RecyclerAdapter_part.ItemViewHolder>{
-    private int x=0;
-    SQLiteDatabase mDb;
+    private SQLiteDatabase mDb;
     private ArrayList<String> saved_list;
-    private ArrayList<ExerciseData> listData;
-    private ArrayList<ArrayList<String>> list_image;
     private DbHelper_program DbHelper;
     private Context mContext;
     private Cursor mCursor;
     private int ACTIVITY_NUMBER;
-    private boolean DATA_CHANGED;
     private int PARENT_DATE;
 
 
@@ -56,7 +52,6 @@ public class RecyclerAdapter_part extends RecyclerView.Adapter<RecyclerAdapter_p
         if(saved_list.size()<position)
             return;
         holder.part = saved_list.get(position);
-        //String part=saved_list.get(position);
         holder.partTextView.setText(saved_list.get(position));
         holder.adapter.getParentDate(PARENT_DATE);
         holder.adapter.getParentPart(saved_list.get(position));
@@ -109,10 +104,7 @@ public class RecyclerAdapter_part extends RecyclerView.Adapter<RecyclerAdapter_p
             recyclerView.setNestedScrollingEnabled(false);
             final LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
             recyclerView.setLayoutManager(layoutManager);
-            /*
-            recyclerView.setLayoutManager(new LinearLayoutManager(mContext
-                    , RecyclerView.VERTICAL
-                    ,false));*/
+
             adapter= new RecyclerAdapter_part_sub(mContext,mCursor,ACTIVITY_NUMBER,PARENT_DATE);
             recyclerView.setAdapter(adapter);
         }
@@ -135,10 +127,4 @@ public class RecyclerAdapter_part extends RecyclerView.Adapter<RecyclerAdapter_p
                 ProgramContract.ProgramDataEntry.COLUMN_TIMESTAMP + " ASC"
         );
     }
-
-    public void notifyChanged(boolean data){
-        this.DATA_CHANGED=data;
-    }
-
-
 }

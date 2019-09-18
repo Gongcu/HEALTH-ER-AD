@@ -83,25 +83,6 @@ public class ExerciseDataActivity extends AppCompatActivity {
             }
 
         });
-        /*
-        // 목록에서 항목을 왼쪽, 오른쪽 방향으로 스와이프 하는 항목을 처리
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            // 사용하지 않는다.
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                // 스와이프된 아이템의 아이디를 가져온다.
-                long id = (long) viewHolder.itemView.getTag();
-                // DB 에서 해당 아이디를 가진 레코드를 삭제한다.
-                removeDate(id);
-                // 리스트를 갱신한다.
-                dAdapter.swapCursor(getAllDate());
-            }
-        }).attachToRecyclerView(noteRecyclerView);  //리사이클러뷰에 itemTouchHelper 를 붙인다.*/
     }
 
 

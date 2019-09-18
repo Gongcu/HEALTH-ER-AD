@@ -24,10 +24,8 @@ import java.util.Collections;
 public class RecyclerAdapter_program  extends RecyclerView.Adapter<RecyclerAdapter_program.ItemViewHolder> {
     private ArrayList<PartData> listData;
     private Context context;
-    private Intent intent;
-    private SQLiteDatabase mDb,nDb;
+    private SQLiteDatabase mDb;
     private DbHelper_program dbHelper;
-    private DbHelper_proItem dbHelper_proItem;
 
 
     public RecyclerAdapter_program(Context context, ArrayList<PartData> list) {
@@ -36,9 +34,6 @@ public class RecyclerAdapter_program  extends RecyclerView.Adapter<RecyclerAdapt
         this.context = context;
         dbHelper = new DbHelper_program(context);
         mDb=dbHelper.getWritableDatabase();
-
-        dbHelper_proItem = new DbHelper_proItem(context);
-        nDb=dbHelper.getWritableDatabase();
     }
 
     @NonNull
@@ -174,12 +169,6 @@ public class RecyclerAdapter_program  extends RecyclerView.Adapter<RecyclerAdapt
         }
     }
     public boolean deleteDB(int ACTIVITY_NUMBER){
-        // 6. ArratList에서 해당 데이터를 삭제하고
-        //listData.remove(getAdapterPosition());
-
-        // 7. 어댑터에서 RecyclerView에 반영하도록 합니다.
-        //notifyItemRemoved(getAdapterPosition());
-        //notifyItemRangeChanged(getAdapterPosition(), listData.size());
         return mDb.delete(ProgramContract.ProgramDataEntry.TABLE_NAME, ProgramContract.ProgramDataEntry.COLUMN_ACTIVITY + "=" + ACTIVITY_NUMBER, null)>0;
     }
 }

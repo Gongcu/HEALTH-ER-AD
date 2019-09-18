@@ -78,37 +78,7 @@ public class Calculator_DataFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), RecyclerView.VERTICAL, false));
 
-        setList(); //db의 date 할당
-
-
-/*
-        ContentValues cv = new ContentValues();
-        cv.put("exercise", "스쿼트");
-        cv.put("onerm", "150");
-        cv.put("date", "2019-08-20");
-        nDb.insert("onermTable",null,cv);
-        cv.clear();
-        cv.put("exercise", "스쿼트");
-        cv.put("onerm", "140");
-        cv.put("date", "2019-08-19");
-        nDb.insert("onermTable",null,cv);
-        cv.clear();
-        cv.put("exercise", "벤치프레스");
-        cv.put("onerm", "140");
-        cv.put("date", "2019-08-19");
-        nDb.insert("onermTable",null,cv);
-        cv.clear();
-        cv.put("exercise", "데드리프트");
-        cv.put("onerm", "140");
-        cv.put("date", "2019-08-21");
-        nDb.insert("onermTable",null,cv);
-        cv.clear();
-        cv.put("exercise", "벤치프레스");
-        cv.put("onerm", "130");
-        cv.put("date", "2019-08-18");
-        nDb.insert("onermTable",null,cv);*/
-
-
+        setList();
 
         adapter = new RecyclerAdapter_cal(getActivity(), getAllWeight(),date_list);
         recyclerView.setAdapter(adapter);
@@ -123,12 +93,10 @@ public class Calculator_DataFragment extends Fragment {
                     public void onPositiveClicked() { }
                     @Override
                     public void onPositiveClicked(String date,String name, double one_rm) {
-                        //adapter.notifyDataChange();
                         addData(date, name, one_rm);
                     }
                     @Override
                     public void onNegativeClicked() {
-                        Log.d("MyDialogListener", "onNegativeClicked");
                     }
                 });
                 dialog.show();
@@ -176,9 +144,9 @@ public class Calculator_DataFragment extends Fragment {
                     CalContract.Entry.COLUMN_EXERCISE+"='"+name+"'" ,null);
             if(check.getCount()>0) {
                 Toast.makeText(getActivity(), "이미 같은 운동이 존재 합니다.", Toast.LENGTH_LONG).show();
-                check.close();
                 return;
             }
+            check.close();
 
             cv.put(CalContract.Entry.COLUMN_DATE, date);
             cv.put(CalContract.Entry.COLUMN_EXERCISE, name);
@@ -195,13 +163,15 @@ public class Calculator_DataFragment extends Fragment {
             cv.clear();
 
             Cursor c3= mDb.rawQuery("select * from "+CalDateContract.Entry.TABLE_NAME,null);
-            c3.moveToLast();
-            long recentId = c3.getLong(c3.getColumnIndex(CalDateContract.Entry._ID));//가장 최신에 삽입된 날짜의 ID를 얻어옴
-            cv.put(CalContract.Entry.COLUMN_DATE, date);
-            cv.put(CalContract.Entry.COLUMN_EXERCISE, name);
-            cv.put(CalContract.Entry.COLUMN_ONERM, one_rm);
-            cv.put(CalContract.Entry.COLUMN_KEY, recentId);
-            nDb.insert(CalContract.Entry.TABLE_NAME, null, cv);
+            if(c3.getCount()>0) {
+                c3.moveToLast();
+                long recentId = c3.getLong(c3.getColumnIndex(CalDateContract.Entry._ID));//가장 최신에 삽입된 날짜의 ID를 얻어옴
+                cv.put(CalContract.Entry.COLUMN_DATE, date);
+                cv.put(CalContract.Entry.COLUMN_EXERCISE, name);
+                cv.put(CalContract.Entry.COLUMN_ONERM, one_rm);
+                cv.put(CalContract.Entry.COLUMN_KEY, recentId);
+                nDb.insert(CalContract.Entry.TABLE_NAME, null, cv);
+            }
         }
         adapter = null;
         adapter = new RecyclerAdapter_cal(getActivity(), getAllWeight(),date_list);

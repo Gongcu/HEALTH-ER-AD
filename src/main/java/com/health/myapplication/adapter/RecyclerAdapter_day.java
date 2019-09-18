@@ -27,7 +27,6 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
     private SQLiteDatabase mDb, nDb;
     private DbHelper_date dbHelperDate;
     private DbHelper_date_sub dbHelperNote;
-    private long PARENT_ID;
     private ArrayList<NoteContract> list;
     private TrainingDataDialog_edit dialog;
 
@@ -38,7 +37,6 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
         dbHelperNote = new DbHelper_date_sub(mContext);
         mDb=dbHelperDate.getWritableDatabase();
         nDb=dbHelperNote.getWritableDatabase();
-        Log.d("constructor","list.get(position).getExerciseName()");
     }
 
     @NonNull
@@ -53,7 +51,6 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapter_day.ItemViewHolder itemViewHolder, int position) {
         long cursor_id=list.get(position).getId();
-        Log.d("cusor_id",cursor_id+"");
         itemViewHolder.itemView.setTag(cursor_id);
         itemViewHolder.note_id=cursor_id;
         itemViewHolder.onBind(position);
@@ -70,20 +67,22 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
                     if (TextUtils.equals(type, "update") && holder instanceof ItemViewHolder) {
                         Cursor c =nDb.rawQuery("SELECT * FROM " + NoteContract.NoteDataEntry.TABLE_NAME + " WHERE " + NoteContract.NoteDataEntry._ID +
                                 "=" + "'"+holder.note_id+"'", null);
-                        c.moveToFirst();
-                        String name_value = c.getString(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
-                        int set_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
-                        int rep_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
-                        holder.itemView.setTag(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
-                        holder.name.setText(name_value);
-                        holder.set.setText(String.valueOf(set_value));
-                        holder.rep.setText(String.valueOf(rep_value));
+                        if(c.getCount()>0) {
+                            c.moveToFirst();
+                            String name_value = c.getString(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
+                            int set_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
+                            int rep_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
+                            holder.itemView.setTag(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+                            holder.name.setText(name_value);
+                            holder.set.setText(String.valueOf(set_value));
+                            holder.rep.setText(String.valueOf(rep_value));
 
-                        holder.note_id = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
-                        holder.data.setId(c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID)));
-                        holder.data.setExerciseName(name_value);
-                        holder.data.setRep(rep_value);
-                        holder.data.setSet(set_value);
+                            holder.note_id = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+                            holder.data.setId(c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID)));
+                            holder.data.setExerciseName(name_value);
+                            holder.data.setRep(rep_value);
+                            holder.data.setSet(set_value);
+                        }
                     }
                 }
             }
@@ -148,7 +147,6 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
                             }
                             @Override
                             public void onNegativeClicked() {
-                                //Log.d("MyDialogListener","onNegativeClicked");
                             }
                         });
                         dialog.show();
@@ -161,11 +159,9 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
                         boolean result=deleteDB();
                         if(result==true){
                             Toast.makeText(mContext,"삭제 성공",Toast.LENGTH_SHORT).show();
-                            Log.d("delete","success");
                             notifyItemRemoved(getAdapterPosition());}
                         else{
                             Toast.makeText(mContext, "삭제 실패", Toast.LENGTH_SHORT).show();
-                            Log.d("delete","fail");
                         }
                         break;
 
@@ -193,23 +189,26 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
                 }
             }
             Cursor c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME+ " where "+ NoteContract.NoteDataEntry._ID+"="+note_id,null);
-            c.moveToFirst();
-            long foreign_key = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_KEY));
-            result =  nDb.delete(NoteContract.NoteDataEntry.TABLE_NAME, NoteContract.NoteDataEntry._ID + "=" + note_id, null)>0;
+            if(c.getCount()>0) {
+                c.moveToFirst();
+                long foreign_key = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_KEY));
+                result = nDb.delete(NoteContract.NoteDataEntry.TABLE_NAME, NoteContract.NoteDataEntry._ID + "=" + note_id, null) > 0;
 
-            if(result){
-                c = nDb.rawQuery("select * from "+ NoteContract.NoteDataEntry.TABLE_NAME+" where "+ NoteContract.NoteDataEntry.COLUMN_KEY+"="+foreign_key,null);
-                if(c.getCount()==0){
-                    Cursor c2 = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME +" where "+ DateContract.DateContractEntry._ID + "="+foreign_key,null);
-                    if(c2.getCount()>0&&c2!=null) {
-                        c2.moveToFirst();
-                        mDb.delete(DateContract.DateContractEntry.TABLE_NAME, DateContract.DateContractEntry._ID + "=?", new String[]{foreign_key + ""});
-                        c.close();
-                        c2.close();
+                if (result) {
+                    c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME + " where " + NoteContract.NoteDataEntry.COLUMN_KEY + "=" + foreign_key, null);
+                    if (c.getCount() == 0) {
+                        Cursor c2 = mDb.rawQuery("select * from " + DateContract.DateContractEntry.TABLE_NAME + " where " + DateContract.DateContractEntry._ID + "=" + foreign_key, null);
+                        if (c2.getCount() > 0 && c2 != null) {
+                            c2.moveToFirst();
+                            mDb.delete(DateContract.DateContractEntry.TABLE_NAME, DateContract.DateContractEntry._ID + "=?", new String[]{foreign_key + ""});
+                            c.close();
+                            c2.close();
+                        }
                     }
                 }
-            }
-            return result;
+                return result;
+            } else
+                return false;
         }
     }
     // 어댑터에 현재 보관되고 있는 커서를 새로운 것으로 바꿔 UI를 갱신한다.

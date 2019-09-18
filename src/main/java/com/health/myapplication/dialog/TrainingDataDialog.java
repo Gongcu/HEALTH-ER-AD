@@ -133,10 +133,6 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
         mContext=context;
         this.edit=false;
     }
-    public TrainingDataDialog(@NonNull Context context, boolean edit) {
-        super(context);
-        this.edit=edit;
-    }
 
     public void setDialogListener(DialogListener dialogListener){
         this.listener = dialogListener;
@@ -149,14 +145,15 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
                 try{
                     Date time = new Date();
                     String strTime = dateFormat.format(time);
-                    //name=nameEditText.getText().toString();
                     set = Integer.parseInt(setEditText.getText().toString());
                     rep = Integer.parseInt(repEditText.getText().toString());
-                    //listener.onPositiveClicked(strTime, name,set,rep);
                     if(DIRECT_EDIT)
                         choice_sub = directEditText.getText().toString();//입력받은 값을 변수에 저장
-                    listener.onPositiveClicked(strTime, choice_sub,set,rep);
-
+                    if(choice_sub.equals("")||choice_sub==null)
+                        Toast.makeText(mContext, "값을 입력해주세요", Toast.LENGTH_SHORT).show();
+                    else {
+                        listener.onPositiveClicked(strTime, choice_sub,set,rep);
+                    }
                 }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"값을 입력해주세요", Toast.LENGTH_SHORT).show();}
                 dismiss();
                 break;
@@ -172,14 +169,17 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 choice_sub = adapter_sub.getItem(position).toString();
+                LinearLayout rootlayout = findViewById(R.id.linearItem);
                 if(choice_sub.equals("직접입력")){
-                    LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                    LinearLayout rootlayout = findViewById(R.id.linearItem);
-                    LinearLayout linear = (LinearLayout) View.inflate(mContext,
-                            R.layout.spinner_directinput, rootlayout);
-
-                    directEditText = (EditText) linear.findViewById(R.id.directEditText);
-                    DIRECT_EDIT =true;
+                    if(rootlayout.getVisibility()==View.GONE) {
+                        rootlayout.setVisibility(View.VISIBLE);
+                    }
+                    directEditText = (EditText) rootlayout.findViewById(R.id.directEditText);
+                    DIRECT_EDIT = true;
+                }else{
+                    if(rootlayout.getVisibility()==View.VISIBLE)
+                        rootlayout.setVisibility(View.GONE);
+                    DIRECT_EDIT = false;
                 }
             }
             @Override

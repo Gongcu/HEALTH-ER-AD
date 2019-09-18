@@ -87,8 +87,7 @@ public class BodyWeight_ChartFragment extends Fragment {
         xAxis.setDrawGridLines(false);
         xAxis.setAxisMinimum(0);
         xAxis.setLabelCount(xLabelCount,true);
-        Log.d("x -1",(xLabelCount-1)+"");
-        Log.d("len",getDate().length+"");
+
         // y축 설정
         YAxis yLAxis = lineChart.getAxisLeft();
         yLAxis.setTextColor(Color.BLACK);
@@ -196,21 +195,17 @@ public class BodyWeight_ChartFragment extends Fragment {
 
         @Override
         public String getFormattedValue(float value) {
-            Log.d("value:"+value,"int(value):"+(int)value + "  size:"+mDate.length);
             if(mDate.length==1)
                 return mDate[0];
             else if(mDate.length==0)
                 return "";
             else if(mDate.length<=(int)value) {
-                Log.d("mDate.length<=value",mDate[mDate.length - 1]+"");
                 return mDate[mDate.length - 1];
             }
             else if((int)value==-1) {
-                Log.d("mDate[mDate.length - 1]",mDate[0]+"");
                 return mDate[0];
             }
             else {
-                Log.d("mDate[(int) value]",mDate[(int) value]+"");
                 return mDate[(int) value];
             }
         }

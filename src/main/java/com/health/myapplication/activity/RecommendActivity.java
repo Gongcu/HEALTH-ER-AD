@@ -16,6 +16,7 @@ import com.health.myapplication.RecommendActivity.NoviceActivity;
 
 public class RecommendActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView cardView;
+    private CardView cardView1;
     private CardView cardView2;
     private CardView cardView3;
     private Intent intent;
@@ -29,11 +30,13 @@ public class RecommendActivity extends AppCompatActivity implements View.OnClick
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        cardView = findViewById(R.id.cardview1);
+        cardView = findViewById(R.id.cardview);
+        cardView1 = findViewById(R.id.cardview1);
         cardView2 = findViewById(R.id.cardview2);
         cardView3 = findViewById(R.id.cardview3);
 
         cardView.setOnClickListener(this);
+        cardView1.setOnClickListener(this);
         cardView2.setOnClickListener(this);
         cardView3.setOnClickListener(this);
     }

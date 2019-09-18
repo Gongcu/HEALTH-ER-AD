@@ -38,18 +38,12 @@ public class Data_DataFragment extends Fragment {
     private ArrayList<String> date_list;
     private TrainingDataDialog dialog;
     private RecyclerAdapter_date dAdapter; //날짜 recycler뷰
-    private RecyclerAdapter_date_sub mAdapter; //이제 날짜 밑의 기록 recyclerview로 바꿔야됨
     private RecyclerView recyclerView;
     private Button button;
     // SQL DB의 레퍼런스
     private SQLiteDatabase mDb, nDb;
 
     public  static Context context;
-
-    private String date="";
-    private String name="";
-    private int set =0;
-    private int rep =0;
 
 
     public Data_DataFragment() {
@@ -110,27 +104,6 @@ public class Data_DataFragment extends Fragment {
             }
         });
 
-/* 잘못 스와이프 해서 기록 다 날라갈수도
-        // 목록에서 항목을 왼쪽, 오른쪽 방향으로 스와이프 하는 항목을 처리
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-            // 사용하지 않는다.
-            @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false;
-            }
-
-            @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                // 스와이프된 아이템의 아이디를 가져온다.
-                long id = (long) viewHolder.itemView.getTag();
-                // DB 에서 해당 아이디를 가진 레코드를 삭제한다.
-                removeDate(id);
-                // 리스트를 갱신한다.
-                dAdapter.swapCursor(getAllDate());
-            }
-        }).attachToRecyclerView(recyclerView);  //리사이클러뷰에 itemTouchHelper 를 붙인다.
-        super.onViewCreated(view, savedInstanceState);
-        */
     }
 
     public void addToDate(View view, String date, String name, int set, int rep) {
@@ -228,7 +201,6 @@ public class Data_DataFragment extends Fragment {
             cursor.moveToFirst();
             do {
                 date_list.add(cursor.getString(cursor.getColumnIndex(CalContract.Entry.COLUMN_DATE)));
-                Log.d("adtefrag",""+cursor.getString(cursor.getColumnIndex(CalContract.Entry.COLUMN_DATE)));
             } while (cursor.moveToNext());
         }
         Collections.sort(date_list);

@@ -109,7 +109,6 @@ public class BodyWeight_DataFragment extends Fragment {
                     //이거 수정 가능성 높음
                     @Override
                     public void onNegativeClicked() {
-                        Log.d("MyDialogListener", "onNegativeClicked");
                     }
                 });
                 dialog.show();
@@ -160,10 +159,8 @@ public class BodyWeight_DataFragment extends Fragment {
         if(c.getCount()>0) {
             Toast.makeText(getActivity(), "이미 오늘 입력한 몸무게가 있습니다. 꾹 눌러 편집 하세요.", Toast.LENGTH_SHORT).show();
             c.close();
-            Log.d("if,","Aaaaa");
             return;
         }else {
-            Log.d("else,","Aaaaa");
             cv.put(WeightContract.WeightEntry.COLUMN_DATE, strDate);
             cv.put(WeightContract.WeightEntry.COLUMN_HEIGHT, 0);
             cv.put(WeightContract.WeightEntry.COLUMN_WEIGHT, weight);

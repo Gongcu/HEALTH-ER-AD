@@ -31,22 +31,6 @@ public class CalculatorActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private ContentsPagerAdapter_cal mContentsPagerAdapter;
 
-    private LineChart lineChart;
-    private int entrySize;
-    private int xLabelCount;
-    private LineData data;
-    private LineDataSet dataSet1, dataSet2, dataSet3;
-    private XAxis xAxis;
-
-    private SQLiteDatabase mDb;
-    private DbHelper_Calculator_sub dbHelper;
-
-    private CalculatorDialog dialog;
-    private Button addBtn;
-    private RecyclerView recyclerView;
-    private RecyclerAdapter_cal adapter;
-
-    private ArrayList<String> date_list;
 
     public static Context context;
 

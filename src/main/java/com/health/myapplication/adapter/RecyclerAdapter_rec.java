@@ -105,8 +105,4 @@ public class RecyclerAdapter_rec extends RecyclerView.Adapter<RecyclerAdapter_re
         }
 
     }
-
-    public void getImageList(ArrayList<ArrayList<String>> list){
-        this.list_image=list;
-    }
 }

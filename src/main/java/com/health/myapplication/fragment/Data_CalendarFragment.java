@@ -53,7 +53,6 @@ public class Data_CalendarFragment extends Fragment {
     private DbHelper_date_sub dbHelperNote;
 
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-    private SimpleDateFormat sdfToText = new SimpleDateFormat("yyyy년 MM월 dd일");
     private SimpleDateFormat sdfDay = new SimpleDateFormat("dd");
     private ArrayList<NoteContract> list;
     private static final ArrayList<NoteContract> EMPTY_LIST=new ArrayList<>();

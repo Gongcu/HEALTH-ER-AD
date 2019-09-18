@@ -99,26 +99,8 @@ public class Calculator_ChartFragment extends Fragment {
         textView = view.findViewById(R.id.theThree);
         barChart = view.findViewById(R.id.horizontal_bar_chart);
         addBtn = view.findViewById(R.id.AddButton);
-        lineChart = view.findViewById(R.id.line_chart);/*
+        lineChart = view.findViewById(R.id.line_chart);
 
-        nDb.delete(CalContract.Entry.TABLE_NAME,CalContract.Entry.COLUMN_KEY+"=?",new String[]{"2"});
-        ContentValues cv = new ContentValues();
-        cv.put(CalContract.Entry.COLUMN_KEY, 2);
-        cv.put(CalContract.Entry.COLUMN_DATE, "2019-08-22");
-        cv.put(CalContract.Entry.COLUMN_EXERCISE, "스쿼트");
-        cv.put(CalContract.Entry.COLUMN_ONERM, 200.0);
-        nDb.insert(CalContract.Entry.TABLE_NAME,null,cv);
-        cv.clear();
-        cv.put(CalContract.Entry.COLUMN_KEY, 2);
-        cv.put(CalContract.Entry.COLUMN_DATE, "2019-08-22");
-        cv.put(CalContract.Entry.COLUMN_EXERCISE, "벤치프레스");
-        cv.put(CalContract.Entry.COLUMN_ONERM, 200.0);
-        nDb.insert(CalContract.Entry.TABLE_NAME,null,cv);
-
-
-        ContentValues cv = new ContentValues();
-        cv.put(CalContract.Entry.COLUMN_DATE, "2019-08-19");
-        mDb.update(CalContract.Entry.TABLE_NAME,cv,CalContract.Entry.COLUMN_KEY+"=?",new String[]{"1"});*/
 
         dataSet1 = new LineDataSet(getData("스쿼트"),"스쿼트");
 
@@ -138,6 +120,8 @@ public class Calculator_ChartFragment extends Fragment {
         Cursor cursor = mDb.rawQuery("select * from "+CalDateContract.Entry.TABLE_NAME, null);
         if(cursor.getCount()>0)
             xAxis.setValueFormatter(new AxisValueFormatter(getDate()));
+        else
+            xAxis.setValueFormatter(new AxisValueFormatter(new String[] {""}));
         cursor.close();
         xAxis.setTextColor(Color.BLACK);
         xAxis.setTextSize(10.0f);
@@ -227,7 +211,6 @@ public class Calculator_ChartFragment extends Fragment {
                     }
                     @Override
                     public void onNegativeClicked() {
-                        Log.d("MyDialogListener", "onNegativeClicked");
                     }
                 });
                 dialog.show();
@@ -374,42 +357,6 @@ public class Calculator_ChartFragment extends Fragment {
             else
                 return mDate[(int) value];
         }
-    }
-
-    public void addDataEntry(String name){ //데이터가 바뀐건지 새로운 날짜가 추가되며 데이터가 추가된건지에 따라 실행
-        if(name.equals("스쿼트")) {
-            dataSet1.clear();
-            data.removeDataSet(dataSet1);
-            dataSet1 = new LineDataSet(getData(name), name);
-            dataSet1.setCircleColor(ContextCompat.getColor(getContext(), R.color.colorSub4));
-            dataSet1.setColor(ContextCompat.getColor(getContext(), R.color.colorSub4));
-            dataSet1.setCircleHoleColor(ContextCompat.getColor(getContext(), R.color.colorSub4));
-            dataSet1.setLineWidth(2.0f);
-            data.addDataSet(dataSet1);
-        }else if(name.equals("벤치프레스")){
-            dataSet2.clear();
-            data.removeDataSet(dataSet2);
-            dataSet2 = new LineDataSet(getData(name), name);
-            dataSet2.setCircleColor(ContextCompat.getColor(getContext(), R.color.colorSub));
-            dataSet2.setColor(ContextCompat.getColor(getContext(), R.color.colorSub));
-            dataSet2.setCircleHoleColor(ContextCompat.getColor(getContext(), R.color.colorSub));
-            dataSet2.setLineWidth(2.0f);
-            data.addDataSet(dataSet2);
-        }else if(name.equals("데드리프트")){
-            dataSet3.clear();
-            data.removeDataSet(dataSet3);
-            dataSet3 = new LineDataSet(getData(name), name);
-            dataSet3.setCircleColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
-            dataSet3.setColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
-            dataSet3.setCircleHoleColor(ContextCompat.getColor(getContext(), R.color.colorPrimary));
-            dataSet3.setLineWidth(2.0f);
-            data.addDataSet(dataSet3);
-        }
-
-        xAxis.setValueFormatter((new AxisValueFormatter(getDate())));
-        xAxis.setLabelCount(date_list.size(),true);
-        lineChart.notifyDataSetChanged();
-        lineChart.invalidate();
     }
 
 

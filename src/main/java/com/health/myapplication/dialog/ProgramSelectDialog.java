@@ -89,7 +89,6 @@ public class ProgramSelectDialog extends Dialog implements View.OnClickListener{
         switch (view.getId()){
             case R.id.saveBtn:
                 try{
-                    Log.d(choice,"+"+choice);
                     listener.onPositiveClicked(choice);
                 }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"값을 입력해주세요", Toast.LENGTH_SHORT).show();}
                 dismiss();

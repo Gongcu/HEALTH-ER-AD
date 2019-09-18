@@ -263,7 +263,6 @@ public class RecyclerAdapter_part_sub extends RecyclerView.Adapter<RecyclerAdapt
                         boolean result=deleteDB();
                         if(result==true){
                             Toast.makeText(mContext,"삭제 성공",Toast.LENGTH_SHORT).show();
-                            //notifyItemRemoved(getAdapterPosition());
                             listener.deleteSuccess();}
                         else{
                             Toast.makeText(mContext, "삭제 실패", Toast.LENGTH_SHORT).show();

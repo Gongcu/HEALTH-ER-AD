@@ -100,8 +100,4 @@ public class RecyclerAdapter_sub extends RecyclerView.Adapter<RecyclerAdapter_su
         }
 
     }
-
-    public void getImageList(ArrayList<ArrayList<String>> list){
-        this.list_image=list;
-    }
 }

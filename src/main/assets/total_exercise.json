@@ -301,7 +301,7 @@
       "name": "덤벨 컬",
       "desc": "1. 덤벨을 잡고 선다.\n2. 팔꿈치를 구부리며 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_dumbbellcurl1",
-      "imageF": "exercise_bi_dumbbellcur2",
+      "imageF": "exercise_bi_dumbbellcurl2",
       "tip": "양 팔을 번갈아 가며 하는 방법도 있습니다."
     },
     {
@@ -434,7 +434,7 @@
       "name": "플랭크",
       "desc": "1. 그림과 같이 자세를 잡고 복근과 엉덩이에 힘을 줍니다. \n2. 자세를 유지하며 버틴다.",
       "imageR": "exercise_ab_plank1",
-      "imageF": "exercise_ab_plank2",
+      "imageF": "exercise_ab_plank1",
       "tip": "자세를 유지할 수 있는 시간 동안 버티는게 좋습니다."
     },
     {

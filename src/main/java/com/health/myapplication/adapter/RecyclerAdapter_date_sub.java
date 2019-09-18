@@ -3,6 +3,7 @@ package com.health.myapplication.adapter;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -42,8 +43,6 @@ public class RecyclerAdapter_date_sub extends RecyclerView.Adapter<RecyclerAdapt
     private SQLiteDatabase mDb,nDb;
     private DbHelper_date DbHelper;
     private DbHelper_date_sub DbHelper_note;
-    private
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
 
     public RecyclerAdapter_date_sub(Context context, Cursor cursor, Cursor parent_cursor) {
         mContext=context;
@@ -73,8 +72,6 @@ public class RecyclerAdapter_date_sub extends RecyclerView.Adapter<RecyclerAdapt
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //LayoutInflater를 이용하여 xml을 inflate 함
-        // 리사이클러뷰 업데이트
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.item_training_data,parent,false);
         return new ItemViewHolder(view);
@@ -123,19 +120,21 @@ public class RecyclerAdapter_date_sub extends RecyclerView.Adapter<RecyclerAdapt
                     if (TextUtils.equals(type, "update") && holder instanceof ItemViewHolder) {
                         Cursor c =nDb.rawQuery("SELECT * FROM " + NoteContract.NoteDataEntry.TABLE_NAME + " WHERE " + NoteContract.NoteDataEntry._ID +
                                 "=" + "'"+holder.note_id+"'", null);
-                        c.moveToFirst();
-                        String name_value = c.getString(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
-                        int set_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
-                        int rep_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
-                        holder.itemView.setTag(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
-                        holder.exerciseName.setText(name_value);
-                        holder.settime.setText(String.valueOf(set_value));
-                        holder.rep.setText(String.valueOf(rep_value));
+                        if(c.getCount()>0) {
+                            c.moveToFirst();
+                            String name_value = c.getString(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
+                            int set_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
+                            int rep_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
+                            holder.itemView.setTag(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+                            holder.exerciseName.setText(name_value);
+                            holder.settime.setText(String.valueOf(set_value));
+                            holder.rep.setText(String.valueOf(rep_value));
 
-                        holder.note_id = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
-                        holder.data.setExerciseName(name_value);
-                        holder.data.setRep(rep_value);
-                        holder.data.setSet(set_value);
+                            holder.note_id = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+                            holder.data.setExerciseName(name_value);
+                            holder.data.setRep(rep_value);
+                            holder.data.setSet(set_value);
+                        }
                     }
                 }
             }
@@ -214,7 +213,6 @@ public class RecyclerAdapter_date_sub extends RecyclerView.Adapter<RecyclerAdapt
                         }
                         else{
                             Toast.makeText(mContext, "삭제 실패", Toast.LENGTH_SHORT).show();
-                            Log.d("delete","fail");
                             }
                         break;
 
@@ -240,26 +238,29 @@ public class RecyclerAdapter_date_sub extends RecyclerView.Adapter<RecyclerAdapt
                     break;
                 }
             }
-            Cursor c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME+ " where "+ NoteContract.NoteDataEntry._ID+"="+note_id,null);
-            c.moveToFirst();
-            long foreign_key = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_KEY));
-            result =  nDb.delete(NoteContract.NoteDataEntry.TABLE_NAME, NoteContract.NoteDataEntry._ID + "=" + note_id, null)>0;
+            Cursor c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME + " where " + NoteContract.NoteDataEntry._ID + "=" + note_id, null);
+            if(c.getCount()>0) {
+                c.moveToFirst();
+                long foreign_key = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_KEY));
+                result = nDb.delete(NoteContract.NoteDataEntry.TABLE_NAME, NoteContract.NoteDataEntry._ID + "=" + note_id, null) > 0;
 
-            if(result){
-                c = nDb.rawQuery("select * from "+ NoteContract.NoteDataEntry.TABLE_NAME+" where "+ NoteContract.NoteDataEntry.COLUMN_KEY+"="+foreign_key,null);
-                if(c.getCount()==0){
-                    Cursor c2 = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME +" where "+ DateContract.DateContractEntry._ID + "="+foreign_key,null);
-                    if(c2.getCount()>0&&c2!=null) {
-                        c2.moveToFirst();
-                        String date = c2.getString(c2.getColumnIndex(DateContract.DateContractEntry.COLUMN_DATE));
-                        mDb.delete(DateContract.DateContractEntry.TABLE_NAME, DateContract.DateContractEntry._ID + "=?", new String[]{foreign_key + ""});
-                        listener.dateDeleteSuccess(date);
-                        c.close();
-                        c2.close();
+                if (result) {
+                    c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME + " where " + NoteContract.NoteDataEntry.COLUMN_KEY + "=" + foreign_key, null);
+                    if (c.getCount() == 0) {
+                        Cursor c2 = mDb.rawQuery("select * from " + DateContract.DateContractEntry.TABLE_NAME + " where " + DateContract.DateContractEntry._ID + "=" + foreign_key, null);
+                        if (c2.getCount() > 0 && c2 != null) {
+                            c2.moveToFirst();
+                            String date = c2.getString(c2.getColumnIndex(DateContract.DateContractEntry.COLUMN_DATE));
+                            mDb.delete(DateContract.DateContractEntry.TABLE_NAME, DateContract.DateContractEntry._ID + "=?", new String[]{foreign_key + ""});
+                            listener.dateDeleteSuccess(date);
+                            c2.close();
+                        }
                     }
                 }
-            }
-            return result;
+                c.close();
+                return  result;
+            } else
+                return false;
         }
     }
     // 데이터 셋의 크기를 리턴해줍니다.

@@ -43,8 +43,6 @@ public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdap
     private SQLiteDatabase mDb,nDb;
     private DbHelper_Calculator DbHelper_date;
     private DbHelper_Calculator_sub DbHelper;
-    private
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
 
     public RecyclerAdapter_cal_child(Context context) {
         mContext=context;
@@ -72,8 +70,6 @@ public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdap
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //LayoutInflater를 이용하여 xml을 inflate 함
-        // 리사이클러뷰 업데이트
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.item_onerm_data,parent,false);
         return new ItemViewHolder(view);
@@ -120,13 +116,15 @@ public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdap
                     if (TextUtils.equals(type, "update") && holder instanceof ItemViewHolder) {
                         Cursor c =nDb.rawQuery("SELECT * FROM " + CalContract.Entry.TABLE_NAME + " WHERE " + CalContract.Entry._ID +
                                 "=" + "'"+holder.note_id+"'", null);
-                        c.moveToFirst();
-                        double onerm_value = c.getDouble(c.getColumnIndex(CalContract.Entry.COLUMN_ONERM));
-                        holder.itemView.setTag(c.getColumnIndex(CalContract.Entry._ID));
-                        holder.one_rm.setText(String.valueOf(onerm_value));
+                        if(c.getCount()>0) {
+                            c.moveToFirst();
+                            double onerm_value = c.getDouble(c.getColumnIndex(CalContract.Entry.COLUMN_ONERM));
+                            holder.itemView.setTag(c.getColumnIndex(CalContract.Entry._ID));
+                            holder.one_rm.setText(String.valueOf(onerm_value));
 
-                        holder.note_id=c.getLong(c.getColumnIndex(CalContract.Entry._ID));
-                        holder.data.setOne_rm(onerm_value);
+                            holder.note_id = c.getLong(c.getColumnIndex(CalContract.Entry._ID));
+                            holder.data.setOne_rm(onerm_value);
+                        }
                     }
                 }
             }
@@ -181,7 +179,6 @@ public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdap
                             }
                             @Override
                             public void onNegativeClicked() {
-                                //Log.d("MyDialogListener","onNegativeClicked");
                             }
                         });
                         dialog.show();
@@ -191,9 +188,7 @@ public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdap
                     case 1002:
                         if(deleteDB()){
                             Toast.makeText(mContext,"삭제 성공",Toast.LENGTH_SHORT).show();
-                            //notifyItemRemoved(getAdapterPosition());
                             listener.deleteSuccess();
-                            //((CalculatorActivity)CalculatorActivity.context).changeDataSet(DELETED_DATA_IN_NAME);}
                             }
                         else{
                             Toast.makeText(mContext, "삭제 실패", Toast.LENGTH_SHORT).show();
@@ -215,27 +210,19 @@ public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdap
         }
         public boolean deleteDB(){
             boolean result;
-            /*
-            for (int i=0; i<id.size(); i++){
-                if(id.contains(note_id)) {
-                    id.remove(i);
-                    break;
-                }
-            }*/
             if(id.contains(note_id))
                 id.remove(note_id);
             try {
                 Cursor c = nDb.rawQuery("select * from " + CalContract.Entry.TABLE_NAME + " where " + CalContract.Entry._ID + "=" + note_id, null);
                 c.moveToFirst();
                 //삭제 후 삭제된 컬럼키에 해당하는 키가 noteTable에 없으면 dateTable의 id 삭제
-                long column_key= c.getLong(c.getColumnIndex(CalContract.Entry.COLUMN_KEY));
-                result= nDb.delete(CalContract.Entry.TABLE_NAME, CalContract.Entry._ID + "=" + note_id, null)>0;
-                c.close();
-                if(result) { //삭제가 성공적으로 되면 note에 해당하는 column key의 개수가 0개(없으면) 해당 date도 삭제    최상위 어답터에 리스너 달아야될듯
+                long column_key = c.getLong(c.getColumnIndex(CalContract.Entry.COLUMN_KEY));
+                result = nDb.delete(CalContract.Entry.TABLE_NAME, CalContract.Entry._ID + "=" + note_id, null) > 0;
+                if (result) { //삭제가 성공적으로 되면 note에 해당하는 column key의 개수가 0개(없으면) 해당 date도 삭제    최상위 어답터에 리스너 달아야될듯
                     c = nDb.rawQuery("select * from " + CalContract.Entry.TABLE_NAME + " where " + CalContract.Entry.COLUMN_KEY + "=" + column_key, null);
-                    if(c.getCount()==0) {
-                        c=mDb.rawQuery("select * from "+CalDateContract.Entry.TABLE_NAME+" where "+CalDateContract.Entry._ID+"="+column_key,null);
-                        if(c.getCount()>0) {
+                    if (c.getCount() == 0) {
+                        c = mDb.rawQuery("select * from " + CalDateContract.Entry.TABLE_NAME + " where " + CalDateContract.Entry._ID + "=" + column_key, null);
+                        if (c.getCount() > 0) {
                             c.moveToFirst();
                             String date = c.getString(c.getColumnIndex(CalDateContract.Entry.COLUMN_DATE));
                             mDb.delete(CalDateContract.Entry.TABLE_NAME, CalDateContract.Entry._ID + "=?", new String[]{"" + column_key});

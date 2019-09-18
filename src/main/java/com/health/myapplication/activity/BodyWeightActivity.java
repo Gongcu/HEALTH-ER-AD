@@ -50,19 +50,16 @@ public class BodyWeightActivity extends AppCompatActivity {
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
-                Log.d("onPageScrolled", " i");
 
             }
 
             @Override
             public void onPageSelected(int i) {
                 mContentsPagerAdapter.notifyDataSetChanged();
-                Log.d("onPageSelected", " i");
             }
 
             @Override
             public void onPageScrollStateChanged(int i) {
-                Log.d("onPageScrollSnged", " i");
             }
         });
         mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -75,12 +72,10 @@ public class BodyWeightActivity extends AppCompatActivity {
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
-                Log.d("onTabUnselected", " i");
             }
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-                Log.d("onTabReselected", " i");
             }
 
         });

@@ -46,12 +46,9 @@ public class Data_DayFragment extends Fragment {
     private String DATE;
 
     private ArrayList<NoteContract> list;
-    private ArrayList<Long> id_list;
     private long ID;
     private String date="";
-    private String name="";
-    private int set =0;
-    private int rep =0;
+
 
     private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -122,9 +119,8 @@ public class Data_DayFragment extends Fragment {
     public boolean addToDate(String date, String name, int set, int rep) {
         ContentValues cv = new ContentValues();
 
-        if(dateChecker(date)){
-            Cursor c = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME,null);
-            c.moveToLast();
+        if(dateChecker(date)){  //함수에 의해 커서 체크 안해도 됨
+            Cursor c = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME,null);             c.moveToLast();
             long parent_id = c.getLong(c.getColumnIndex(DateContract.DateContractEntry._ID));
             cv.clear();
             cv.put(NoteContract.NoteDataEntry.COLUMN_KEY, parent_id);
@@ -132,9 +128,11 @@ public class Data_DayFragment extends Fragment {
             cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
             cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);
             nDb.insert(NoteContract.NoteDataEntry.TABLE_NAME, null, cv);
-            c = nDb.rawQuery("select * from "+ NoteContract.NoteDataEntry.TABLE_NAME,null);
-            c.moveToLast();
-            ID=c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+            c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME, null);
+            if(c.getCount()>0) {
+                c.moveToLast();
+                ID = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+            }
             c.close();
             return true;
         }else{
@@ -142,7 +140,6 @@ public class Data_DayFragment extends Fragment {
             cv.put(DateContract.DateContractEntry.COLUMN_DATE, date);
             mDb.insert(DateContract.DateContractEntry.TABLE_NAME, null, cv);
 
-            //방금 삼입한 최신 데이터의 id 가져오김
             Cursor c = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME,null);
             c.moveToLast();
             long parent_id = c.getLong(c.getColumnIndex(DateContract.DateContractEntry._ID));

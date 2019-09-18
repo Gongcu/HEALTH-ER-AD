@@ -47,7 +47,6 @@ public class RecommendFragment extends Fragment {
 
     private AdView mAdView;
 
-    String text="";
 
     public RecommendFragment() {
     }
@@ -55,16 +54,7 @@ public class RecommendFragment extends Fragment {
     public RecommendFragment(Context context, int TYPE, int LEVEL) {
         mContext=context;
         this.TYPE = TYPE;
-        this.LEVEL = LEVEL;/*
-
-        if(TYPE==1) {
-            getData1();
-            text = "가슴, 등 운동";
-        }
-        else {
-            getData2();
-            text = "하체, 어깨 운동";
-        }*/
+        this.LEVEL = LEVEL;
     }
 
 
