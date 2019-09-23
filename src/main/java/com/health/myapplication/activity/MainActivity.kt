@@ -8,6 +8,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.health.myapplication.R
+import com.health.myapplication.exceotionHandler.ExceptionHandler
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var adView : AdView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
         setContentView(com.health.myapplication.R.layout.activity_main)
 
          MobileAds.initialize(this) { }

@@ -36,7 +36,7 @@
                     <View android:layout_width="100dp"
                           android:layout_height="100dp"
                           android:layout_gravity="center"
-                          android:background="@drawable/dumbell2"
+                          android:background="@drawable/main_exercise"
                     ></View>
                     <LinearLayout
                             android:layout_width="wrap_content"
@@ -83,7 +83,7 @@
                             android:layout_width="100dp"
                             android:layout_height="100dp"
                             android:layout_gravity="center"
-                            android:background="@drawable/program"
+                            android:background="@drawable/main_program"
                             android:id="@+id/view21"></View>
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
                               android:background="@color/colorWhite">
@@ -122,7 +122,7 @@
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                               android:background="@color/colorWhite">
                     <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                          android:background="@drawable/recommend_program" android:id="@+id/view62"
+                          android:background="@drawable/main_recommend" android:id="@+id/view62"
                     ></View>
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
                                   android:background="@color/colorWhite">
@@ -162,7 +162,7 @@
         <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                       android:background="@color/colorWhite">
             <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                  android:background="@drawable/note" android:id="@+id/view31"
+                  android:background="@drawable/main_note" android:id="@+id/view31"
             ></View>
             <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
                           android:background="@color/colorWhite">
@@ -201,7 +201,7 @@
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                               android:background="@color/colorWhite">
                     <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                          android:background="@drawable/one_rm" android:id="@+id/view41"
+                          android:background="@drawable/main_calculator" android:id="@+id/view41"
                     ></View>
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
                                   android:background="@color/colorWhite">
@@ -240,7 +240,7 @@
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                               android:background="@color/colorWhite">
                     <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                          android:background="@drawable/weight2" android:id="@+id/view51"
+                          android:background="@drawable/main_bodyweight" android:id="@+id/view51"
                     ></View>
                     <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
                                   android:background="@color/colorWhite">
