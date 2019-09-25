@@ -300,21 +300,21 @@
   ],
   "이두": [
     {
-      "name": "바벨 컬",
+      "name": "바벨컬",
       "desc": "1. 바벨을 어깨 넓이보다 약간 넓게 잡고 선다.\n2. 팔꿈치를 구부리며 바벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_barbellcurl1",
       "imageF": "exercise_bi_barbellcurl2",
       "tip": "운동 내내 이두의 긴장을 유지해야 합니다."
     },
     {
-      "name": "덤벨 컬",
+      "name": "덤벨컬",
       "desc": "1. 덤벨을 잡고 선다.\n2. 팔꿈치를 구부리며 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_dumbbellcurl1",
       "imageF": "exercise_bi_dumbbellcurl2",
       "tip": "양 팔을 번갈아 가며 하는 방법도 있습니다."
     },
     {
-      "name": "해머 컬",
+      "name": "해머컬",
       "desc": "1. 덤벨을 잡고 선다.\n2. 팔꿈치를 구부리며 양손이 마주보게 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_hammercurl1",
       "imageF": "exercise_bi_hammercurl2",
@@ -447,7 +447,7 @@
       "name": "플랭크",
       "desc": "1. 그림과 같이 자세를 잡고 복근과 엉덩이에 힘을 줍니다. \n2. 자세를 유지하며 버틴다.",
       "imageR": "exercise_ab_plank1",
-      "imageF": "exercise_ab_plank1",
+      "imageF": "exercise_ab_plank2",
       "tip": "자세를 유지할 수 있는 시간 동안 버티는게 좋습니다."
     },
     {
@@ -473,7 +473,7 @@
       "desc": "1. 어깨넓이보다 살짝 넓게 바를 잡고 앉는다.\n2. 팔꿈치를 옆구리에 붙이는 느낌으로 당긴다.\n3. 천천히 긴장을 유지하며 바를 원위치 시킨다.",
       "imageR": "exercise_back_latpulldown1",
       "imageF": "exercise_back_latpulldown2",
-      "tip": "넓게 오버 그립으로 잡으면 상부, 좁고 언더 그립으로 잡을 경우 하부에 자극을 줄 수 있습니다.",
+      "tip": "넓게 오버 그립으로 잡으면 상부, 좁게 언더 그립으로 잡을 경우 하부에 자극을 줄 수 있습니다.",
       "set": 5,
       "rep": 10
     },
@@ -494,6 +494,15 @@
       "tip": "머신운동은 안좋은 운동이 아닙니다.",
       "set": 5,
       "rep": 12
+    },
+    {
+      "name": "크런치",
+      "desc": "1. 벤치에 다리를 올리거나 편하게 매트에 눕는다. \n2. 허리를 바닥에 완전히 붙이며 상체의 상부만 구부린다.\n3. 긴장이 풀리기 전까지 천천히 상체를 눕힌다.",
+      "imageR": "exercise_ab_crunche1",
+      "imageF": "exercise_ab_crunche2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
+      "set": 5,
+      "rep": 15
     }
   ],
   "초보자1": [
@@ -531,6 +540,15 @@
       "tip": "견갑을 모아 수축하는 것 만큼 천천히 이완하는 것도 중요합니다.",
       "set": 5,
       "rep": 10
+    },
+    {
+      "name": "크런치",
+      "desc": "1. 벤치에 다리를 올리거나 편하게 매트에 눕는다. \n2. 허리를 바닥에 완전히 붙이며 상체의 상부만 구부린다.\n3. 긴장이 풀리기 전까지 천천히 상체를 눕힌다.",
+      "imageR": "exercise_ab_crunche1",
+      "imageF": "exercise_ab_crunche2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
+      "set": 5,
+      "rep": 15
     }
   ],
   "초보자2": [
@@ -578,6 +596,15 @@
       "tip": "운동은 본인에게 맞는 자세를 찾아야 합니다.",
       "set": 5,
       "rep": 15
+    },
+    {
+      "name": "레그 레이즈",
+      "desc": "1. 매트에 누워 허리를 바닥에 완전히 붙인다. \n2. 다리를 하늘을 향해 들어올린다. \n3. 긴장이 풀리기 전까지 천천히 다리를 내린다.",
+      "imageR": "exercise_ab_legraise1",
+      "imageF": "exercise_ab_legraise2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
+      "set": 5,
+      "rep": 15
     }
   ],
   "3분할1": [
@@ -616,6 +643,15 @@
       "tip": "스컬 크러셔",
       "set": 5,
       "rep": 15
+    },
+    {
+      "name": "레그 레이즈",
+      "desc": "1. 매트에 누워 허리를 바닥에 완전히 붙인다. \n2. 다리를 하늘을 향해 들어올린다. \n3. 긴장이 풀리기 전까지 천천히 다리를 내린다.",
+      "imageR": "exercise_ab_legraise1",
+      "imageF": "exercise_ab_legraise2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
+      "set": 5,
+      "rep": 15
     }
   ],
   "3분할2": [
@@ -647,11 +683,20 @@
       "rep": 10
     },
     {
-      "name": "바벨 컬",
+      "name": "바벨컬",
       "desc": "1. 바벨을 어깨 넓이보다 약간 넓게 잡고 선다.\n2. 팔꿈치를 구부리며 바벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_barbellcurl1",
       "imageF": "exercise_bi_barbellcurl2",
       "tip": "운동 내내 이두의 긴장을 유지해야 합니다.",
+      "set": 5,
+      "rep": 15
+    },
+    {
+      "name": "크런치",
+      "desc": "1. 벤치에 다리를 올리거나 편하게 매트에 눕는다. \n2. 허리를 바닥에 완전히 붙이며 상체의 상부만 구부린다.\n3. 긴장이 풀리기 전까지 천천히 상체를 눕힌다.",
+      "imageR": "exercise_ab_crunche1",
+      "imageF": "exercise_ab_crunche2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
       "set": 5,
       "rep": 15
     }
@@ -701,6 +746,15 @@
       "tip": "운동은 본인에게 맞는 자세를 찾아야 합니다.",
       "set": 5,
       "rep": 15
+    },
+    {
+      "name": "바이시클",
+      "desc": "1. 매트에 누워 허리를 바닥에 완전히 붙인다. \n2. 고개를 들고 다리는 자전거를 타듯 허공을 젓는다.",
+      "imageR": "exercise_ab_bicycle1",
+      "imageF": "exercise_ab_bicycle2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
+      "set": 5,
+      "rep": 15
     }
   ],
   "4분할1": [
@@ -737,6 +791,15 @@
       "imageR": "exercise_tri_pushdown1",
       "imageF": "exercise_tri_pushdown2",
       "tip": "긴장을 유지해야 합니다.",
+      "set": 5,
+      "rep": 15
+    },
+    {
+      "name": "크런치",
+      "desc": "1. 벤치에 다리를 올리거나 편하게 매트에 눕는다. \n2. 허리를 바닥에 완전히 붙이며 상체의 상부만 구부린다.\n3. 긴장이 풀리기 전까지 천천히 상체를 눕힌다.",
+      "imageR": "exercise_ab_crunche1",
+      "imageF": "exercise_ab_crunche2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
       "set": 5,
       "rep": 15
     }
@@ -786,6 +849,15 @@
       "tip": "운동 내내 이두의 긴장을 유지해야 합니다.",
       "set": 5,
       "rep": 15
+    },
+    {
+      "name": "행잉 레그 레이즈",
+      "desc": "1. 바에 매달려 가슴을 연다(후인하강). \n2. 복근의 힘으로 다리를 들어올린다. \n3. 긴장이 풀리기 전까지 천천히 다리를 내린다.",
+      "imageR": "exercise_ab_hanginglegraise1",
+      "imageF": "exercise_ab_hanginglegraise2",
+      "tip": "허리에 과하게 힘이 들어가면 부상의 위험이 있습니다.",
+      "set": 5,
+      "rep": 15
     }
   ],
   "4분할3": [
@@ -833,6 +905,15 @@
       "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다. 철봉에 매달려 하는 방법도 있습니다.",
       "set": 5,
       "rep": 15
+    },
+    {
+      "name": "크런치",
+      "desc": "1. 벤치에 다리를 올리거나 편하게 매트에 눕는다. \n2. 허리를 바닥에 완전히 붙이며 상체의 상부만 구부린다.\n3. 긴장이 풀리기 전까지 천천히 상체를 눕힌다.",
+      "imageR": "exercise_ab_crunche1",
+      "imageF": "exercise_ab_crunche2",
+      "tip": "허리가 바닥에서 뜨면 허리 부상 위험이 있습니다.",
+      "set": 5,
+      "rep": 15
     }
   ],
   "4분할4": [
@@ -870,6 +951,15 @@
       "imageF": "exercise_leg_press2",
       "tip": "긴장을 유지하며 적절한 가동범위를 유지해야 합니다.",
       "set": 4,
+      "rep": 15
+    },
+    {
+      "name": "행잉 레그 레이즈",
+      "desc": "1. 바에 매달려 가슴을 연다(후인하강). \n2. 복근의 힘으로 다리를 들어올린다. \n3. 긴장이 풀리기 전까지 천천히 다리를 내린다.",
+      "imageR": "exercise_ab_hanginglegraise1",
+      "imageF": "exercise_ab_hanginglegraise2",
+      "tip": "허리에 과하게 힘이 들어가면 부상의 위험이 있습니다.",
+      "set": 5,
       "rep": 15
     }
   ]

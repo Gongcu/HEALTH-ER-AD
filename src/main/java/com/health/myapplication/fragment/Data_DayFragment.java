@@ -23,6 +23,7 @@ import com.health.myapplication.adapter.RecyclerAdapter_day;
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;
 import com.health.myapplication.dialog.TrainingDataDialog;
+import com.health.myapplication.listener.DataListener;
 import com.health.myapplication.listener.DialogListener;
 
 import java.text.SimpleDateFormat;
@@ -86,28 +87,17 @@ public class Data_DayFragment extends Fragment {
             @Override
             public void onClick (View view){
                 dialog = new TrainingDataDialog(getActivity());
-                dialog.setDialogListener(new DialogListener() {  // DialogListener 를 구현 추상 클래스이므로 구현 필수 -> dialog의 값을 전달 받음
+                dialog.setDialogListener(new DataListener() {  // DialogListener 를 구현 추상 클래스이므로 구현 필수 -> dialog의 값을 전달 받음
                     @Override
-                    public void onPositiveClicked(int date, String part, String exercise) {}
-                    @Override
-                    public void onPositiveClicked() {
-                    }
-                    @Override
-                    public void onPositiveClicked(double height, double weight) {
-                    }
-                    @Override
-                    public void onPositiveClicked(String time, String name, int set, int rep) {
+                    public void onPositiveClicked(String time, String name, int set, int rep, float weight) {
                         //setResult(time, name, set,rep);
-                        if(addToDate(time,name,set,rep)) {
-                            NoteContract data = new NoteContract(name, set, rep);
+                        if(addToDate(time,name,set,rep, weight)) {
+                            NoteContract data = new NoteContract(name, set, rep, weight);
                             data.setId(ID);
                             adapter.addItem(data);
                             adapter.notifyDataSetChanged();
                         }
                     }
-
-                    @Override
-                    public void onNegativeClicked() { }
                 });
                 dialog.show();
             }
@@ -116,7 +106,7 @@ public class Data_DayFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
     }
 
-    public boolean addToDate(String date, String name, int set, int rep) {
+    public boolean addToDate(String date, String name, int set, int rep, float weight) {
         ContentValues cv = new ContentValues();
 
         if(dateChecker(date)){  //함수에 의해 커서 체크 안해도 됨
@@ -127,6 +117,7 @@ public class Data_DayFragment extends Fragment {
             cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME, name);
             cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
             cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_WEIGHT, weight);
             nDb.insert(NoteContract.NoteDataEntry.TABLE_NAME, null, cv);
             c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME, null);
             if(c.getCount()>0) {
@@ -149,11 +140,9 @@ public class Data_DayFragment extends Fragment {
             cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME, name);
             cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
             cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_WEIGHT, weight);
             nDb.insert(NoteContract.NoteDataEntry.TABLE_NAME, null, cv);
-            c = nDb.rawQuery("select * from "+ NoteContract.NoteDataEntry.TABLE_NAME,null);
-            c.moveToLast();
-            ID=c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
-            c.close();
+
             return true;
         }
     }
@@ -185,8 +174,9 @@ public class Data_DayFragment extends Fragment {
                     String name = c2.getString(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
                     int set = c2.getInt(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
                     int rep = c2.getInt(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
+                    float weight = c2.getFloat(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_WEIGHT));
                     long current_id = c2.getLong(c2.getColumnIndex(NoteContract.NoteDataEntry._ID));
-                    NoteContract data = new NoteContract(name,set,rep);
+                    NoteContract data = new NoteContract(name,set,rep,weight);
                     data.setId(current_id);
                     Log.d("currentid fragmmm", current_id+"");
                     list.add(data);

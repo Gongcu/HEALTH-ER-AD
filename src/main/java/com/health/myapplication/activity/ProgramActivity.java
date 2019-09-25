@@ -155,6 +155,12 @@ public class ProgramActivity extends AppCompatActivity {
                 case "5분할":
                     adapter.addItem(new PartData("5분할", R.drawable.five));
                     break;
+                case "6분할":
+                    adapter.addItem(new PartData("6분할", R.drawable.six));
+                    break;
+                case "7분할":
+                    adapter.addItem(new PartData("7분할", R.drawable.seven));
+                    break;
             }
             adapter.notifyDataSetChanged();
         }
@@ -182,6 +188,12 @@ public class ProgramActivity extends AppCompatActivity {
                         break;
                     case "5분할":
                         list.add(new PartData("5분할", R.drawable.five));
+                        break;
+                    case "6분할":
+                        list.add(new PartData("4분할", R.drawable.six));
+                        break;
+                    case "7분할":
+                        list.add(new PartData("5분할", R.drawable.seven));
                         break;
                 }
             }while (c.moveToNext());

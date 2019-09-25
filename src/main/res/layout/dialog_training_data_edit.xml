@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+            android:paddingVertical="4dp"
+            android:paddingLeft="16dp"
+            android:text="운동 기록 편집"
+            android:textColor="@color/colorMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="22dp"/>
+    <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:textStyle="bold"
+                android:paddingLeft="16dp"
+                android:text="운동"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/textView12" />
+        <TextView
+                android:textStyle="bold"
+                android:layout_marginLeft="16dp"
+                android:text="운동"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/nameTextView"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:text="세트"
+            android:textSize="18dp"
+            android:paddingLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView11"/>
+        <EditText
+            android:textSize="14dp"
+            android:paddingLeft="8dp"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/setEditText"  android:hint="세트 수를 입력하세요"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:text="횟수"
+            android:textSize="18dp"
+            android:paddingLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView14" />
+        <EditText
+            android:textSize="14dp"
+            android:paddingLeft="8dp"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/repEditText"  android:hint="반복 횟수를 입력하세요"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textStyle="bold"
+            android:text="무게"
+            android:textSize="18dp"
+            android:paddingLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView18" />
+        <EditText
+            android:textSize="14dp"
+            android:paddingLeft="8dp"
+            android:background="@null"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/weightEditText"  android:hint="중량을 입력하세요"/>
+    </LinearLayout>
+    <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <Button
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorMain"
+                android:background="@color/colorWhite"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="저장"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/saveBtn" android:layout_weight="1"/>
+        <Button
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/colorSub"
+                android:background="@color/colorWhite"
+                android:foreground="?attr/selectableItemBackground"
+                android:text="취소"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/quitBtn" android:layout_weight="1"/>
+    </LinearLayout>
+</LinearLayout>

@@ -291,21 +291,21 @@
       "tip": "어깨부상 관련해 논란이 있는 운동입니다."
     },
     {
-      "name": "바벨 컬",
+      "name": "바벨컬",
       "desc": "1. 바벨을 어깨 넓이보다 약간 넓게 잡고 선다.\n2. 팔꿈치를 구부리며 바벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_barbellcurl1",
       "imageF": "exercise_bi_barbellcurl2",
       "tip": "운동 내내 이두의 긴장을 유지해야 합니다."
     },
     {
-      "name": "덤벨 컬",
+      "name": "덤벨컬",
       "desc": "1. 덤벨을 잡고 선다.\n2. 팔꿈치를 구부리며 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_dumbbellcurl1",
       "imageF": "exercise_bi_dumbbellcurl2",
       "tip": "양 팔을 번갈아 가며 하는 방법도 있습니다."
     },
     {
-      "name": "해머 컬",
+      "name": "해머컬",
       "desc": "1. 덤벨을 잡고 선다.\n2. 팔꿈치를 구부리며 양손이 마주보게 덤벨을 들어올린다.  \n3. 긴장이 풀리기 전까지 팔꿈치를 펴면서 다시 동작을 반복한다.",
       "imageR": "exercise_bi_hammercurl1",
       "imageF": "exercise_bi_hammercurl2",

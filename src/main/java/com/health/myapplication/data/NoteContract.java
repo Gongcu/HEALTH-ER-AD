@@ -6,12 +6,14 @@ public class NoteContract {
     private String exerciseName;
     private int set;
     private int rep;
+    private float weight;
     private long id;
 
-    public NoteContract(String exerciseName, int set, int rep) {
+    public NoteContract(String exerciseName, int set, int rep, float weight) {
         this.exerciseName = exerciseName;
         this.set = set;
         this.rep = rep;
+        this.weight = weight;
     }
     private NoteContract(){}
     //BaseColumn 인터페이스는 자동으로 _ID 고유 기본기 생성
@@ -20,6 +22,7 @@ public class NoteContract {
         public static final String COLUMN_EXERCISE_NAME = "exercisename";
         public static final String COLUMN_REP = "rep";
         public static final String COLUMN_SETTIME = "settime";
+        public static final String COLUMN_WEIGHT = "weight";
         public static final String COLUMN_KEY = "dateid";
         public static final String COLUMN_TIMESTAMP = "timestamp";
     }
@@ -56,4 +59,11 @@ public class NoteContract {
         this.rep = rep;
     }
 
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
 }

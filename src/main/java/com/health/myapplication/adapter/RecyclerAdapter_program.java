@@ -39,7 +39,7 @@ public class RecyclerAdapter_program  extends RecyclerView.Adapter<RecyclerAdapt
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_partdata_view, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_program_data_view, parent, false);
         return new ItemViewHolder(view);
     }
 
@@ -100,6 +100,28 @@ public class RecyclerAdapter_program  extends RecyclerView.Adapter<RecyclerAdapt
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(context, FiveDayProgram.class);
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+            case "6분할":
+                holder.ACTIVITY_NUMBER=6;
+                holder.itemView.setTag(6);
+                holder.cardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, SixDayProgram.class);
+                        context.startActivity(intent);
+                    }
+                });
+                break;
+            case "7분할":
+                holder.ACTIVITY_NUMBER=7;
+                holder.itemView.setTag(7);
+                holder.cardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, SevenDayProgram.class);
                         context.startActivity(intent);
                     }
                 });

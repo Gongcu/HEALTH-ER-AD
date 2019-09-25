@@ -11,13 +11,14 @@ import android.util.Log;
 import android.view.*;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.health.myapplication.DbHelper.DbHelper_date;
 import com.health.myapplication.DbHelper.DbHelper_date_sub;
 import com.health.myapplication.R;
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;
 import com.health.myapplication.dialog.TrainingDataDialog_edit;
-import com.health.myapplication.listener.DialogListener;
+import com.health.myapplication.listener.DataListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,7 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
     private SQLiteDatabase mDb, nDb;
     private DbHelper_date dbHelperDate;
     private DbHelper_date_sub dbHelperNote;
+    private long PARENT_ID;
     private ArrayList<NoteContract> list;
     private TrainingDataDialog_edit dialog;
 
@@ -67,22 +69,24 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
                     if (TextUtils.equals(type, "update") && holder instanceof ItemViewHolder) {
                         Cursor c =nDb.rawQuery("SELECT * FROM " + NoteContract.NoteDataEntry.TABLE_NAME + " WHERE " + NoteContract.NoteDataEntry._ID +
                                 "=" + "'"+holder.note_id+"'", null);
-                        if(c.getCount()>0) {
-                            c.moveToFirst();
-                            String name_value = c.getString(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
-                            int set_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
-                            int rep_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
-                            holder.itemView.setTag(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
-                            holder.name.setText(name_value);
-                            holder.set.setText(String.valueOf(set_value));
-                            holder.rep.setText(String.valueOf(rep_value));
+                        c.moveToFirst();
+                        String name_value = c.getString(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
+                        int set_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
+                        int rep_value = c.getInt(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
+                        float weight_value = c.getFloat(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_WEIGHT));
+                        holder.itemView.setTag(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+                        holder.name.setText(name_value);
+                        holder.set.setText(String.valueOf(set_value));
+                        holder.rep.setText(String.valueOf(rep_value));
+                        holder.weight.setText(String.valueOf(weight_value));
 
-                            holder.note_id = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
-                            holder.data.setId(c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID)));
-                            holder.data.setExerciseName(name_value);
-                            holder.data.setRep(rep_value);
-                            holder.data.setSet(set_value);
-                        }
+                        holder.note_id = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+                        holder.data.setId(c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID)));
+                        holder.data.setExerciseName(name_value);
+                        holder.data.setRep(rep_value);
+                        holder.data.setSet(set_value);
+                        holder.data.setWeight(weight_value);
+                        c.close();
                     }
                 }
             }
@@ -94,6 +98,7 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
         private TextView name;
         private TextView set;
         private TextView rep;
+        private TextView weight;
         private NoteContract data;
         private long note_id;
 
@@ -102,6 +107,7 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
             name = itemView.findViewById(R.id.exerciseNameTextView);
             set = itemView.findViewById(R.id.setTextView);
             rep = itemView.findViewById(R.id.repTextView);
+            weight = itemView.findViewById(R.id.weightTextView);
 
             itemView.setOnCreateContextMenuListener(this); //2. OnCreateContextMenuListener 리스너를 현재 클래스에서 구현한다고 설정해둡니다.
 
@@ -111,7 +117,8 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
             name.setText(list.get(position).getExerciseName());
             set.setText(String.valueOf(list.get(position).getSet()));
             rep.setText(String.valueOf(list.get(position).getRep()));
-            data = new NoteContract(list.get(position).getExerciseName(),list.get(position).getSet(),list.get(position).getRep());
+            weight.setText(String.valueOf(list.get(position).getWeight()));
+            data = new NoteContract(list.get(position).getExerciseName(),list.get(position).getSet(),list.get(position).getRep(),list.get(position).getWeight());
         }
 
         @Override
@@ -129,39 +136,31 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
 
                 switch (item.getItemId()) {
                     case 1001:  // 5. 편집 항목을 선택시
-                        dialog = new TrainingDataDialog_edit(mContext,true);
+                        dialog = new TrainingDataDialog_edit(mContext);
                         //기존엔 오류가 나서 mContext 전달값을  getApplicationContext()에서 ...activity.this로 변경 79줄
-                        dialog.setDialogListener(new DialogListener() {
+                        dialog.setDialogListener(new DataListener() {
                             @Override
-                            public void onPositiveClicked(int date, String part, String exercise) {}
-                            @Override
-                            public void onPositiveClicked() {
-                            }
-                            @Override
-                            public void onPositiveClicked(double height, double weight) {
-                            }
-                            @Override
-                            public void onPositiveClicked(String time, String name, int set, int rep) {
-                                editDB(name,set,rep);
+                            public void onPositiveClicked(String time, String name, int set, int rep, float weight) {
+                                editDB(name,set,rep, weight);
                                 notifyItemChanged(getAdapterPosition(),"update");
-                            }
-                            @Override
-                            public void onNegativeClicked() {
                             }
                         });
                         dialog.show();
                         dialog.getNameTextView().setText(data.getExerciseName());
                         dialog.getSetEditText().setText(String.valueOf(data.getSet()));
                         dialog.getRepEditText().setText(String.valueOf(data.getRep()));
+                        dialog.getWeightEditText().setText(String.valueOf(data.getWeight()));
                         break;
 
                     case 1002:
                         boolean result=deleteDB();
                         if(result==true){
                             Toast.makeText(mContext,"삭제 성공",Toast.LENGTH_SHORT).show();
+                            Log.d("delete","success");
                             notifyItemRemoved(getAdapterPosition());}
                         else{
                             Toast.makeText(mContext, "삭제 실패", Toast.LENGTH_SHORT).show();
+                            Log.d("delete","fail");
                         }
                         break;
 
@@ -169,11 +168,12 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
                 return true;
             }
         };
-        public void editDB(String name, int set, int rep){
+        public void editDB(String name, int set, int rep, float weight){
             ContentValues cv=new ContentValues();
             cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME,name);
             cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME,set);
             cv.put(NoteContract.NoteDataEntry.COLUMN_REP,rep);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_WEIGHT,weight);
             if(nDb.update(NoteContract.NoteDataEntry.TABLE_NAME,cv,NoteContract.NoteDataEntry._ID + "=?",new String[] {String.valueOf(note_id)})>0)
                 Toast.makeText(mContext,"편집 성공",Toast.LENGTH_SHORT).show();
             else
@@ -189,26 +189,23 @@ public class RecyclerAdapter_day extends RecyclerView.Adapter<RecyclerAdapter_da
                 }
             }
             Cursor c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME+ " where "+ NoteContract.NoteDataEntry._ID+"="+note_id,null);
-            if(c.getCount()>0) {
-                c.moveToFirst();
-                long foreign_key = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_KEY));
-                result = nDb.delete(NoteContract.NoteDataEntry.TABLE_NAME, NoteContract.NoteDataEntry._ID + "=" + note_id, null) > 0;
+            c.moveToFirst();
+            long foreign_key = c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_KEY));
+            result =  nDb.delete(NoteContract.NoteDataEntry.TABLE_NAME, NoteContract.NoteDataEntry._ID + "=" + note_id, null)>0;
 
-                if (result) {
-                    c = nDb.rawQuery("select * from " + NoteContract.NoteDataEntry.TABLE_NAME + " where " + NoteContract.NoteDataEntry.COLUMN_KEY + "=" + foreign_key, null);
-                    if (c.getCount() == 0) {
-                        Cursor c2 = mDb.rawQuery("select * from " + DateContract.DateContractEntry.TABLE_NAME + " where " + DateContract.DateContractEntry._ID + "=" + foreign_key, null);
-                        if (c2.getCount() > 0 && c2 != null) {
-                            c2.moveToFirst();
-                            mDb.delete(DateContract.DateContractEntry.TABLE_NAME, DateContract.DateContractEntry._ID + "=?", new String[]{foreign_key + ""});
-                            c.close();
-                            c2.close();
-                        }
+            if(result){
+                c = nDb.rawQuery("select * from "+ NoteContract.NoteDataEntry.TABLE_NAME+" where "+ NoteContract.NoteDataEntry.COLUMN_KEY+"="+foreign_key,null);
+                if(c.getCount()==0){
+                    Cursor c2 = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME +" where "+ DateContract.DateContractEntry._ID + "="+foreign_key,null);
+                    if(c2.getCount()>0&&c2!=null) {
+                        c2.moveToFirst();
+                        mDb.delete(DateContract.DateContractEntry.TABLE_NAME, DateContract.DateContractEntry._ID + "=?", new String[]{foreign_key + ""});
+                        c.close();
+                        c2.close();
                     }
                 }
-                return result;
-            } else
-                return false;
+            }
+            return result;
         }
     }
     // 어댑터에 현재 보관되고 있는 커서를 새로운 것으로 바꿔 UI를 갱신한다.

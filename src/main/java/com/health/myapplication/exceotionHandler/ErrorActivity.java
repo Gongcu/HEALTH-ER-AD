@@ -14,7 +14,7 @@ import com.health.myapplication.activity.MainActivity;
 
 
 public class ErrorActivity extends AppCompatActivity implements View.OnClickListener{
-    Button btn;
+    private Button btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

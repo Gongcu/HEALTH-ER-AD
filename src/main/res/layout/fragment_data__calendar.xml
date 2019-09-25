@@ -88,6 +88,13 @@
                                     android:textColor="@color/colorMain"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content" android:id="@+id/repTextView"/>
+                            <TextView
+                                android:text="무게"
+                                android:layout_weight="1"
+                                android:textStyle="bold"
+                                android:textColor="@color/colorMain"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" android:id="@+id/weightTextView"/>
                         </LinearLayout>
                     </LinearLayout>
                     <androidx.recyclerview.widget.RecyclerView

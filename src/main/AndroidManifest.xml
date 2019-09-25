@@ -33,6 +33,10 @@
         </activity>
         <activity android:name="com.health.myapplication.activity.CalculatorActivity" android:configChanges="screenSize|orientation">
         </activity>
+        <activity android:name="com.health.myapplication.activity_program.SixDayProgram" android:configChanges="screenSize|orientation">
+        </activity>
+        <activity android:name="com.health.myapplication.activity_program.SevenDayProgram" android:configChanges="screenSize|orientation">
+        </activity>
         <activity android:name="com.health.myapplication.activity_program.FourDayProgram" android:configChanges="screenSize|orientation">
         </activity>
         <activity android:name="com.health.myapplication.activity_program.ThreeDayProgram" android:configChanges="screenSize|orientation">

@@ -1,232 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="추천 프로그램"
-        android:background="@color/colorMain"
-        android:textColor="@color/colorWhite"
-        android:paddingVertical="5dp"
-        android:paddingLeft="16dp"
-        android:textSize="16dp"
-        android:textStyle="bold"
-        />
-    <androidx.cardview.widget.CardView
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:id="@+id/cardview"
-            app:cardCornerRadius="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem"
-                      android:background="@color/colorWhite"
-        >
-            <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/partImageView" android:layout_centerVertical="true"
-                    android:src="@drawable/one"/>
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                          android:background="@color/colorWhite">
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                              android:layout_marginTop="20dp">
-                    <TextView
-                            android:background="@color/colorWhite"
-                            android:textColor="@color/colorMain"
-                            android:text="무분할" android:layout_marginLeft="15dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent" android:id="@+id/partTextView"
-                            android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                    />
-                    <TextView
-                            android:textStyle="bold"
-                            android:background="@color/colorWhite"
-                            android:textColor="@color/colorSub4"
-                            android:text="  초급자 추천"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15dp" android:gravity="center_vertical"
-                    />
-                </LinearLayout>
-                <TextView
-                        android:layout_marginTop="5dp"
-                        android:background="@color/colorWhite"
-                        android:textColor="@color/colorMain"
-                        android:text="  1일차 전신 운동" android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp" android:gravity="center_vertical"
-                />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:id="@+id/cardview1"
-            app:cardCornerRadius="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem1"
-                      android:background="@color/colorWhite"
-        >
-            <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/partImageView1" android:layout_centerVertical="true"
-                    android:src="@drawable/two"/>
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                      android:background="@color/colorWhite">
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                          android:layout_marginTop="20dp">
-            <TextView
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorMain"
-                    android:text="2분할" android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/partTextView1"
-                    android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-            />
-            <TextView
-                    android:textStyle="bold"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorSub4"
-                    android:text="  초보자, 중급자 추천"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp" android:gravity="center_vertical"
-            />
-        </LinearLayout>
-            <TextView
-                    android:layout_marginTop="5dp"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorMain"
-                    android:text="  1일차 등,가슴. 2일차 하체,어깨" android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp" android:gravity="center_vertical"
-            />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:id="@+id/cardview2"
-            app:cardCornerRadius="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem2"
-                      android:background="@color/colorWhite"
-        >
-            <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/partImageView2" android:layout_centerVertical="true"
-                    android:src="@drawable/three"/>
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                          android:background="@color/colorWhite">
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                              android:layout_marginTop="20dp">
-            <TextView
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorMain"
-                    android:text="3분할" android:layout_marginLeft="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent" android:id="@+id/partTextView2"
-                    android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-            />
-            <TextView
-                    android:textStyle="bold"
-                    android:background="@color/colorWhite"
-                    android:textColor="@color/colorSub4"
-                    android:text="  중급자 추천"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="15dp" android:gravity="center_vertical"
-            />
-        </LinearLayout>
-    <TextView
-            android:layout_marginTop="5dp"
-            android:background="@color/colorWhite"
-            android:textColor="@color/colorMain"
-            android:text="  1일차 가슴,삼두. 2일차 등,이두. 3일차 하체,어깨" android:layout_marginLeft="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15dp" android:gravity="center_vertical"
-    />
-</LinearLayout>
-
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
-    <androidx.cardview.widget.CardView
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:id="@+id/cardview3"
-            app:cardCornerRadius="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem3"
-                      android:background="@color/colorWhite"
-        >
-            <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/partImageView3" android:layout_centerVertical="true"
-                    android:src="@drawable/four"/>
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                          android:background="@color/colorWhite">
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                              android:layout_marginTop="20dp">
-                    <TextView
-                            android:background="@color/colorWhite"
-                            android:textColor="@color/colorMain"
-                            android:text="4분할" android:layout_marginLeft="15dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent" android:id="@+id/partTextView3"
-                            android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                    />
-                    <TextView
-                            android:textStyle="bold"
-                            android:background="@color/colorWhite"
-                            android:textColor="@color/colorSub4"
-                            android:text="  중급자, 고급자 추천"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15dp" android:gravity="center_vertical"
-                    />
-                </LinearLayout>
-                <TextView
-                        android:layout_marginTop="5dp"
-                        android:background="@color/colorWhite"
-                        android:textColor="@color/colorMain"
-                        android:text="  1일차 가슴,삼두. 2일차 등,이두. 3일차 어깨,복근. 4일차 하체." android:layout_marginLeft="15dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp" android:gravity="center_vertical"
-                />
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         ads:adSize="BANNER"
+        android:layout_gravity="center"
         ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+    <androidx.cardview.widget.CardView
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/cardview"
+        app:cardCornerRadius="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem"
+            android:background="@color/colorWhite"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/partImageView" android:layout_centerVertical="true"
+                android:src="@drawable/one"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="@color/colorWhite">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorMain"
+                        android:text="무분할" android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:id="@+id/partTextView"
+                        android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorSub4"
+                        android:text="  초급자 추천"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp" android:gravity="center_vertical"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorMain"
+                    android:text="1일:전신 운동" android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp" android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/cardview1"
+        app:cardCornerRadius="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem1"
+            android:background="@color/colorWhite"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/partImageView1" android:layout_centerVertical="true"
+                android:src="@drawable/two"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="@color/colorWhite">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorMain"
+                        android:text="2분할" android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:id="@+id/partTextView1"
+                        android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorSub4"
+                        android:text="  초보자, 중급자 추천"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp" android:gravity="center_vertical"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorMain"
+                    android:text="1일:등,가슴  2일:하체,어깨" android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp" android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/cardview2"
+        app:cardCornerRadius="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem2"
+            android:background="@color/colorWhite"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/partImageView2" android:layout_centerVertical="true"
+                android:src="@drawable/three"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="@color/colorWhite">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorMain"
+                        android:text="3분할" android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:id="@+id/partTextView2"
+                        android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorSub4"
+                        android:text="  중급자 추천"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp" android:gravity="center_vertical"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorMain"
+                    android:text="1일:가슴,삼두 2일:등,이두 3일:하체,어깨" android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp" android:gravity="center_vertical"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:id="@+id/cardview3"
+        app:cardCornerRadius="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem3"
+            android:background="@color/colorWhite"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:id="@+id/partImageView3" android:layout_centerVertical="true"
+                android:src="@drawable/four"/>
+            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
+                android:background="@color/colorWhite">
+                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorMain"
+                        android:text="4분할" android:layout_marginLeft="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent" android:id="@+id/partTextView3"
+                        android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
+                        />
+                    <TextView
+                        android:textStyle="bold"
+                        android:background="@color/colorWhite"
+                        android:textColor="@color/colorSub4"
+                        android:text="  중급자, 고급자 추천"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp" android:gravity="center_vertical"
+                        />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorWhite"
+                    android:textColor="@color/colorMain"
+                    android:text="1일:가슴,삼두  2일:등,이두  3일:어깨,복근  4일:하체" android:layout_marginLeft="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp" android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

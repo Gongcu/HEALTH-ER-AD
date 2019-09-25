@@ -33,19 +33,4 @@ public class ContentsPagerAdapter_pro extends FragmentStatePagerAdapter {
         return mPageCount;
     }
 
-/*
-    @Override
-    public int getItemPosition(Object object) {
-        if (object instanceof RecommendFragment) {
-            // Create a new method notifyUpdate() in your fragment
-            // it will get call when you invoke
-            // notifyDatasetChaged();
-           // ((RecommendFragment) object).update();
-        } else if((object instanceof RecommendFragment)){
-            //((RecommendFragment) object).update();
-        }
-        //don't return POSITION_NONE, avoid fragment recreation.
-        return super.getItemPosition(object);
-    }*/
-
 }

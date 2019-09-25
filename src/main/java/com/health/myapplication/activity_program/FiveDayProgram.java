@@ -25,7 +25,7 @@ public class FiveDayProgram extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_novice);
         mContext = this;
-
+        final ShowAlert alert = new ShowAlert(mContext);
         mViewPager = (ViewPager) findViewById(R.id.pager_content);
         mTabLayout = (TabLayout) findViewById(R.id.layout_tab);
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("1일차")));

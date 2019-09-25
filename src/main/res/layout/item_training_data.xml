@@ -40,5 +40,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/repTextView" android:hint="rep"/>
+        <TextView
+            android:layout_marginLeft="25dp"
+            android:textColor="@color/colorMain"
+            android:textSize="13dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/weightTextView" android:hint="weight"/>
+        <TextView
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/colorMain"
+            android:textSize="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kg"/>
     </LinearLayout>
 </LinearLayout>

@@ -43,9 +43,7 @@ public class Data_CalendarFragment extends Fragment {
     private String date;
     private Bundle bundle;
     private TextView textView,textView2;
-    private TextView nameTextView;
-    private TextView setTextView;
-    private TextView repTextView;
+
     private RecyclerAdapter_day adapter;
     private RecyclerView recyclerView;
     private SQLiteDatabase mDb, nDb;
@@ -86,12 +84,10 @@ public class Data_CalendarFragment extends Fragment {
 
         textView = view.findViewById(R.id.textView6);
         textView2 = view.findViewById(R.id.textView7);
-        nameTextView = view.findViewById(R.id.exerciseNameTextView);
-        setTextView = view.findViewById(R.id.setTextView);
-        repTextView = view. findViewById(R.id.repTextView);
+
         recyclerView = view.findViewById(R.id.recyclerView);
         materialCalendarView = view.findViewById(R.id.calendarView);
-
+        update();
         materialCalendarView.state().edit()
                 .setFirstDayOfWeek(Calendar.SUNDAY)
                 .setMinimumDate(CalendarDay.from(2017, 0, 1))
@@ -151,8 +147,9 @@ public class Data_CalendarFragment extends Fragment {
             String name = c2.getString(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME));
             int set = c2.getInt(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_SETTIME));
             int rep = c2.getInt(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_REP));
+            float weight = c2.getFloat(c2.getColumnIndex(NoteContract.NoteDataEntry.COLUMN_WEIGHT));
             long current_id = c2.getLong(c2.getColumnIndex(NoteContract.NoteDataEntry._ID));
-            NoteContract data = new NoteContract(name,set,rep);
+            NoteContract data = new NoteContract(name,set,rep,weight);
             data.setId(current_id);
             list.add(data);
         } while (c2.moveToNext());

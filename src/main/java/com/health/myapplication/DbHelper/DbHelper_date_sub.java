@@ -3,12 +3,14 @@ package com.health.myapplication.DbHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;
 
 public class DbHelper_date_sub extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "exercisenote.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public DbHelper_date_sub(Context context){
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
@@ -23,10 +25,11 @@ public class DbHelper_date_sub extends SQLiteOpenHelper {
                 NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME + " TEXT NOT NULL, " +
                 NoteContract.NoteDataEntry.COLUMN_REP + " INTEGER NOT NULL, " +
                 NoteContract.NoteDataEntry.COLUMN_SETTIME + " INTEGER NOT NULL, " + //스페이스바 확인
+                NoteContract.NoteDataEntry.COLUMN_WEIGHT + " REAL NOT NULL, " + //스페이스바 확인
                 NoteContract.NoteDataEntry.COLUMN_KEY + " INTEGER, " +
                 NoteContract.NoteDataEntry.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP, "+
-                 " FOREIGN KEY ("+NoteContract.NoteDataEntry.COLUMN_KEY+") REFERENCES "+ DateContract.DateContractEntry.TABLE_NAME +" ("+DateContract.DateContractEntry._ID+"));";
-                //");";
+                " FOREIGN KEY ("+NoteContract.NoteDataEntry.COLUMN_KEY+") REFERENCES "+ DateContract.DateContractEntry.TABLE_NAME +" ("+DateContract.DateContractEntry._ID+"));";
+        //");";
 
         //ON DELETE CASCADE
         //PRAGMA foreign_keys = ON;

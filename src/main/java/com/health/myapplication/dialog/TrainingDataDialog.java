@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
 import com.health.myapplication.R;
+import com.health.myapplication.listener.DataListener;
 import com.health.myapplication.listener.DialogListener;
 
 import java.text.SimpleDateFormat;
@@ -17,7 +18,7 @@ import java.util.Date;
 public class TrainingDataDialog extends Dialog implements View.OnClickListener {
     private Context mContext;
 
-    private DialogListener listener;
+    private DataListener listener;
     private Button saveBtn;
     private Button quitBtn;
 
@@ -31,6 +32,7 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
    //private EditText nameEditText;
     private EditText setEditText;
     private EditText repEditText;
+    private EditText weightEditText;
 
     String choice_main="";
     String choice_sub="";
@@ -39,6 +41,7 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
     private String name="";
     private int set=0;
     private int rep=0;
+    private float weight =0;
 
     private boolean edit; //이건 Recycler_note에서 데이터 편집시 운동정보입력을 운동정보편집으로 바꾸기 위한 변수
 
@@ -119,6 +122,8 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
 
         setEditText = findViewById(R.id.setEditText);
         repEditText = findViewById(R.id.repEditText);
+        weightEditText = findViewById(R.id.weightEditText);
+
 
         //셋팅
         saveBtn=(Button)findViewById(R.id.saveBtn);
@@ -134,7 +139,7 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
         this.edit=false;
     }
 
-    public void setDialogListener(DialogListener dialogListener){
+    public void setDialogListener(DataListener dialogListener){
         this.listener = dialogListener;
     }
 
@@ -147,12 +152,13 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
                     String strTime = dateFormat.format(time);
                     set = Integer.parseInt(setEditText.getText().toString());
                     rep = Integer.parseInt(repEditText.getText().toString());
+                    weight = Float.parseFloat(weightEditText.getText().toString());
                     if(DIRECT_EDIT)
                         choice_sub = directEditText.getText().toString();//입력받은 값을 변수에 저장
                     if(choice_sub.equals("")||choice_sub==null)
                         Toast.makeText(mContext, "값을 입력해주세요", Toast.LENGTH_SHORT).show();
                     else {
-                        listener.onPositiveClicked(strTime, choice_sub,set,rep);
+                        listener.onPositiveClicked(strTime, choice_sub,set,rep,weight);
                     }
                 }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"값을 입력해주세요", Toast.LENGTH_SHORT).show();}
                 dismiss();
@@ -205,4 +211,13 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
     public void setRepEditText(EditText repEditText) {
         this.repEditText = repEditText;
     }
+
+    public EditText getWeightEditText() {
+        return weightEditText;
+    }
+
+    public void setWeightEditText(EditText repEditText) {
+        this.weightEditText = repEditText;
+    }
+
 }

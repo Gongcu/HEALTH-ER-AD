@@ -25,6 +25,7 @@ import com.health.myapplication.data.CalContract;
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;
 import com.health.myapplication.dialog.TrainingDataDialog;
+import com.health.myapplication.listener.DataListener;
 import com.health.myapplication.listener.DialogListener;
 
 import java.util.ArrayList;
@@ -82,23 +83,13 @@ public class Data_DataFragment extends Fragment {
             @Override
             public void onClick (View view){
                 dialog = new TrainingDataDialog(getActivity());
-                dialog.setDialogListener(new DialogListener() {  // DialogListener 를 구현 추상 클래스이므로 구현 필수 -> dialog의 값을 전달 받음
+                dialog.setDialogListener(new DataListener() {  // DialogListener 를 구현 추상 클래스이므로 구현 필수 -> dialog의 값을 전달 받음
                     @Override
-                    public void onPositiveClicked(int date, String part, String exercise) {}
-                    @Override
-                    public void onPositiveClicked() {
-                    }
-                    @Override
-                    public void onPositiveClicked(double height, double weight) {
-                    }
-                    @Override
-                    public void onPositiveClicked(String time, String name, int set, int rep) {
-                        setResult(time, name, set,rep);
-                        addToDate(recyclerView, time,name,set,rep);
+                    public void onPositiveClicked(String time, String name, int set, int rep, float weight) {
+                        setResult(time, name, set,rep,weight);
+                        addToDate(recyclerView, time,name,set,rep,weight);
                     }
 
-                    @Override
-                    public void onNegativeClicked() { }
                 });
                 dialog.show();
             }
@@ -106,7 +97,7 @@ public class Data_DataFragment extends Fragment {
 
     }
 
-    public void addToDate(View view, String date, String name, int set, int rep) {
+    public void addToDate(View view, String date, String name, int set, int rep, float weight) {
         ContentValues cv = new ContentValues();
 
         int add_mode =0; //0 없는경우, 1 있는경우
@@ -146,6 +137,7 @@ public class Data_DataFragment extends Fragment {
                 cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME, name);
                 cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
                 cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);
+                cv.put(NoteContract.NoteDataEntry.COLUMN_WEIGHT, weight);
                 nDb.insert(NoteContract.NoteDataEntry.TABLE_NAME, null, cv);
                 dAdapter = null;
                 dAdapter = new RecyclerAdapter_date(getActivity(), getAllDate(),getAllNote(),date_list);
@@ -156,6 +148,7 @@ public class Data_DataFragment extends Fragment {
                 cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME, name);
                 cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
                 cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);
+                cv.put(NoteContract.NoteDataEntry.COLUMN_WEIGHT, weight);
                 nDb.insert(NoteContract.NoteDataEntry.TABLE_NAME, null, cv);
                 dAdapter = null;
                 dAdapter = new RecyclerAdapter_date(getActivity(), getAllDate(),getAllNote(),date_list);
@@ -209,19 +202,19 @@ public class Data_DataFragment extends Fragment {
     }
 
     //for dialog listener
-    private void setResult(String date, String name, int set,int rep){
+    private void setResult(String date, String name, int set,int rep,float weight){
         int check=0;
         for(int i=0; i<list.size(); i++){
             if(list.get(i).getDate().equals(date))
             {
-                NoteContract data = new NoteContract(name,set,rep);
+                NoteContract data = new NoteContract(name,set,rep,weight);
                 list.get(i).getList().add(data);
                 check=1;
                 return;
             }
         }
         if(check==0) //겹치는 날이 없을경우
-            list.add(new DateContract(date, new NoteContract(name,set,rep)));
+            list.add(new DateContract(date, new NoteContract(name,set,rep,weight)));
     }
 
     public void update(){

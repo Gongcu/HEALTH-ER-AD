@@ -49,7 +49,7 @@ public class ProgramSelectDialog extends Dialog implements View.OnClickListener{
         getWindow().setAttributes(layoutParams);
 
 
-        for (int i=0; i<5; i++) {
+        for (int i=0; i<7; i++) {
             if(i==0)
                 date.add("무분할");
             else

@@ -39,8 +39,8 @@
             ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
     </LinearLayout>
     <Button
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:id="@+id/imageAddButton"
             android:background="@drawable/addbutton_states"
             android:layout_marginRight="8dp"

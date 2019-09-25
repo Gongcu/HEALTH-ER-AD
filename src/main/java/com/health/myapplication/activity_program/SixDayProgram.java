@@ -6,14 +6,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
+
 import com.google.android.material.tabs.TabLayout;
 import com.health.myapplication.R;
 import com.health.myapplication.view_pager.ContentsPagerAdapter_pro;
 
-public class TwoDayProgram extends AppCompatActivity {
-    private static final int ACTIVITY = 2;
+public class SixDayProgram extends AppCompatActivity {
+    private static final int ACTIVITY = 6;
     private Context mContext;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -23,7 +25,6 @@ public class TwoDayProgram extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
         setContentView(R.layout.activity_novice);
         mContext = this;
         final ShowAlert alert = new ShowAlert(mContext);
@@ -31,9 +32,13 @@ public class TwoDayProgram extends AppCompatActivity {
         mTabLayout = (TabLayout) findViewById(R.id.layout_tab);
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("1일차")));
         mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("2일차")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("3일차")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("4일차")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("5일차")));
+        mTabLayout.addTab(mTabLayout.newTab().setCustomView(createTabView("6일차")));
 
         mContentsPagerAdapter = new ContentsPagerAdapter_pro(
-                getSupportFragmentManager(), mTabLayout.getTabCount(), TwoDayProgram.this,ACTIVITY);
+                getSupportFragmentManager(), mTabLayout.getTabCount(), SixDayProgram.this,ACTIVITY);
 
         mViewPager.setAdapter(mContentsPagerAdapter);
 

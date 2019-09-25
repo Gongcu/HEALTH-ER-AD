@@ -29,6 +29,13 @@
             android:textColor="@color/colorMain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/repTextView"/>
+        <TextView
+            android:text="weight"
+            android:paddingLeft="10dp"
+            android:layout_weight="1"
+            android:textColor="@color/colorMain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/weightTextView"/>
     </LinearLayout>
 
 </LinearLayout>
