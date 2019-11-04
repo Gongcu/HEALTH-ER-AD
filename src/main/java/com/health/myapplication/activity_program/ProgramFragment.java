@@ -27,6 +27,7 @@ import com.health.myapplication.adapter.RecyclerAdapter_part;
 import com.health.myapplication.callback.ItemTouchHelperCallback;
 import com.health.myapplication.data.ProgramContract;
 import com.health.myapplication.dialog.ProgramDialog;
+import com.health.myapplication.fragment.Data_CalendarFragment;
 import com.health.myapplication.listener.ProgramDialogListener;
 
 import java.util.ArrayList;
@@ -36,7 +37,6 @@ import java.util.Collections;
  * A simple {@link Fragment} subclass.`
  */
 public class ProgramFragment extends Fragment implements ItemTouchHelperCallback.ItemMoveListener {
-    private Context mContext;
     private static final String TAG="RECOMMEND FRAGMENT";
     private TextView textView;
     private RecyclerView recyclerView;
@@ -61,17 +61,20 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
     public ProgramFragment() {
     }
 
-    public ProgramFragment(Context context, int DATE, int ACTIVITY_NUMBER) {
-        mContext=context;
-        this.DATE = DATE;
-        this.ACTIVITY_NUMBER = ACTIVITY_NUMBER;
+    public static ProgramFragment newInstance(int DATE, int ACTIVITY_NUMBER) {
+        ProgramFragment fragment = new ProgramFragment();
+        Bundle args = new Bundle();
+        args.putInt("date",DATE);
+        args.putInt("activity_number", ACTIVITY_NUMBER);
+        fragment.setArguments(args);
+        return fragment;
     }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        this.DATE=getArguments().getInt("date");
+        this.ACTIVITY_NUMBER=getArguments().getInt("activity_number");
         return inflater.inflate(R.layout.fragment_program, container, false);
     }
 

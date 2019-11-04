@@ -95,6 +95,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:inputType="numberDecimal"
             android:id="@+id/weightEditText"  android:hint="중량을 입력하세요"/>
     </LinearLayout>
     <LinearLayout

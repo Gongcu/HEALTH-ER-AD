@@ -1,6 +1,7 @@
 package com.health.myapplication.activity
 
 import android.content.Intent
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
         setContentView(com.health.myapplication.R.layout.activity_main)
+        dateText.setTypeface(Typeface.DEFAULT_BOLD)
 
          MobileAds.initialize(this) { }
 

@@ -110,7 +110,9 @@ public class Data_DayFragment extends Fragment {
         ContentValues cv = new ContentValues();
 
         if(dateChecker(date)){  //함수에 의해 커서 체크 안해도 됨
-            Cursor c = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME,null);             c.moveToLast();
+            Cursor c = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME+" where "+
+                    DateContract.DateContractEntry.COLUMN_DATE+"='"+date+"'",null);
+            c.moveToLast();
             long parent_id = c.getLong(c.getColumnIndex(DateContract.DateContractEntry._ID));
             cv.clear();
             cv.put(NoteContract.NoteDataEntry.COLUMN_KEY, parent_id);
@@ -136,7 +138,7 @@ public class Data_DayFragment extends Fragment {
             long parent_id = c.getLong(c.getColumnIndex(DateContract.DateContractEntry._ID));
 
             cv.clear();
-            cv.put(NoteContract.NoteDataEntry.COLUMN_KEY, parent_id); //부모키(가장 최신 날짜)
+            cv.put(NoteContract.NoteDataEntry.COLUMN_KEY, parent_id); //부모키(가장 최신 삽입 날짜)
             cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME, name);
             cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
             cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);

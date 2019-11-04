@@ -43,7 +43,9 @@ public class BodyWeight_DataFragment extends Fragment {
     private double weight = 0.0;
 
     private AdView mAdView;
-
+    public BodyWeight_DataFragment() {
+        // Required empty public constructor
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -13,7 +13,6 @@
                     android:textSize="15dp"
                     android:textColor="@color/colorWhite"
                     android:paddingVertical="5dp"
-                    android:textStyle="italic"
                     android:text="HEARTH-ER"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/dateText"/>
@@ -22,10 +21,10 @@
                     android:clickable="true"
                     android:foreground="?attr/selectableItemBackground"
                     android:id="@+id/view1"
-                    android:layout_marginTop="5dp"
-                    card_cview:cardCornerRadius="3dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                     android:layout_margin="5dp"
+                     card_cview:cardCornerRadius="3dp"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
                     android:padding="10dp">>
                 <LinearLayout
                         android:layout_width="wrap_content"

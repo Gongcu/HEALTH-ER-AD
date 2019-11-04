@@ -2,6 +2,7 @@ package com.health.myapplication.fragment;
 
 
 import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
@@ -11,9 +12,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import com.health.myapplication.DbHelper.DbHelper_date;
 import com.health.myapplication.DbHelper.DbHelper_date_sub;
@@ -24,6 +28,8 @@ import com.health.myapplication.calendar.SaturdayDecorator;
 import com.health.myapplication.calendar.SundayDecorator;
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;
+import com.health.myapplication.dialog.TrainingDataDialog;
+import com.health.myapplication.listener.DataListener;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.CalendarMode;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
@@ -38,10 +44,11 @@ import java.util.Date;
  * A simple {@link Fragment} subclass.
  */
 public class Data_CalendarFragment extends Fragment {
+    private TrainingDataDialog dialog;
     private MaterialCalendarView materialCalendarView;
     private static final String ARG_PARAM1 = "date_param1";
-    private String date;
-    private Bundle bundle;
+    private Button addButton;
+    private long ID;
     private TextView textView,textView2;
 
     private RecyclerAdapter_day adapter;
@@ -54,6 +61,8 @@ public class Data_CalendarFragment extends Fragment {
     private SimpleDateFormat sdfDay = new SimpleDateFormat("dd");
     private ArrayList<NoteContract> list;
     private static final ArrayList<NoteContract> EMPTY_LIST=new ArrayList<>();
+    private Date date = new Date();
+    private String strDate;
 
 
     public Data_CalendarFragment() {
@@ -81,9 +90,11 @@ public class Data_CalendarFragment extends Fragment {
         dbHelperNote = new DbHelper_date_sub(getActivity());
         mDb = dbHelperDate.getWritableDatabase();
         nDb = dbHelperNote.getWritableDatabase();
+        strDate = sdf.format(date); //initialize
 
         textView = view.findViewById(R.id.textView6);
         textView2 = view.findViewById(R.id.textView7);
+        addButton = view.findViewById(R.id.addButton);
 
         recyclerView = view.findViewById(R.id.recyclerView);
         materialCalendarView = view.findViewById(R.id.calendarView);
@@ -103,7 +114,7 @@ public class Data_CalendarFragment extends Fragment {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 Date d = date.getDate();
-                String strDate =sdf.format(d);
+                strDate =sdf.format(d);
                 String text=sdfDay.format(d);
 
                 Calendar calendar = Calendar.getInstance();
@@ -114,7 +125,26 @@ public class Data_CalendarFragment extends Fragment {
                 setRecyclerView(strDate);
             }
         });
-
+        addButton.setOnClickListener(new Button.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                dialog = new TrainingDataDialog(getActivity());
+                dialog.setDialogListener(new DataListener() {  // DialogListener 를 구현 추상 클래스이므로 구현 필수 -> dialog의 값을 전달 받음
+                    @Override
+                    public void onPositiveClicked(String time, String name, int set, int rep,float weight) {
+                        if(addToDate(strDate,name,set,rep,weight)) {
+                            Log.d("strDATE TEST", strDate);
+                            NoteContract data = new NoteContract(name, set, rep,weight);
+                            data.setId(ID);
+                            setRecyclerView(strDate);
+                            //adapter.addItem(data);
+                            //adapter.notifyDataSetChanged();
+                        }
+                    }
+                });
+                dialog.show();
+            }
+        });
         super.onViewCreated(view, savedInstanceState);
     }
 
@@ -202,5 +232,55 @@ public class Data_CalendarFragment extends Fragment {
         Date date = new Date();
         String strDate = sdf.format(date);
         setRecyclerView(strDate);
+    }
+
+    public boolean addToDate(String date, String name, int set, int rep,float weight) {
+        ContentValues cv = new ContentValues();
+
+        if(dateChecker(date)){
+            Cursor c = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME + " where "+DateContract.DateContractEntry.COLUMN_DATE+"='"+date+"'",null);
+            c.moveToLast();
+            long parent_id = c.getLong(c.getColumnIndex(DateContract.DateContractEntry._ID));
+            cv.clear();
+            cv.put(NoteContract.NoteDataEntry.COLUMN_KEY, parent_id);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME, name);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_WEIGHT, weight);
+            nDb.insert(NoteContract.NoteDataEntry.TABLE_NAME, null, cv);
+            c = nDb.rawQuery("select * from "+ NoteContract.NoteDataEntry.TABLE_NAME,null);
+            c.moveToLast();
+            ID=c.getLong(c.getColumnIndex(NoteContract.NoteDataEntry._ID));
+            c.close();
+            return true;
+        }else{
+            cv.clear();
+            cv.put(DateContract.DateContractEntry.COLUMN_DATE, date);
+            mDb.insert(DateContract.DateContractEntry.TABLE_NAME, null, cv);
+
+            //방금 삼입한 최신 데이터의 id 가져오김
+            Cursor c = mDb.rawQuery("select * from "+ DateContract.DateContractEntry.TABLE_NAME,null);
+            c.moveToLast();
+            long parent_id = c.getLong(c.getColumnIndex(DateContract.DateContractEntry._ID));
+
+            cv.clear();
+            cv.put(NoteContract.NoteDataEntry.COLUMN_KEY, parent_id); //부모키(가장 최신 날짜)
+            cv.put(NoteContract.NoteDataEntry.COLUMN_EXERCISE_NAME, name);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_SETTIME, set);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_REP, rep);
+            cv.put(NoteContract.NoteDataEntry.COLUMN_WEIGHT, weight);
+            nDb.insert(NoteContract.NoteDataEntry.TABLE_NAME, null, cv);
+
+            return true;
+        }
+    }
+
+    private boolean dateChecker(String date){
+        Cursor c = mDb.rawQuery("select * from "+DateContract.DateContractEntry.TABLE_NAME+" where "+
+                DateContract.DateContractEntry.COLUMN_DATE+"='"+date+"'",null);
+        if(c.getCount()>0)
+            return true;
+        else
+            return false;
     }
 }

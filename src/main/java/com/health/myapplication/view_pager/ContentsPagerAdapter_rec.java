@@ -25,7 +25,7 @@ public class ContentsPagerAdapter_rec extends FragmentStatePagerAdapter {
     @Override
 
     public Fragment getItem(int position) {
-        return new RecommendFragment(mContext, position+1, LEVEL);
+        return RecommendFragment.newInstance(position+1, LEVEL);
     }
 
     @Override

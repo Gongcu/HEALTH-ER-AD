@@ -25,7 +25,7 @@ public class ContentsPagerAdapter_pro extends FragmentStatePagerAdapter {
     @Override
 
     public Fragment getItem(int position) {
-        return new ProgramFragment(mContext, position+1, ACTIVITY);
+        return ProgramFragment.newInstance(position+1, ACTIVITY);
     }
 
     @Override

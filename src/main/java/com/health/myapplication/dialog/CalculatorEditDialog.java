@@ -80,6 +80,7 @@ public class CalculatorEditDialog extends Dialog implements View.OnClickListener
                         one_rm=weight;
                     else{
                         one_rm=weight+(weight*0.025*rep);
+                        one_rm=Math.round(one_rm*100)/100.0;
                     }
                     listener.onPositiveClicked(strTime,name,one_rm);
                 }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"올바른 값을 입력해주세요", Toast.LENGTH_SHORT).show();}

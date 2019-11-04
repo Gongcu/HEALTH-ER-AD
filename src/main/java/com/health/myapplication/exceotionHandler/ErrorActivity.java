@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.health.myapplication.R;
+import com.health.myapplication.activity.LoadingActivity;
 import com.health.myapplication.activity.MainActivity;
 
 
@@ -32,11 +33,10 @@ public class ErrorActivity extends AppCompatActivity implements View.OnClickList
     }
 
     private void restartApp() {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        int mPendingIntentId = 1;
-        PendingIntent mPendingIntent = PendingIntent.getActivity(getApplicationContext(), mPendingIntentId, intent, PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager mgr = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-        mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
-        System.exit(0);
+        Intent i = getBaseContext().getPackageManager().
+                getLaunchIntentForPackage(getBaseContext().getPackageName());
+        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(i);
     }
 }

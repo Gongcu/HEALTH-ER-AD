@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.health.myapplication.R;
+import com.health.myapplication.activity_program.ProgramFragment;
 import com.health.myapplication.adapter.RecyclerAdapter_rec;
 import com.health.myapplication.data.ExerciseData;
 import org.json.JSONArray;
@@ -28,7 +29,6 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class RecommendFragment extends Fragment {
-    private Context mContext;
     private static final String TAG="RECOMMEND FRAGMENT";
     private TextView textView;
     private RecyclerView recyclerView;
@@ -51,17 +51,22 @@ public class RecommendFragment extends Fragment {
     public RecommendFragment() {
     }
 
-    public RecommendFragment(Context context, int TYPE, int LEVEL) {
-        mContext=context;
-        this.TYPE = TYPE;
-        this.LEVEL = LEVEL;
-    }
 
+    public static RecommendFragment newInstance(int TYPE, int LEVEL) {
+        RecommendFragment fragment = new RecommendFragment();
+        Bundle args = new Bundle();
+        args.putInt("type",TYPE);
+        args.putInt("level", LEVEL);
+        fragment.setArguments(args);
+        return fragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        this.TYPE=getArguments().getInt("type");
+        this.LEVEL=getArguments().getInt("level");
         return inflater.inflate(R.layout.fragment_recommend, container, false);
     }
 
@@ -142,7 +147,7 @@ public class RecommendFragment extends Fragment {
         list_image = new ArrayList<>();
         //Context context;
         try {
-            InputStream is = mContext.getAssets().open("exercise.json");
+            InputStream is = getActivity().getAssets().open("exercise.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -173,7 +178,7 @@ public class RecommendFragment extends Fragment {
         list_image = new ArrayList<>();
         //Context context;
         try {
-            InputStream is = mContext.getAssets().open("exercise.json");
+            InputStream is = getActivity().getAssets().open("exercise.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -205,7 +210,7 @@ public class RecommendFragment extends Fragment {
         list_image = new ArrayList<>();
         //Context context;
         try {
-            InputStream is = mContext.getAssets().open("exercise.json");
+            InputStream is = getActivity().getAssets().open("exercise.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -236,7 +241,7 @@ public class RecommendFragment extends Fragment {
         list_image = new ArrayList<>();
         //Context context;
         try {
-            InputStream is = mContext.getAssets().open("exercise.json");
+            InputStream is = getActivity().getAssets().open("exercise.json");
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
