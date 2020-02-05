@@ -1,20 +1,33 @@
 package com.health.myapplication.activity
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.graphics.Typeface
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.health.myapplication.R
+import com.health.myapplication.alarm.MyAlarmReceiver
 import com.health.myapplication.exceotionHandler.ExceptionHandler
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
     lateinit var adView : AdView
+
+    //FOR ALARM
+    private val REQUEST_CODE = 100
+    private lateinit var alarmManager: AlarmManager
+    private lateinit var pendingIntent: PendingIntent
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
@@ -53,6 +66,54 @@ class MainActivity : AppCompatActivity() {
         view6.setOnClickListener {
             val intent = Intent(this@MainActivity, RecommendActivity::class.java)
             startActivity(intent)
+        }
+
+        startButton.setOnClickListener{
+            // Creating the pending intent to send to the BroadcastReceiver
+            try {
+                alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                val intent = Intent(this, MyAlarmReceiver::class.java)
+                pendingIntent = PendingIntent.getBroadcast(this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+                // Setting the specific time for the alarm manager to trigger the intent
+                val calendar = Calendar.getInstance()
+                calendar.timeInMillis = System.currentTimeMillis()
+
+                //0~60초, 분 이내의 시간 입력
+                if(Integer.parseInt(secondEditText.text.toString())>60 || Integer.parseInt(secondEditText.text.toString())<0 ||
+                        Integer.parseInt(minuteEditText.text.toString())>60 || Integer.parseInt(minuteEditText.text.toString())<0 ){
+                    Toast.makeText(this@MainActivity, "올바른 시간을 입력하세요.", Toast.LENGTH_LONG).show()
+                }
+                else {
+                    calendar.add(Calendar.SECOND, Integer.parseInt(secondEditText.text.toString()))
+                    calendar.add(Calendar.MINUTE, Integer.parseInt(minuteEditText.text.toString()))
+
+                    //currentTime
+                    /*
+                var currentTime = Calendar.getInstance()
+                currentTime.add(Calendar.SECOND, Integer.parseInt(secondEditText.text.toString()))
+                currentTime.set(Calendar.MINUTE, Integer.parseInt(minuteEditText.text.toString()))*/
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+                    } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+                    } else {
+                        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+                    }
+                    /*되는것
+                // Starts the alarm manager
+                alarmManager.setRepeating(
+                        AlarmManager.RTC,
+                        calendar.timeInMillis,
+                        AlarmManager.INTERVAL_DAY,
+                        pendingIntent
+                )*/
+                    Toast.makeText(this@MainActivity, minuteEditText.text.toString() + "분 " + secondEditText.text.toString() + "초 뒤에 알람이 울립니다", Toast.LENGTH_SHORT).show()
+                }
+            }catch (e: Exception) {
+                Toast.makeText(this@MainActivity, "알람 설정 오류", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
