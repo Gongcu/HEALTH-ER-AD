@@ -21,7 +21,8 @@
             android:id="@+id/partImageView" android:layout_centerVertical="true"
             android:src="@drawable/one"/>
     <TextView
-            android:background="@color/colorWhite"
+        app:fontFamily="@font/mapo_peace"
+        android:background="@color/colorWhite"
             android:textColor="@color/colorMain"
             android:text="TextView" android:layout_marginLeft="30dp"
             android:layout_width="wrap_content"

@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout        xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_cview="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" xmlns:card_cview="http://schemas.android.com/apk/res-auto">
-<ScrollView
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="vertical">
-            <TextView
-                    android:background="@color/colorMain"
-                    android:paddingLeft="16dp"
-                    android:textSize="15dp"
-                    android:textColor="@color/colorWhite"
-                    android:paddingVertical="5dp"
-                    android:text="HEARTH-ER"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/dateText"/>
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:elevation="2dp"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/title" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/view"
@@ -55,6 +67,7 @@
 
                             <TextView
                                 android:id="@+id/partTextViews"
+
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="25dp"
@@ -64,10 +77,12 @@
                                 android:text="휴식시간"
                                 android:textColor="@color/colorMain"
                                 android:textSize="18dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                app:fontFamily="@font/mapo_peace" />
 
                             <TextView
                                 android:layout_width="wrap_content"
+
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="5dp"
                                 android:layout_marginTop="15dp"
@@ -76,7 +91,8 @@
                                 android:text="세트간 휴식시간 설정"
                                 android:textColor="@color/colorMain"
                                 android:textSize="12dp"
-                                android:textStyle="bold" />
+                                android:textStyle="bold"
+                                app:fontFamily="@font/mapo_peace" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -87,43 +103,49 @@
 
 
                             <EditText
-                                android:layout_marginLeft="95dp"
+                                android:id="@+id/minuteEditText"
+
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="00"
-                                android:maxLength="2"
+                                android:layout_marginLeft="95dp"
                                 android:inputType="numberDecimal"
-                                android:id="@+id/minuteEditText"
+                                android:maxLength="2"
+                                android:text="00"
                                 android:textColor="@color/colorMain"
-                                android:textSize="16dp" />
+                                android:textSize="16dp"
+                                app:fontFamily="@font/mapo_peace" />
 
                             <TextView
                                 android:layout_width="wrap_content"
+
                                 android:layout_height="wrap_content"
                                 android:text=" : "
                                 android:textColor="@color/colorMain"
-                                android:textSize="16dp" />
+                                android:textSize="16dp"
+                                app:fontFamily="@font/mapo_peace" />
 
                             <EditText
+                                android:id="@+id/secondEditText"
+
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:id="@+id/secondEditText"
-                                android:text="00"
-                                android:maxLength="2"
                                 android:inputType="numberDecimal"
+                                android:maxLength="2"
+                                android:text="00"
                                 android:textColor="@color/colorMain"
-                                android:textSize="16dp" />
+                                android:textSize="16dp"
+                                app:fontFamily="@font/mapo_peace" />
 
                             <Button
-                                android:layout_marginTop="3dp"
-                                android:layout_marginLeft="5dp"
-                                android:background="@drawable/set_alarm"
-                                android:layout_centerHorizontal="true"
                                 android:id="@+id/startButton"
-                                android:gravity="center"
-                                android:layout_below="@id/textView7"
                                 android:layout_width="50dp"
-                                android:layout_height="30dp" />
+                                android:layout_height="30dp"
+                                android:layout_below="@id/textView7"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginTop="3dp"
+                                android:background="@drawable/set_alarm"
+                                android:gravity="center" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -131,249 +153,364 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                    android:clickable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:id="@+id/view1"
-                     android:layout_margin="5dp"
-                     card_cview:cardCornerRadius="3dp"
-                     android:layout_width="match_parent"
-                     android:layout_height="wrap_content"
-                    android:padding="10dp">>
-                <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:id="@+id/linearItem"
-                        android:background="@color/colorWhite">
-                    <View android:layout_width="100dp"
-                          android:layout_height="100dp"
-                          android:layout_gravity="center"
-                          android:background="@drawable/main_exercise"
-                    ></View>
-                    <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:background="@color/colorWhite">
-                    <TextView
-                            android:layout_marginTop="20dp"
-                            android:background="@color/colorWhite"
-                            android:textColor="@color/colorMain"
-                            android:text="운동정보" android:layout_marginLeft="25dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent" android:id="@+id/partTextView"
-                            android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                    />
-                    <TextView
-                            android:layout_marginTop="5dp"
-                            android:background="@color/colorWhite"
-                            android:textColor="@color/colorMain"
-                            android:text="다양한 운동들에 대한 방법을 제시합니다." android:layout_marginLeft="25dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
-                    />
-                </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                card_cview:cardCornerRadius="3dp">>
 
-            <androidx.cardview.widget.CardView
-                    android:clickable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="10dp"
-                    android:id="@+id/view2"
-                    card_cview:cardCornerRadius="3dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp">
                 <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@color/colorWhite">
+                    android:id="@+id/linearItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
                     <View
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/main_program"
-                            android:id="@+id/view21"></View>
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                              android:background="@color/colorWhite">
-                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/main_exercise"></View>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/partTextView"
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
                             android:layout_marginTop="20dp"
                             android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="운동정보"
                             android:textColor="@color/colorMain"
-                            android:text="프로그램" android:layout_marginLeft="25dp"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+
+                        <TextView
                             android:layout_width="wrap_content"
+
                             android:layout_height="match_parent"
-                            android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                    />
-                    <TextView
+                            android:layout_marginLeft="25dp"
                             android:layout_marginTop="5dp"
                             android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="다양한 운동들에 대한 방법을 제시합니다."
                             android:textColor="@color/colorMain"
-                            android:text="무분할, 2분할 등 프로그램을 계획합니다" android:layout_marginLeft="25dp"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                card_cview:cardCornerRadius="3dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/view21"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/main_program"></View>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <TextView
                             android:layout_width="wrap_content"
+
                             android:layout_height="match_parent"
-                            android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="프로그램"
+                            android:textColor="@color/colorMain"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="무분할, 2분할 등 프로그램을 계획합니다"
+                            android:textColor="@color/colorMain"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/view6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                card_cview:cardCornerRadius="3dp">>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/view62"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/recommend_program"></View>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="추천 프로그램"
+                            android:textColor="@color/colorMain"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="분할별로 프로그램을 추천해드립니다."
+                            android:textColor="@color/colorMain"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/view3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                card_cview:cardCornerRadius="3dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/view31"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/main_note"></View>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="운동일지"
+                            android:textColor="@color/colorMain"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="날짜 별로 운동 내용을 기록합니다"
+                            android:textColor="@color/colorMain"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+                    </LinearLayout>
                     />
                 </LinearLayout>
-                </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                    android:clickable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="10dp"
-                    android:id="@+id/view6"
-                    card_cview:cardCornerRadius="3dp"
-                    android:layout_width="match_parent"
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                card_cview:cardCornerRadius="3dp">>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp">>
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
 
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                              android:background="@color/colorWhite">
-                    <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                          android:background="@drawable/main_recommend" android:id="@+id/view62"
-                    ></View>
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                                  android:background="@color/colorWhite">
-                        <TextView
-                                android:layout_marginTop="20dp"
-                                android:background="@color/colorWhite"
-                                android:textColor="@color/colorMain"
-                                android:text="추천 프로그램" android:layout_marginLeft="25dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                        />
-                        <TextView
-                                android:layout_marginTop="5dp"
-                                android:background="@color/colorWhite"
-                                android:textColor="@color/colorMain"
-                                android:text="분할별로 프로그램을 추천해드립니다." android:layout_marginLeft="25dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
-                        />
-                    </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                    <View
+                        android:id="@+id/view41"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/main_calculator"></View>
 
-
-            <androidx.cardview.widget.CardView
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:padding="10dp"
-            android:id="@+id/view3"
-            card_cview:cardCornerRadius="3dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                      android:background="@color/colorWhite">
-            <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                  android:background="@drawable/main_note" android:id="@+id/view31"
-            ></View>
-            <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                          android:background="@color/colorWhite">
-                <TextView
-                        android:layout_marginTop="20dp"
-                        android:background="@color/colorWhite"
-                        android:textColor="@color/colorMain"
-                        android:text="운동일지" android:layout_marginLeft="25dp"
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                />
-                <TextView
-                        android:layout_marginTop="5dp"
+                        android:layout_height="wrap_content"
                         android:background="@color/colorWhite"
-                        android:textColor="@color/colorMain"
-                        android:text="날짜 별로 운동 내용을 기록합니다" android:layout_marginLeft="25dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
-                />
-            </LinearLayout>
-            />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                    android:clickable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="10dp"
-                    android:id="@+id/view4"
-                    card_cview:cardCornerRadius="3dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp">>
+                        android:orientation="vertical">
 
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                              android:background="@color/colorWhite">
-                    <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                          android:background="@drawable/main_calculator" android:id="@+id/view41"
-                    ></View>
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                                  android:background="@color/colorWhite">
                         <TextView
-                                android:layout_marginTop="20dp"
-                                android:background="@color/colorWhite"
-                                android:textColor="@color/colorMain"
-                                android:text="1-RM 계산기" android:layout_marginLeft="25dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                        />
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="1-RM 계산기"
+                            android:textColor="@color/colorMain"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+
                         <TextView
-                                android:layout_marginTop="5dp"
-                                android:background="@color/colorWhite"
-                                android:textColor="@color/colorMain"
-                                android:text="3대 운동 중량을 기록합니다." android:layout_marginLeft="25dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
-                        />
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="3대 운동 중량을 기록합니다."
+                            android:textColor="@color/colorMain"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                    android:clickable="true"
-                    android:foreground="?attr/selectableItemBackground"
-                    android:padding="10dp"
-                    android:id="@+id/view5"
-                    card_cview:cardCornerRadius="3dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="5dp">>
+                android:id="@+id/view5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:foreground="?attr/selectableItemBackground"
+                android:padding="10dp"
+                card_cview:cardCornerRadius="3dp">>
 
-                <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
-                              android:background="@color/colorWhite">
-                    <View android:layout_width="100dp" android:layout_height="100dp" android:layout_gravity="center"
-                          android:background="@drawable/main_bodyweight" android:id="@+id/view51"
-                    ></View>
-                    <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical"
-                                  android:background="@color/colorWhite">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/view51"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/main_bodyweight"></View>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/colorWhite"
+                        android:orientation="vertical">
+
                         <TextView
-                                android:layout_marginTop="20dp"
-                                android:background="@color/colorWhite"
-                                android:textColor="@color/colorMain"
-                                android:text="몸무게 기록" android:layout_marginLeft="25dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                        />
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="몸무게 기록"
+                            android:textColor="@color/colorMain"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
+
                         <TextView
-                                android:layout_marginTop="5dp"
-                                android:background="@color/colorWhite"
-                                android:textColor="@color/colorMain"
-                                android:text="날짜별로 몸무게를 기록합니다" android:layout_marginLeft="25dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:textSize="12dp" android:gravity="center_vertical" android:textStyle="bold"
-                        />
+                            android:layout_width="wrap_content"
+
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="25dp"
+                            android:layout_marginTop="5dp"
+                            android:background="@color/colorWhite"
+                            android:gravity="center_vertical"
+                            android:text="날짜별로 몸무게를 기록합니다"
+                            android:textColor="@color/colorMain"
+                            android:textSize="12dp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/mapo_peace" />
                     </LinearLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -387,5 +524,6 @@
                 ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
         </LinearLayout>
 
-</ScrollView>
-</RelativeLayout>
+    </ScrollView>
+</LinearLayout>
+

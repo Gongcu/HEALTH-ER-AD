@@ -4,14 +4,16 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.google.android.gms.ads.AdView
-        xmlns:ads="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        android:layout_gravity="center"
-        ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
+    <TextView    app:fontFamily="@font/mapo_peace"
+        android:paddingVertical="5dp"
+        android:paddingLeft="16dp"
+        android:background="@color/colorMain" android:textStyle="bold"
+        android:text="추천 프로그램"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/partNameTextView" android:textSize="20dp"
+        app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
     <androidx.cardview.widget.CardView
         android:clickable="true"
         android:foreground="?attr/selectableItemBackground"
@@ -32,7 +34,7 @@
                 android:background="@color/colorWhite">
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                     android:layout_marginTop="20dp">
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorMain"
                         android:text="무분할" android:layout_marginLeft="15dp"
@@ -40,7 +42,7 @@
                         android:layout_height="match_parent" android:id="@+id/partTextView"
                         android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
                         />
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:textStyle="bold"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorSub4"
@@ -50,7 +52,7 @@
                         android:textSize="15dp" android:gravity="center_vertical"
                         />
                 </LinearLayout>
-                <TextView
+                <TextView    app:fontFamily="@font/mapo_peace"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorWhite"
                     android:textColor="@color/colorMain"
@@ -83,7 +85,7 @@
                 android:background="@color/colorWhite">
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                     android:layout_marginTop="20dp">
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorMain"
                         android:text="2분할" android:layout_marginLeft="15dp"
@@ -91,7 +93,7 @@
                         android:layout_height="wrap_content" android:id="@+id/partTextView1"
                         android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
                         />
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:textStyle="bold"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorSub4"
@@ -101,7 +103,7 @@
                         android:textSize="15dp" android:gravity="center_vertical"
                         />
                 </LinearLayout>
-                <TextView
+                <TextView    app:fontFamily="@font/mapo_peace"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorWhite"
                     android:textColor="@color/colorMain"
@@ -134,7 +136,7 @@
                 android:background="@color/colorWhite">
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                     android:layout_marginTop="20dp">
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorMain"
                         android:text="3분할" android:layout_marginLeft="15dp"
@@ -142,7 +144,7 @@
                         android:layout_height="match_parent" android:id="@+id/partTextView2"
                         android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
                         />
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:textStyle="bold"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorSub4"
@@ -152,7 +154,7 @@
                         android:textSize="15dp" android:gravity="center_vertical"
                         />
                 </LinearLayout>
-                <TextView
+                <TextView    app:fontFamily="@font/mapo_peace"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorWhite"
                     android:textColor="@color/colorMain"
@@ -188,7 +190,7 @@
                 android:background="@color/colorWhite">
                 <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal"
                     android:layout_marginTop="20dp">
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorMain"
                         android:text="4분할" android:layout_marginLeft="15dp"
@@ -196,7 +198,7 @@
                         android:layout_height="match_parent" android:id="@+id/partTextView3"
                         android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
                         />
-                    <TextView
+                    <TextView    app:fontFamily="@font/mapo_peace"
                         android:textStyle="bold"
                         android:background="@color/colorWhite"
                         android:textColor="@color/colorSub4"
@@ -206,7 +208,7 @@
                         android:textSize="15dp" android:gravity="center_vertical"
                         />
                 </LinearLayout>
-                <TextView
+                <TextView    app:fontFamily="@font/mapo_peace"
                     android:layout_marginTop="5dp"
                     android:background="@color/colorWhite"
                     android:textColor="@color/colorMain"
@@ -218,4 +220,12 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ads:adSize="BANNER"
+        android:layout_gravity="center"
+        ads:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
 </LinearLayout>

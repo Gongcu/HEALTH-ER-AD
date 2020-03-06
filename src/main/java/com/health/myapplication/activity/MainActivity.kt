@@ -21,7 +21,7 @@ import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
-    lateinit var adView : AdView
+    lateinit var adView: AdView
 
     //FOR ALARM
     private val REQUEST_CODE = 100
@@ -31,10 +31,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
-        setContentView(com.health.myapplication.R.layout.activity_main)
-        dateText.setTypeface(Typeface.DEFAULT_BOLD)
+        setContentView(R.layout.activity_main)
 
-         MobileAds.initialize(this) { }
+        MobileAds.initialize(this) { }
 
         adView = findViewById<View>(R.id.adView) as AdView
         val adRequest = AdRequest.Builder().build()
@@ -68,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        startButton.setOnClickListener{
+        startButton.setOnClickListener {
             // Creating the pending intent to send to the BroadcastReceiver
             try {
                 alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -80,19 +79,12 @@ class MainActivity : AppCompatActivity() {
                 calendar.timeInMillis = System.currentTimeMillis()
 
                 //0~60초, 분 이내의 시간 입력
-                if(Integer.parseInt(secondEditText.text.toString())>60 || Integer.parseInt(secondEditText.text.toString())<0 ||
-                        Integer.parseInt(minuteEditText.text.toString())>60 || Integer.parseInt(minuteEditText.text.toString())<0 ){
+                if (Integer.parseInt(secondEditText.text.toString()) > 60 || Integer.parseInt(secondEditText.text.toString()) < 0 ||
+                        Integer.parseInt(minuteEditText.text.toString()) > 60 || Integer.parseInt(minuteEditText.text.toString()) < 0) {
                     Toast.makeText(this@MainActivity, "올바른 시간을 입력하세요.", Toast.LENGTH_LONG).show()
-                }
-                else {
+                } else {
                     calendar.add(Calendar.SECOND, Integer.parseInt(secondEditText.text.toString()))
                     calendar.add(Calendar.MINUTE, Integer.parseInt(minuteEditText.text.toString()))
-
-                    //currentTime
-                    /*
-                var currentTime = Calendar.getInstance()
-                currentTime.add(Calendar.SECOND, Integer.parseInt(secondEditText.text.toString()))
-                currentTime.set(Calendar.MINUTE, Integer.parseInt(minuteEditText.text.toString()))*/
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
@@ -101,17 +93,11 @@ class MainActivity : AppCompatActivity() {
                     } else {
                         alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
                     }
-                    /*되는것
-                // Starts the alarm manager
-                alarmManager.setRepeating(
-                        AlarmManager.RTC,
-                        calendar.timeInMillis,
-                        AlarmManager.INTERVAL_DAY,
-                        pendingIntent
-                )*/
-                    Toast.makeText(this@MainActivity, minuteEditText.text.toString() + "분 " + secondEditText.text.toString() + "초 뒤에 알람이 울립니다", Toast.LENGTH_SHORT).show()
+
+                    Toast.makeText(this@MainActivity, minuteEditText.text.toString() + "분 " +
+                            secondEditText.text.toString() + "초 뒤에 알람이 울립니다", Toast.LENGTH_SHORT).show()
                 }
-            }catch (e: Exception) {
+            } catch (e: Exception) {
                 Toast.makeText(this@MainActivity, "알람 설정 오류", Toast.LENGTH_SHORT).show()
             }
         }

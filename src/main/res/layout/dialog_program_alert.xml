@@ -1,29 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:orientation="vertical" android:background="@color/colorWhite" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
 
 
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@color/colorWhite">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
         <TextView
+            android:id="@+id/textView3"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:background="@color/colorWhite"
             android:paddingLeft="8dp"
-            android:background="@color/colorWhite" android:textStyle="bold"
             android:text="TIP"
             android:textColor="@color/colorSub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="15dp"/>
-        <TextView
+            android:textSize="15dp"
             android:textStyle="bold"
+            app:fontFamily="@font/mapo_peace" />
+
+        <TextView
+            android:id="@+id/textView12"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:textColor="@color/colorMain"
+            android:gravity="center"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
             android:text="운동을 눌러 위, 아래로 순서를 변경하거나 오른쪽으로 스와이프 하여 삭제할 수 있습니다."
+            android:textColor="@color/colorMain"
             android:textSize="12dp"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView12"/>
+            android:textStyle="bold"
+            app:fontFamily="@font/mapo_peace" />
     </LinearLayout>
 
     <LinearLayout
@@ -35,29 +52,35 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:layout_marginLeft="16dp"
             android:id="@+id/checkBox"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_weight="1"
             android:text="앞으로 알림창 보지 않기"
-            android:layout_weight="1"/>
+            app:fontFamily="@font/mapo_peace" />
 
         <TextView
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            app:fontFamily="@font/mapo_peace" />
 
         <Button
             android:id="@+id/quitBtn"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:stateListAnimator="@null"
             android:background="@color/colorWhite"
+            android:stateListAnimator="@null"
             android:text="닫기"
             android:textColor="@color/colorSub"
             android:textSize="15dp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:fontFamily="@font/mapo_peace" />
 
     </LinearLayout>
 </LinearLayout>

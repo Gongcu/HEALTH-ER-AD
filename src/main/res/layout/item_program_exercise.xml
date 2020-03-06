@@ -1,61 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <androidx.cardview.widget.CardView
-            android:clickable="true"
-            android:foreground="?attr/selectableItemBackground"
-            android:id="@+id/cardview"
-            app:cardCornerRadius="3dp"
-            android:layout_width="match_parent"
+        android:id="@+id/cardview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        app:cardCornerRadius="3dp">
+
+        <LinearLayout
+            android:id="@+id/linearItem"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/linearItem"
-                      android:background="@color/colorWhite"
-        >
+            android:background="@color/colorWhite">
+
             <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:id="@+id/partImageView" android:layout_centerVertical="true"
-                    android:src="@drawable/one"/>
+                android:id="@+id/partImageView"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/one" />
+
             <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <TextView
-                        android:background="@color/colorWhite"
-                        android:textColor="@color/colorMain"
-                        android:text="TextView" android:layout_marginLeft="30dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/partTextView"
-                        android:textSize="18dp" android:gravity="center_vertical" android:textStyle="bold"
-                />
+                    android:id="@+id/partTextView"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="center_vertical"
+                    android:text="TextView"
+                    android:textColor="@color/colorMain"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/mapo_peace" />
+
                 <LinearLayout
-                        android:layout_marginLeft="30dp"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
                     <TextView
-                            android:paddingVertical="5dp"
-                            android:text="SET"
-                            android:textColor="@color/colorMain"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/setTextView"/>
+                        android:id="@+id/setTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SET"
+                        android:textColor="@color/colorMain"
+                        app:fontFamily="@font/mapo_peace" />
+
                     <TextView
-                            android:paddingVertical="5dp"
-                            android:text="X"
-                            android:textColor="@color/colorMain"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/textView18"/>
+                        android:id="@+id/textView18"
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="X"
+                        android:textColor="@color/colorMain"
+                        app:fontFamily="@font/mapo_peace" />
+
                     <TextView
-                            android:paddingVertical="5dp"
-                            android:text="REP"
-                            android:textColor="@color/colorMain"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" android:id="@+id/repTextView"/>
+                        android:id="@+id/repTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="REP"
+                        android:textColor="@color/colorMain"
+                        app:fontFamily="@font/mapo_peace" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

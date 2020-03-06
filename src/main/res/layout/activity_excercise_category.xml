@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:card_cview="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <TextView
             android:paddingVertical="5dp"
             android:paddingLeft="16dp"
             android:background="@color/colorMain" android:textStyle="bold"
             android:text="운동부위"
+        app:fontFamily="@font/mapo_peace"
             android:textColor="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/partNameTextView" android:textSize="20dp"/>
@@ -17,7 +18,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_below="@+id/partNameTextView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/recycler_view"/>
+            android:layout_height="wrap_content" android:id="@+id/recycler_view"
+        android:layout_above="@+id/adView"/>
     <com.google.android.gms.ads.AdView
         xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:id="@+id/adView"

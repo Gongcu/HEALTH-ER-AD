@@ -1,58 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent" android:layout_height="wrap_content"
-              android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <TextView
-            android:paddingVertical="5dp"
-            android:paddingLeft="16dp"
-             android:textStyle="bold"
-            android:text="프로그램 추가"
-            android:textColor="@color/colorMain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/textView3" android:textSize="20dp"/>
+        android:id="@+id/textView3"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="5dp"
+        android:paddingLeft="16dp"
+        android:text="프로그램 추가"
+        android:textColor="@color/colorMain"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:fontFamily="@font/mapo_peace" />
+
     <LinearLayout
 
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
         <TextView
-                android:textStyle="bold"
-                android:paddingLeft="16dp"
-                android:text="분할"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/textView12"/>
+            android:id="@+id/textView12"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="16dp"
+            android:text="분할"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/mapo_peace" />
+
         <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/spinner"/>
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <LinearLayout
-            android:layout_marginTop="5dp"
-            android:layout_gravity="center"
-            android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/saveBtn"
+
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="저장"
+            android:textColor="@color/colorMain"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/mapo_peace" />
+
         <Button
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/colorMain"
-                android:background="@color/colorWhite"
-                android:foreground="?attr/selectableItemBackground"
-                android:text="저장"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/saveBtn" android:layout_weight="1"/>
-        <Button
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:textColor="@color/colorSub"
-                android:background="@color/colorWhite"
-                android:foreground="?attr/selectableItemBackground"
-                android:text="취소"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/quitBtn" android:layout_weight="1"/>
+            android:id="@+id/quitBtn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="취소"
+            android:textColor="@color/colorSub"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/mapo_peace" />
     </LinearLayout>
 </LinearLayout>

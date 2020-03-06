@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-    <TextView
-            android:textStyle="bold"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView            app:fontFamily="@font/mapo_peace"
+
+        android:textStyle="bold"
             android:paddingVertical="5dp"
             android:paddingLeft="16dp"
             android:text="1-RM 계산"
@@ -16,8 +18,9 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <TextView
-                android:textStyle="bold"
+        <TextView            app:fontFamily="@font/mapo_peace"
+
+            android:textStyle="bold"
                 android:paddingLeft="16dp"
                 android:text="운동"
                 android:textSize="18dp"
@@ -35,16 +38,18 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <TextView
-                android:textStyle="bold"
+        <TextView            app:fontFamily="@font/mapo_peace"
+
+            android:textStyle="bold"
                 android:paddingLeft="16dp"
                 android:text="무게"
                 android:textSize="18dp"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView10" />
-        <EditText
-                android:layout_marginLeft="16dp"
+        <EditText            app:fontFamily="@font/mapo_peace"
+
+            android:layout_marginLeft="16dp"
                 android:background="@null"
                 android:maxLength="5"
             android:inputType="numberDecimal"
@@ -54,8 +59,9 @@
 
                 android:textColor="@color/colorMain"
         android:id="@+id/weightEditText"/>
-        <TextView
-                android:textStyle="bold"
+        <TextView            app:fontFamily="@font/mapo_peace"
+
+            android:textStyle="bold"
                 android:paddingLeft="16dp"
                 android:text="kg"
                 android:textSize="18dp"
@@ -69,8 +75,9 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <TextView
-                android:textStyle="bold"
+        <TextView            app:fontFamily="@font/mapo_peace"
+
+            android:textStyle="bold"
                 android:text="횟수"
                 android:paddingLeft="16dp"
                 android:textSize="18dp"
@@ -78,8 +85,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/textView14" />
 
-        <EditText
-                android:maxLength="2"
+        <EditText            app:fontFamily="@font/mapo_peace"
+
+            android:maxLength="2"
                 android:background="@null"
                 android:layout_marginLeft="16dp"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
@@ -87,8 +95,9 @@
                 android:hint="횟수를 입력하세요"
                 android:textColor="@color/colorMain"
                 android:id="@+id/repEditText"/>
-        <TextView
-                android:textStyle="bold"
+        <TextView            app:fontFamily="@font/mapo_peace"
+
+            android:textStyle="bold"
                 android:paddingLeft="16dp"
                 android:text="회"
                 android:textSize="18dp"
@@ -105,8 +114,9 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        <Button
-                android:textStyle="bold"
+        <Button            app:fontFamily="@font/mapo_peace"
+
+            android:textStyle="bold"
                 android:textSize="20dp"
                 android:textColor="@color/colorMain"
                 android:background="@color/colorWhite"
@@ -114,8 +124,9 @@
                 android:text="저장"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/saveBtn" android:layout_weight="1"/>
-        <Button
-                android:textStyle="bold"
+        <Button            app:fontFamily="@font/mapo_peace"
+
+            android:textStyle="bold"
                 android:textSize="20dp"
                 android:textColor="@color/colorSub"
                 android:background="@color/colorWhite"
