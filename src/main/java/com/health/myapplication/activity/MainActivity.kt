@@ -13,8 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.health.myapplication.DbHelper.DbHelper_alarm
 import com.health.myapplication.R
 import com.health.myapplication.alarm.MyAlarmReceiver
+import com.health.myapplication.data.AlarmContract
 import com.health.myapplication.exceotionHandler.ExceptionHandler
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -27,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private val REQUEST_CODE = 100
     private lateinit var alarmManager: AlarmManager
     private lateinit var pendingIntent: PendingIntent
+    private lateinit var dbHelper : DbHelper_alarm
+    private lateinit var alarmTime : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +45,14 @@ class MainActivity : AppCompatActivity() {
 
         val intent = Intent(this, LoadingActivity::class.java)
         startActivity(intent)
+
+        dbHelper=DbHelper_alarm(this)
+        alarmTime=dbHelper.alarm
+        if(!alarmTime.equals("0")) {
+            var indexOfColon = alarmTime.lastIndexOf(":") + 1;
+            minuteEditText.setText(alarmTime.substring(0, indexOfColon-1))
+            secondEditText.setText(alarmTime.substring(indexOfColon))
+        }
 
         view1.setOnClickListener {
             val intent = Intent(this@MainActivity, ExerciseCategoryActivity::class.java)
@@ -72,6 +84,7 @@ class MainActivity : AppCompatActivity() {
             try {
                 alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
                 val intent = Intent(this, MyAlarmReceiver::class.java)
+                intent.putExtra("code",REQUEST_CODE)
                 pendingIntent = PendingIntent.getBroadcast(this, REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
                 // Setting the specific time for the alarm manager to trigger the intent
@@ -85,6 +98,8 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     calendar.add(Calendar.SECOND, Integer.parseInt(secondEditText.text.toString()))
                     calendar.add(Calendar.MINUTE, Integer.parseInt(minuteEditText.text.toString()))
+
+                    dbHelper.updateAlarm(AlarmContract(Integer.parseInt(minuteEditText.text.toString()),Integer.parseInt(secondEditText.text.toString())))
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)

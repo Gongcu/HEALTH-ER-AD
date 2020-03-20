@@ -13,6 +13,7 @@ import androidx.core.app.JobIntentService;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.TaskStackBuilder;
 
+import com.health.myapplication.DbHelper.DbHelper_alarm;
 import com.health.myapplication.R;
 import com.health.myapplication.activity.MainActivity;
 
@@ -22,25 +23,28 @@ import java.util.Date;
 import java.util.Locale;
 
 public class AlarmService extends JobIntentService {
+    private final int REQUEST_CODE_AT_SERVICE = 101;
     static final int JOB_ID = 1001;
     private Calendar calendar;
-
+    private static Context mContext;
+    private DbHelper_alarm dbHelper_alarm;
 
     //receiver에서 실행하는 함수
     static void enqueueWork(Context context, Intent work) {
+        mContext = context;
         enqueueWork(context, AlarmService.class, JOB_ID, work);
     }
 
     @Override
     protected void onHandleWork(@NonNull Intent intent) {
         calendar=Calendar.getInstance();
-        notification("HEALTH-ER", "message", AlarmService.this); //notification 함수
+        notification("HEALTH-ER", AlarmService.this); //notification 함수
         stopSelf();
     }
 
 
 
-    public void notification(String title, String message, Context context) {
+    public void notification(String title, Context context) {
         String text = "더 쉬면 근손실.";
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
@@ -60,6 +64,7 @@ public class AlarmService extends JobIntentService {
                 .setContentText(text)
                 .setVibrate(new long[]{100, 250})
                 .setLights(Color.YELLOW, 500, 5000)
+                .addAction(R.drawable.alarm_restart_btn,"알람재시작",getPendingIntent())
                 .setAutoCancel(true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mBuilder.setSmallIcon(R.drawable.noti);
@@ -79,5 +84,12 @@ public class AlarmService extends JobIntentService {
         Date now = new Date();
         int id = Integer.parseInt(new SimpleDateFormat("ddHHmmss", Locale.KOREA).format(now));
         return id;
+    }
+
+    private PendingIntent getPendingIntent(){
+        Intent intent = new Intent(this, MyAlarmReceiver.class);
+        intent.putExtra("code",REQUEST_CODE_AT_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, REQUEST_CODE_AT_SERVICE, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        return pendingIntent;
     }
 }
