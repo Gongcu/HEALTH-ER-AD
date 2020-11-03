@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
+        //Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
         setContentView(R.layout.activity_main)
 
         MobileAds.initialize(this) { }
@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         view1.setOnClickListener {
-            val intent = Intent(this@MainActivity, ExerciseCategoryActivity::class.java)
+            val intent = Intent(this@MainActivity, ExercisePartCategoryActivity::class.java)
             startActivity(intent)
         }
         view2.setOnClickListener {

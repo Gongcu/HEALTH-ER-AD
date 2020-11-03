@@ -18,7 +18,7 @@ import com.google.android.gms.ads.AdView;
 import com.health.myapplication.DbHelper.DbHelper_proItem;
 import com.health.myapplication.R;
 import com.health.myapplication.adapter.RecyclerAdapter_program;
-import com.health.myapplication.data.PartData;
+import com.health.myapplication.model.PartData;
 import com.health.myapplication.data.ProgramItem;
 import com.health.myapplication.dialog.DeleteDialog;
 import com.health.myapplication.dialog.ProgramSelectDialog;

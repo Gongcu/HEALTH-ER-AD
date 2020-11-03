@@ -4,6 +4,8 @@
     <string name="native_ad_unit_id">ca-app-pub-3395342213780988/7921582856</string>
     <string name="banner_ad_unit_id">ca-app-pub-3395342213780988/3882760337</string>
 
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
     <string-array name="spinner_date">
         <item>1일차</item>
         <item>2일차</item>
@@ -11,7 +13,6 @@
         <item>4일차</item>
         <item>5일차</item>
     </string-array>
-
     <string-array name="spinner_part">
         <item>가슴</item>
         <item>등</item>
@@ -52,6 +53,7 @@
         <item>슈러그</item>
         <item>직접입력</item>
     </string-array>
+
     <string-array name="spinner_part_leg">
         <item>스쿼트</item>
         <item>프론트 스쿼트</item>
@@ -117,7 +119,4 @@
         <item>벤치프레스</item>
         <item>데드리프트</item>
     </string-array>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

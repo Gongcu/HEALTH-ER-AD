@@ -8,15 +8,6 @@ public class ExerciseData {
     int set;
     int rep;
 
-    public ExerciseData(String name, String desc) {
-        this.name = name;
-        this.desc = desc;
-    }
-    public ExerciseData(String name, int set, int rep) {
-        this.name = name;
-        this.set=set;
-        this.rep=rep;
-    }
     public ExerciseData(String name, String desc, String tip) {
         this.name = name;
         this.desc = desc;

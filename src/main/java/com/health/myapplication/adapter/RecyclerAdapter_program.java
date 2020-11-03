@@ -11,11 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.health.myapplication.DbHelper.DbHelper_proItem;
+
 import com.health.myapplication.DbHelper.DbHelper_program;
 import com.health.myapplication.R;
 import com.health.myapplication.activity_program.*;
-import com.health.myapplication.data.PartData;
+import com.health.myapplication.model.PartData;
 import com.health.myapplication.data.ProgramContract;
 
 import java.util.ArrayList;

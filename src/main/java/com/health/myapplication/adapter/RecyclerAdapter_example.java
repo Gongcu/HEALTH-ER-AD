@@ -1,18 +1,12 @@
 package com.health.myapplication.adapter;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.CursorIndexOutOfBoundsException;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -26,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.health.myapplication.DbHelper.DbHelper_program;
 import com.health.myapplication.R;
-import com.health.myapplication.activity.InformationActivity;
+import com.health.myapplication.activity.ExerciseGuideActivity;
 import com.health.myapplication.data.ProgramContract;
 import com.health.myapplication.dialog.ProgramDialog_Edit;
 import com.health.myapplication.listener.AdapterListener;
@@ -36,8 +30,6 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
@@ -76,7 +68,7 @@ public class RecyclerAdapter_example extends RecyclerView.Adapter<RecyclerAdapte
     public RecyclerAdapter_example.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //LayoutInflater를 이용하여 xml을 inflate 함
         // 리사이클러뷰 업데이트
-        intent = new Intent(mContext, InformationActivity.class);
+        intent = new Intent(mContext, ExerciseGuideActivity.class);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.item_program_exercise,parent,false);
@@ -120,8 +112,8 @@ public class RecyclerAdapter_example extends RecyclerView.Adapter<RecyclerAdapte
                     intent.putExtra("name", name_value);
                     intent.putExtra("desc", holder.desc);
                     intent.putExtra("tip", holder.tip);
-                    intent.putExtra("imageR", holder.image1);
-                    intent.putExtra("imageF", holder.image2);
+                    intent.putExtra("imageR", mContext.getResources().getIdentifier(holder.image1, "drawable", mContext.getPackageName()));
+                    intent.putExtra("imageF", mContext.getResources().getIdentifier(holder.image2, "drawable", mContext.getPackageName()));
                     mContext.startActivity(intent);
                 }
             }

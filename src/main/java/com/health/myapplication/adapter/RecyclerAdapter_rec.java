@@ -13,7 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.health.myapplication.R;
-import com.health.myapplication.activity.InformationActivity;
+import com.health.myapplication.activity.ExerciseGuideActivity;
 import com.health.myapplication.data.ExerciseData;
 
 import java.util.ArrayList;
@@ -33,7 +33,7 @@ public class RecyclerAdapter_rec extends RecyclerView.Adapter<RecyclerAdapter_re
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
-        intent = new Intent(context, InformationActivity.class);
+        intent = new Intent(context, ExerciseGuideActivity.class);
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recommend_view, parent, false);
         return new ItemViewHolder(view);
@@ -56,8 +56,8 @@ public class RecyclerAdapter_rec extends RecyclerView.Adapter<RecyclerAdapter_re
                 intent.putExtra("name",holder.textView.getText().toString());
                 intent.putExtra("desc",listData.get(position).getDesc());
                 intent.putExtra("tip",listData.get(position).getTip());
-                intent.putExtra("imageR",list_image.get(position).get(0).toString());
-                intent.putExtra("imageF",list_image.get(position).get(1).toString());
+                intent.putExtra("imageR", context.getResources().getIdentifier(list_image.get(position).get(0), "drawable", context.getPackageName()));
+                intent.putExtra("imageF", context.getResources().getIdentifier(list_image.get(position).get(1), "drawable", context.getPackageName()));
                 context.startActivity(intent);
             }
         });

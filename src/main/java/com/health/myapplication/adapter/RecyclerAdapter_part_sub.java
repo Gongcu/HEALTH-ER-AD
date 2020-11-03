@@ -18,7 +18,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.health.myapplication.DbHelper.DbHelper_program;
 import com.health.myapplication.R;
-import com.health.myapplication.activity.InformationActivity;
+import com.health.myapplication.activity.ExerciseGuideActivity;
 import com.health.myapplication.data.ProgramContract;
 import com.health.myapplication.dialog.ProgramDialog_Edit;
 import com.health.myapplication.listener.AdapterListener;
@@ -67,7 +67,7 @@ public class RecyclerAdapter_part_sub extends RecyclerView.Adapter<RecyclerAdapt
     public RecyclerAdapter_part_sub.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //LayoutInflater를 이용하여 xml을 inflate 함
         // 리사이클러뷰 업데이트
-        intent = new Intent(mContext, InformationActivity.class);
+        intent = new Intent(mContext, ExerciseGuideActivity.class);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.item_program_exercise,parent,false);
@@ -109,8 +109,8 @@ public class RecyclerAdapter_part_sub extends RecyclerView.Adapter<RecyclerAdapt
                             intent.putExtra("name", name_value);
                             intent.putExtra("desc", holder.desc);
                             intent.putExtra("tip", holder.tip);
-                            intent.putExtra("imageR", holder.image1);
-                            intent.putExtra("imageF", holder.image2);
+                            intent.putExtra("imageR", mContext.getResources().getIdentifier(holder.image1, "drawable", mContext.getPackageName()));
+                            intent.putExtra("imageF", mContext.getResources().getIdentifier(holder.image2, "drawable", mContext.getPackageName()));
                             mContext.startActivity(intent);
                         }
                     }
