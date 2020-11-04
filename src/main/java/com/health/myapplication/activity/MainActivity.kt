@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         view6.setOnClickListener {
-            val intent = Intent(this@MainActivity, RecommendActivity::class.java)
+            val intent = Intent(this@MainActivity, ProgramRecommendActivity::class.java)
             startActivity(intent)
         }
 

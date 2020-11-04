@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ExerciseGuideActivity"></activity>
+        <activity android:name=".activity.ProgramInfoActivity"></activity>
+        <activity android:name=".activity.ProgramRecommendActivity" />
+        <activity android:name=".activity.ExerciseGuideActivity" />
         <activity
             android:name=".activity.ExercisePartCategoryActivity"
             android:configChanges="screenSize|orientation" />
@@ -19,21 +21,6 @@
             android:configChanges="screenSize|orientation" />
         <activity
             android:name=".exceotionHandler.ErrorActivity"
-            android:configChanges="screenSize|orientation" />
-        <activity
-            android:name=".activity.RecommendActivity"
-            android:configChanges="screenSize|orientation" />
-        <activity
-            android:name=".RecommendActivity.BeginnerActivity"
-            android:configChanges="screenSize|orientation" />
-        <activity
-            android:name=".RecommendActivity.ExpertActivity"
-            android:configChanges="screenSize|orientation" />
-        <activity
-            android:name=".RecommendActivity.IntermediateActivity"
-            android:configChanges="screenSize|orientation" />
-        <activity
-            android:name=".RecommendActivity.NoviceActivity"
             android:configChanges="screenSize|orientation" />
         <activity
             android:name=".activity.CalculatorActivity"
@@ -94,10 +81,10 @@
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 </manifest>

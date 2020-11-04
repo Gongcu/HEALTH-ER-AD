@@ -11,25 +11,21 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.health.myapplication.R;
+import com.health.myapplication.listener.BodyWeightDialogListener;
 import com.health.myapplication.listener.DialogListener;
 
 public class BodyWeightDialog extends Dialog implements View.OnClickListener{
-    private DialogListener listener;
-
+    private BodyWeightDialogListener listener;
     private Button saveBtn;
     private Button quitBtn;
-
     private EditText weightEditText;
     private TextView title;
     private boolean edit;
-
-    private double height=0.0;
     private double weight=0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.dialog_bodyweight);
 
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
@@ -38,7 +34,6 @@ public class BodyWeightDialog extends Dialog implements View.OnClickListener{
         layoutParams.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
         layoutParams.dimAmount = 0.4f;
         getWindow().setAttributes(layoutParams);
-
 
         weightEditText = findViewById(R.id.weightEditText);
         title = findViewById(R.id.textView3);
@@ -59,7 +54,7 @@ public class BodyWeightDialog extends Dialog implements View.OnClickListener{
         this.edit = edit;
     }
 
-    public void setDialogListener(DialogListener dialogListener){
+    public void setDialogListener(BodyWeightDialogListener dialogListener){
         this.listener = dialogListener;
     }
 
@@ -69,7 +64,7 @@ public class BodyWeightDialog extends Dialog implements View.OnClickListener{
             case R.id.saveBtn:
                 try{
                     weight = Double.parseDouble(weightEditText.getText().toString());
-                    listener.onPositiveClicked(height,weight);
+                    listener.onPositiveClicked(weight);
                 }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"값을 입력해주세요", Toast.LENGTH_SHORT).show();}
                 dismiss();
                 break;
@@ -79,7 +74,7 @@ public class BodyWeightDialog extends Dialog implements View.OnClickListener{
     }
 
 
-    public void setListener(DialogListener listener) {
+    public void setListener(BodyWeightDialogListener listener) {
         this.listener = listener;
     }
 

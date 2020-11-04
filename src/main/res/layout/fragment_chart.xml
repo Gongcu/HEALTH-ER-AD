@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="1"
-    tools:context="com.health.myapplication.fragment.BodyWeight_ChartFragment">
+    tools:context="com.health.myapplication.fragment.ChartFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,11 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/AddButton"
+            android:id="@+id/add_btn"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentRight="true"
@@ -36,14 +37,13 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/AddButton"
+            app:layout_constraintBottom_toTopOf="@+id/add_btn"
             app:layout_constraintTop_toBottomOf="@+id/line_chart">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="16dp"
-
                 android:text="몸무게 변화량  "
                 android:textColor="@color/colorMain"
                 android:textSize="15dp"
@@ -51,7 +51,7 @@
                 app:fontFamily="@font/mapo_peace" />
 
             <TextView
-                android:id="@+id/chageTextView"
+                android:id="@+id/change_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0.0"
