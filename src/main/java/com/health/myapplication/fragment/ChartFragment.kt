@@ -10,14 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.github.mikephil.charting.components.XAxis
-import com.github.mikephil.charting.components.YAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
-import com.github.mikephil.charting.formatter.IAxisValueFormatter
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.health.myapplication.R
-import com.health.myapplication.ViewModel
+import com.health.myapplication.BodyWeightViewModel
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
 import com.health.myapplication.model.BodyWeight
@@ -30,7 +28,7 @@ import kotlin.collections.ArrayList
 
 
 class ChartFragment : Fragment() {
-    private val viewModel: ViewModel by viewModels()
+    private val viewModel: BodyWeightViewModel by viewModels()
     private var xLabelCount = 0
     private val entryList: ArrayList<Entry> = ArrayList()
     private val lineData: LineData = LineData()
@@ -76,7 +74,7 @@ class ChartFragment : Fragment() {
             val dialog = BodyWeightDialog(requireContext(), false)
             dialog.setDialogListener (object: BodyWeightDialogListener {
                 override fun onPositiveClicked(weight: Double) {
-                    addWeight(weight)
+                    viewModel.findAndInsert(weight)
                 }
             })
             dialog.show()
@@ -84,17 +82,6 @@ class ChartFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun addWeight(weight: Double) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val sdf = SimpleDateFormat("yyyy-MM-dd")
-            val strDate = sdf.format(Date())
-            if(viewModel.getCurrentDate(strDate)!=null){
-                viewModel.update(weight, strDate)
-            }else{
-                viewModel.insert(BodyWeight(weight, strDate))
-            }
-        }
-    }
 
     private fun chartInit(){
         //x축 설정

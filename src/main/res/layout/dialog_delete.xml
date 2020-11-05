@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp">
 
 
     <LinearLayout
@@ -13,7 +14,6 @@
 
         <TextView
             android:id="@+id/textView3"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorWhite"
@@ -26,11 +26,9 @@
 
         <TextView
             android:id="@+id/textView12"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
+            android:layout_marginTop="8dp"
             android:paddingLeft="16dp"
             android:text="프로그램 삭제 시 해당 프로그램의 데이터가 모두 삭제 됩니다."
             android:textColor="@color/colorMain"
@@ -48,12 +46,10 @@
 
         <Button
             android:id="@+id/saveBtn"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorWhite"
-            android:foreground="?attr/selectableItemBackground"
+            android:background="@null"
             android:text="삭제"
             android:textColor="@color/colorMain"
             android:textSize="15dp"
@@ -66,8 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/colorWhite"
-            android:foreground="?attr/selectableItemBackground"
+            android:background="@null"
             android:text="취소"
             android:textColor="@color/colorSub"
             android:textSize="15dp"

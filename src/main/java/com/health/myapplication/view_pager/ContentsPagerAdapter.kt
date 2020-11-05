@@ -3,15 +3,13 @@ package com.health.myapplication.view_pager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.health.myapplication.fragment.ChartFragment
-import com.health.myapplication.fragment.DataFragment
-import com.health.myapplication.fragment.RecommendFragment
+import com.health.myapplication.fragment.*
 
 class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, private val ACTIVITY_NUMBER: Int) : FragmentStateAdapter(fa) {
-    private var LEVEL = -1
+    private var DIVISION = -1
 
     constructor(fa: FragmentActivity, mPageCount: Int, LEVEL: Int, ACTIVITY_NUMBER: Int) : this(fa, mPageCount, ACTIVITY_NUMBER) {
-        this.LEVEL = LEVEL
+        this.DIVISION = LEVEL
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -20,8 +18,16 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
                 0 -> ChartFragment()
                 else -> DataFragment()
             }
+        }else if(ACTIVITY_NUMBER== CUSTOM_PROGRAM_ACTIVITY){
+            return ProgramFragment.newInstance(position + 1, DIVISION)
+        }else if(ACTIVITY_NUMBER== RECORD_ACTIVITY){
+            return when(position){
+                0 -> Data_CalendarFragment()
+                1 -> Data_DayFragment()
+                else -> Data_DataFragment()
+            }
         }else{//PROGRAM_RECOMMEND_ACTIVITY
-            return RecommendFragment.newInstance(position + 1, LEVEL)
+            return RecommendFragment.newInstance(position + 1, DIVISION)
         }
     }
 
@@ -31,6 +37,9 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
 
     companion object{
         const val BODY_WEIGHT_ACTIVITY = 600
+        const val CUSTOM_PROGRAM_ACTIVITY = 300
         const val PROGRAM_RECOMMEND_ACTIVITY = 200
+        const val RECORD_ACTIVITY = 400
+
     }
 }

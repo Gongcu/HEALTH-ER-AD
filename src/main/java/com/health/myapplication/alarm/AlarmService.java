@@ -13,7 +13,7 @@ import androidx.core.app.JobIntentService;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.TaskStackBuilder;
 
-import com.health.myapplication.DbHelper.DbHelper_alarm;
+import com.health.myapplication.db.DbHelper_alarm;
 import com.health.myapplication.R;
 import com.health.myapplication.activity.MainActivity;
 

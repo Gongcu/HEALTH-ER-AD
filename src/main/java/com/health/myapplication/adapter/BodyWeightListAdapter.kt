@@ -1,17 +1,16 @@
 package com.health.myapplication.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.*
 import androidx.recyclerview.widget.RecyclerView
-import com.health.myapplication.ViewModel
+import com.health.myapplication.BodyWeightViewModel
 import com.health.myapplication.databinding.ItemDataViewBinding
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
 import com.health.myapplication.model.BodyWeight
 
 
-class BodyWeightListAdapter(val context:Context,val viewModel: ViewModel) : RecyclerView.Adapter<BodyWeightListAdapter.ViewHolder>() {
+class BodyWeightListAdapter(val context:Context,val viewModel: BodyWeightViewModel) : RecyclerView.Adapter<BodyWeightListAdapter.ViewHolder>() {
     private var list = ArrayList<BodyWeight>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BodyWeightListAdapter.ViewHolder {
         val binding = ItemDataViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)

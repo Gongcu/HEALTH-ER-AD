@@ -1,6 +1,7 @@
 package com.health.myapplication.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
-import com.health.myapplication.ViewModel
+import com.health.myapplication.BodyWeightViewModel
 import com.health.myapplication.adapter.BodyWeightListAdapter
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
@@ -24,8 +25,7 @@ import kotlin.collections.ArrayList
 
 
 class DataFragment : Fragment() {
-    private val viewModel: ViewModel by viewModels()
-
+    private val viewModel: BodyWeightViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -44,7 +44,7 @@ class DataFragment : Fragment() {
             val dialog = BodyWeightDialog(requireContext(), false)
             dialog.setDialogListener (object: BodyWeightDialogListener{
                 override fun onPositiveClicked(weight: Double) {
-                    addWeight(weight)
+                    viewModel.findAndInsert(weight)
                 }
             })
             dialog.show()
@@ -52,18 +52,6 @@ class DataFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-
-    private fun addWeight(weight: Double) {
-        lifecycleScope.launch(Dispatchers.IO) {
-            val sdf = SimpleDateFormat("yyyy-MM-dd")
-            val strDate = sdf.format(Date())
-            if(viewModel.getCurrentDate(strDate)!=null){
-                viewModel.update(weight,strDate)
-            }else{
-                viewModel.insert(BodyWeight(weight,strDate))
-            }
-        }
-    }
 
     companion object{
         private var INSTANCE : DataFragment? = null

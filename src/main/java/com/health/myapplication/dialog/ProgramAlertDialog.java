@@ -3,7 +3,6 @@ package com.health.myapplication.dialog;
 import android.app.Dialog;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +12,7 @@ import android.widget.CheckBox;
 
 import androidx.annotation.NonNull;
 
-import com.health.myapplication.DbHelper.DbHelper_dialog;
+import com.health.myapplication.db.DbHelper_dialog;
 import com.health.myapplication.R;
 import com.health.myapplication.data.DialogContract;
 import com.health.myapplication.listener.DeleteDialogListener;

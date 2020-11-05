@@ -12,8 +12,8 @@ import android.view.*;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.health.myapplication.DbHelper.DbHelper_Calculator;
-import com.health.myapplication.DbHelper.DbHelper_Calculator_sub;
+import com.health.myapplication.db.DbHelper_Calculator;
+import com.health.myapplication.db.DbHelper_Calculator_sub;
 import com.health.myapplication.R;
 import com.health.myapplication.data.CalContract;
 import com.health.myapplication.data.CalDateContract;
@@ -23,7 +23,6 @@ import com.health.myapplication.dialog.CalculatorEditDialog;
 import com.health.myapplication.listener.AdapterListener;
 import com.health.myapplication.listener.CalculatorDialogListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 

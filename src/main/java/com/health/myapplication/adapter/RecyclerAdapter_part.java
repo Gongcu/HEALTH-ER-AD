@@ -11,9 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.health.myapplication.DbHelper.DbHelper_program;
+import com.health.myapplication.db.DbHelper_program;
 import com.health.myapplication.R;
-import com.health.myapplication.data.ExerciseData;
 import com.health.myapplication.data.ProgramContract;
 import com.health.myapplication.listener.AdapterListener;
 

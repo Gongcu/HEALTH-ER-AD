@@ -4,7 +4,6 @@ import android.app.AlarmManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -13,11 +12,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
-import com.health.myapplication.DbHelper.DbHelper_alarm
+import com.health.myapplication.db.DbHelper_alarm
 import com.health.myapplication.R
 import com.health.myapplication.alarm.MyAlarmReceiver
 import com.health.myapplication.data.AlarmContract
-import com.health.myapplication.exceotionHandler.ExceptionHandler
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -59,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         view2.setOnClickListener {
-            val intent = Intent(this@MainActivity, ProgramActivity::class.java)
+            val intent = Intent(this@MainActivity, CustomProgramActivity::class.java)
             startActivity(intent)
         }
         view3.setOnClickListener {

@@ -11,22 +11,20 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import com.health.myapplication.DbHelper.DbHelper_date;
-import com.health.myapplication.DbHelper.DbHelper_date_sub;
+import com.health.myapplication.db.DbHelper_date;
+import com.health.myapplication.db.DbHelper_date_sub;
 import com.health.myapplication.R;
 import com.health.myapplication.adapter.RecyclerAdapter_date;
-import com.health.myapplication.adapter.RecyclerAdapter_date_sub;
 import com.health.myapplication.data.CalContract;
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;
 import com.health.myapplication.dialog.TrainingDataDialog;
 import com.health.myapplication.listener.DataListener;
-import com.health.myapplication.listener.DialogListener;
 
 import java.util.ArrayList;
 import java.util.Collections;

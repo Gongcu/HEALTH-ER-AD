@@ -11,6 +11,7 @@ interface BodyWeightDao {
 
     @Query("SELECT * FROM weightTable WHERE date like :date limit 1")
     fun getCurrentDate(date:String): BodyWeight?
+
     @Insert
     fun insert(bodyWeight: BodyWeight)
 

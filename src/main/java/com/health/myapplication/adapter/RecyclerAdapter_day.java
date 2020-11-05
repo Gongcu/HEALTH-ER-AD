@@ -12,8 +12,8 @@ import android.view.*;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.health.myapplication.DbHelper.DbHelper_date;
-import com.health.myapplication.DbHelper.DbHelper_date_sub;
+import com.health.myapplication.db.DbHelper_date;
+import com.health.myapplication.db.DbHelper_date_sub;
 import com.health.myapplication.R;
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;

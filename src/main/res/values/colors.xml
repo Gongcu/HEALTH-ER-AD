@@ -11,6 +11,7 @@
 
 
     <color name="colorWhite">#ffffff</color>
+    <color name="colorGray">#B8B6B6</color>
     <color name="colorBlack">#151515</color>
     <color name="androidColor">#a9dbf0cb</color>
 </resources>

@@ -16,7 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-import com.health.myapplication.DbHelper.DbHelper_program;
+import com.health.myapplication.db.DbHelper_program;
 import com.health.myapplication.R;
 import com.health.myapplication.activity.ExerciseGuideActivity;
 import com.health.myapplication.data.ProgramContract;

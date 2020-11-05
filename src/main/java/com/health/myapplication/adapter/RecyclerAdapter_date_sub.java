@@ -7,15 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.*;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.health.myapplication.DbHelper.DbHelper_date;
-import com.health.myapplication.DbHelper.DbHelper_date_sub;
+import com.health.myapplication.db.DbHelper_date;
+import com.health.myapplication.db.DbHelper_date_sub;
 import com.health.myapplication.R;
 import com.health.myapplication.data.DateContract;
 import com.health.myapplication.data.NoteContract;
@@ -23,7 +22,6 @@ import com.health.myapplication.dialog.TrainingDataDialog_edit;
 import com.health.myapplication.listener.AdapterListener;
 import com.health.myapplication.listener.DataListener;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 

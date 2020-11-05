@@ -1,28 +1,17 @@
 package com.health.myapplication.activity;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.data.LineData;
-import com.github.mikephil.charting.data.LineDataSet;
+
 import com.google.android.gms.ads.AdView;
 import com.google.android.material.tabs.TabLayout;
-import com.health.myapplication.DbHelper.DbHelper_Calculator_sub;
 import com.health.myapplication.R;
-import com.health.myapplication.adapter.RecyclerAdapter_cal;
-import com.health.myapplication.dialog.CalculatorDialog;
 import com.health.myapplication.view_pager.ContentsPagerAdapter_cal;
-
-import java.util.ArrayList;
 
 
 public class CalculatorActivity extends AppCompatActivity {
