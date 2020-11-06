@@ -1,13 +1,11 @@
 package com.health.myapplication.fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
@@ -15,16 +13,11 @@ import com.health.myapplication.BodyWeightViewModel
 import com.health.myapplication.adapter.BodyWeightListAdapter
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
-import com.health.myapplication.model.BodyWeight
 import kotlinx.android.synthetic.main.fragment_data.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 
-class DataFragment : Fragment() {
+class BodyWeightDataFragment : Fragment() {
     private val viewModel: BodyWeightViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -54,11 +47,11 @@ class DataFragment : Fragment() {
 
 
     companion object{
-        private var INSTANCE : DataFragment? = null
+        private var INSTANCE : BodyWeightDataFragment? = null
 
-        fun getInstance():DataFragment{
+        fun getInstance():BodyWeightDataFragment{
             if(INSTANCE==null)
-                INSTANCE = DataFragment()
+                INSTANCE = BodyWeightDataFragment()
             return INSTANCE!!
         }
     }

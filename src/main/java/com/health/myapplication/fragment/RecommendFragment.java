@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.health.myapplication.R;
-import com.health.myapplication.adapter.RecyclerAdapter_rec;
+import com.health.myapplication.adapter.GuideListAdapter;
 import com.health.myapplication.data.ExerciseData;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class RecommendFragment extends Fragment {
     private TextView textView;
     private RecyclerView recyclerView;
-    private RecyclerAdapter_rec adapter;
+    private GuideListAdapter adapter;
     private LinearLayoutManager layoutManager;
 
     private ArrayList<ExerciseData> list;
@@ -81,7 +81,7 @@ public class RecommendFragment extends Fragment {
             case BEGINNER:
                 getData();
                 textView.setText("전신 운동");
-                adapter = new RecyclerAdapter_rec(list, list_image);
+                adapter = new GuideListAdapter(list, list_image);
                 recyclerView.setAdapter(adapter);
                 break;
             case NOVICE:
@@ -94,7 +94,7 @@ public class RecommendFragment extends Fragment {
                         textView.setText("하체, 어깨");
                         break;
                 }
-                adapter = new RecyclerAdapter_rec(list, list_image);
+                adapter = new GuideListAdapter(list, list_image);
                 recyclerView.setAdapter(adapter);
                 break;
             case INTERMEDIATE:
@@ -110,7 +110,7 @@ public class RecommendFragment extends Fragment {
                         textView.setText("하체, 어깨");
                         break;
                 }
-                adapter = new RecyclerAdapter_rec(list, list_image);
+                adapter = new GuideListAdapter(list, list_image);
                 recyclerView.setAdapter(adapter);
                 break;
             case EXPERT:
@@ -129,7 +129,7 @@ public class RecommendFragment extends Fragment {
                         textView.setText("하체");
                         break;
                 }
-                adapter = new RecyclerAdapter_rec(list, list_image);
+                adapter = new GuideListAdapter(list, list_image);
                 recyclerView.setAdapter(adapter);
                 break;
 

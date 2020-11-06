@@ -19,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.health.myapplication.db.DbHelper_program;
 import com.health.myapplication.R;
-import com.health.myapplication.adapter.RecyclerAdapter_example;
+import com.health.myapplication.adapter.SpecificProgramListAdapter;
 import com.health.myapplication.callback.ItemTouchHelperCallback;
 import com.health.myapplication.data.ProgramContract;
 import com.health.myapplication.dialog.ProgramDialog;
@@ -33,7 +33,7 @@ import java.util.Collections;
  */
 public class ProgramFragment extends Fragment implements ItemTouchHelperCallback.ItemMoveListener {
     private RecyclerView recyclerView;
-    private RecyclerAdapter_example eAdapter;
+    private SpecificProgramListAdapter eAdapter;
     private LinearLayoutManager layoutManager;
 
     private SQLiteDatabase mDb;
@@ -89,7 +89,7 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
         pAdapter = new RecyclerAdapter_part(getActivity(), getData(),part_list,DATE,ACTIVITY_NUMBER); //1일차 part
         recyclerView.setAdapter(pAdapter);
         */
-        eAdapter = new RecyclerAdapter_example(getActivity(), getData(),ACTIVITY_NUMBER,DATE,item_list); //1일차 part
+        eAdapter = new SpecificProgramListAdapter(getActivity(), getData(),ACTIVITY_NUMBER,DATE,item_list); //1일차 part
         recyclerView.setAdapter(eAdapter);
 
 
@@ -106,7 +106,7 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
                     public void onPositiveClicked(int date, String part, String exercise, int set, int rep) {
                         addProgram(part, exercise, set, rep);
                         initList();
-                        eAdapter = new RecyclerAdapter_example(getActivity(), getData(),ACTIVITY_NUMBER,DATE,item_list); //1일차 part
+                        eAdapter = new SpecificProgramListAdapter(getActivity(), getData(),ACTIVITY_NUMBER,DATE,item_list); //1일차 part
                         recyclerView.setAdapter(eAdapter);
                     }
                 });

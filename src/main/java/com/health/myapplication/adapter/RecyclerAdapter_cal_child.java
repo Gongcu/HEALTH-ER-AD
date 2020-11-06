@@ -30,11 +30,8 @@ import java.util.List;
 public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdapter_cal_child.ItemViewHolder>{
     private AdapterListener listener;
     private CalculatorEditDialog dialog;
-
     private long parent_id;
-    private List<String> dateList;
     private List<Long> id;
-    private List<NoteContract> noteList;
     private DateContract data;
     private String date;
     private Context mContext;
@@ -45,15 +42,10 @@ public class RecyclerAdapter_cal_child extends RecyclerView.Adapter<RecyclerAdap
 
     public RecyclerAdapter_cal_child(Context context) {
         mContext=context;
-
         DbHelper_date = new DbHelper_Calculator(context);
         mDb=DbHelper_date.getWritableDatabase();
-
-
         DbHelper = new DbHelper_Calculator_sub(context);
         nDb=DbHelper.getWritableDatabase();
-
-        dateList= new ArrayList<>();
         id= new ArrayList<>();
     }
 

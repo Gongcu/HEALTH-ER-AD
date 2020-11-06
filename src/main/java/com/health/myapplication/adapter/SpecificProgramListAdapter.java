@@ -33,7 +33,7 @@ import java.util.ArrayList;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class RecyclerAdapter_example extends RecyclerView.Adapter<RecyclerAdapter_example.ItemViewHolder> {
+public class SpecificProgramListAdapter extends RecyclerView.Adapter<SpecificProgramListAdapter.ItemViewHolder> {
     private int PARENT_ACTIVITY;
     private int PARENT_DATE;
 
@@ -47,7 +47,7 @@ public class RecyclerAdapter_example extends RecyclerView.Adapter<RecyclerAdapte
     private ArrayList<ProgramContract> list;
 
 
-    public RecyclerAdapter_example(Context context, Cursor cursor, int activity, int date, ArrayList<ProgramContract> list) {
+    public SpecificProgramListAdapter(Context context, Cursor cursor, int activity, int date, ArrayList<ProgramContract> list) {
         mContext=context;
         nCursor=cursor;
         this.PARENT_ACTIVITY=activity;
@@ -65,18 +65,18 @@ public class RecyclerAdapter_example extends RecyclerView.Adapter<RecyclerAdapte
 
     @NonNull
     @Override
-    public RecyclerAdapter_example.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SpecificProgramListAdapter.ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //LayoutInflater를 이용하여 xml을 inflate 함
         // 리사이클러뷰 업데이트
         intent = new Intent(mContext, ExerciseGuideActivity.class);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View view = inflater.inflate(R.layout.item_program_exercise,parent,false);
-        return new RecyclerAdapter_example.ItemViewHolder(view);
+        return new SpecificProgramListAdapter.ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final RecyclerAdapter_example.ItemViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final SpecificProgramListAdapter.ItemViewHolder holder, int position) {
         Cursor c = mDb.rawQuery("select * from " + ProgramContract.ProgramDataEntry.TABLE_NAME + " where " +
                 ProgramContract.ProgramDataEntry.COLUMN_DATE + "=" + PARENT_DATE + " and " +
                 ProgramContract.ProgramDataEntry.COLUMN_ACTIVITY + "=" + PARENT_ACTIVITY+" and "+ ProgramContract.ProgramDataEntry.COLUMN_EXERCISE+"='"+list.get(position).getExercise()+"'", null);

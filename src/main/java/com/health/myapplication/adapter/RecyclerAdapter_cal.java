@@ -29,14 +29,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class RecyclerAdapter_cal extends RecyclerView.Adapter<RecyclerAdapter_cal.ItemViewHolder> {
-    private CalContract recentData;
     private ArrayList<String> datelist;
-    private boolean DATA_CHANGED;
     private int i = 0;
     private SQLiteDatabase mDb,nDb;
     String date;
-    String transferDate;
-
 
     private DbHelper_Calculator dbHelper_date;
     private DbHelper_Calculator_sub DbHelper;
@@ -61,7 +57,7 @@ public class RecyclerAdapter_cal extends RecyclerView.Adapter<RecyclerAdapter_ca
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //LayoutInflater를 이용하여 xml을 inflate 함
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.item_exercisedata_view, parent, false); //layout이 같음 date랑
+        View view = inflater.inflate(R.layout.item_record_date, parent, false); //layout이 같음 date랑
 
         return new ItemViewHolder(view);
     }
@@ -137,20 +133,14 @@ public class RecyclerAdapter_cal extends RecyclerView.Adapter<RecyclerAdapter_ca
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         private RecyclerAdapter_cal_child adapter;
         private Button button;
-        private ItemTouchHelper itemTouchHelper;
         private TextView date;
         private RecyclerView recyclerView;
-        private LinearLayout layout;
-        private int position;
-        // private TextView date;
-
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             button = itemView.findViewById(R.id.button);
-            date = itemView.findViewById(R.id.dateText);
-            layout = itemView.findViewById(R.id.linearItem);
-            recyclerView = itemView.findViewById(R.id.recyclerView);
+            date = itemView.findViewById(R.id.date_text);
+            recyclerView = itemView.findViewById(R.id.recycler_view);
 
             recyclerView.setNestedScrollingEnabled(false);
             recyclerView.setHasFixedSize(true);

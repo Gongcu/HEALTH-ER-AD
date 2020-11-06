@@ -33,7 +33,7 @@ public class TrainingDataDialog_edit extends Dialog implements View.OnClickListe
     private int rep=0;
     private float weight=0;
 
-    private boolean edit; //이건 Recycler_note에서 데이터 편집시 운동정보입력을 운동정보편집으로 바꾸기 위한 변수
+    private boolean EDIT;
 
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", java.util.Locale.getDefault());
 
@@ -86,7 +86,6 @@ public class TrainingDataDialog_edit extends Dialog implements View.OnClickListe
                     weight = Float.parseFloat(weightEditText.getText().toString());
 
                     listener.onPositiveClicked(strTime, name,set,rep,weight);
-
                 }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"값을 입력해주세요", Toast.LENGTH_SHORT).show();}
                 dismiss();
                 break;
@@ -95,15 +94,12 @@ public class TrainingDataDialog_edit extends Dialog implements View.OnClickListe
         }
     }
 
-
     public TextView getNameTextView() {
         return nameTextView;
     }
-
     public EditText getSetEditText() {
         return setEditText;
     }
-
     public EditText getRepEditText() {
         return repEditText;
     }

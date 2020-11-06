@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -20,14 +19,10 @@ import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
 import com.health.myapplication.model.BodyWeight
 import kotlinx.android.synthetic.main.fragment_chart.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.collections.ArrayList
 
 
-class ChartFragment : Fragment() {
+class BodyWeightChartFragment : Fragment() {
     private val viewModel: BodyWeightViewModel by viewModels()
     private var xLabelCount = 0
     private val entryList: ArrayList<Entry> = ArrayList()
@@ -133,11 +128,11 @@ class ChartFragment : Fragment() {
     }
 
     companion object{
-        private var INSTANCE : ChartFragment? = null
+        private var INSTANCE : BodyWeightChartFragment? = null
 
-        fun getInstance():ChartFragment{
+        fun getInstance():BodyWeightChartFragment{
             if(INSTANCE==null)
-                INSTANCE = ChartFragment()
+                INSTANCE = BodyWeightChartFragment()
             return INSTANCE!!
         }
     }

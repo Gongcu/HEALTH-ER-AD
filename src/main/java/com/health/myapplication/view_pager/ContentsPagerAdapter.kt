@@ -15,16 +15,15 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
     override fun createFragment(position: Int): Fragment {
         if(ACTIVITY_NUMBER== BODY_WEIGHT_ACTIVITY){
             return when (position) {
-                0 -> ChartFragment()
-                else -> DataFragment()
+                0 -> BodyWeightChartFragment()
+                else -> BodyWeightDataFragment()
             }
         }else if(ACTIVITY_NUMBER== CUSTOM_PROGRAM_ACTIVITY){
             return ProgramFragment.newInstance(position + 1, DIVISION)
         }else if(ACTIVITY_NUMBER== RECORD_ACTIVITY){
             return when(position){
-                0 -> Data_CalendarFragment()
-                1 -> Data_DayFragment()
-                else -> Data_DataFragment()
+                0 -> RecordTodayFragment()
+                else -> RecordCalendarFragment()
             }
         }else{//PROGRAM_RECOMMEND_ACTIVITY
             return RecommendFragment.newInstance(position + 1, DIVISION)

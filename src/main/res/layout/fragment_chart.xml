@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:tag="1"
-    tools:context="com.health.myapplication.fragment.ChartFragment">
+    tools:context="com.health.myapplication.fragment.BodyWeightChartFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

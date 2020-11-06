@@ -30,10 +30,10 @@
                         android:text="10"
                         android:textColor="@color/colorMain"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textView6"/>
+                        android:layout_height="wrap_content" android:id="@+id/day_text_view"/>
                     <TextView
                         android:layout_centerHorizontal="true"
-                        android:layout_below="@id/textView6"
+                        android:layout_below="@id/day_text_view"
                         android:gravity="center"
                         android:layout_weight="1"
                         android:textSize="20dp"
@@ -41,14 +41,14 @@
                         android:text="sat"
                         android:textColor="@color/colorMain"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" android:id="@+id/textView7"/>
+                        android:layout_height="wrap_content" android:id="@+id/str_day_text_view"/>
 
                     <Button
                         android:background="@drawable/add_cal_exercise_state"
                         android:layout_centerHorizontal="true"
                         android:id="@+id/addButton"
                         android:gravity="center"
-                        android:layout_below="@id/textView7"
+                        android:layout_below="@id/str_day_text_view"
                         android:layout_width="35dp"
                         android:layout_height="20dp" />
                 </RelativeLayout>

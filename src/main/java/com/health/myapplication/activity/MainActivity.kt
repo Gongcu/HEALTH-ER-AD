@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
         view3.setOnClickListener {
-            val intent = Intent(this@MainActivity, ExerciseDataActivity::class.java)
+            val intent = Intent(this@MainActivity, RecordActivity::class.java)
             startActivity(intent)
         }
         view4.setOnClickListener {

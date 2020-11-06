@@ -18,13 +18,13 @@ import com.health.myapplication.data.ExerciseData;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter_rec extends RecyclerView.Adapter<RecyclerAdapter_rec.ItemViewHolder> {
+public class GuideListAdapter extends RecyclerView.Adapter<GuideListAdapter.ItemViewHolder> {
     private ArrayList<ExerciseData> listData;
     private Context context;
     private Intent intent;
     private ArrayList<ArrayList<String>> list_image;
 
-    public RecyclerAdapter_rec(ArrayList<ExerciseData> listData, ArrayList<ArrayList<String>> list_image ) {
+    public GuideListAdapter(ArrayList<ExerciseData> listData, ArrayList<ArrayList<String>> list_image ) {
         this.listData = listData;
         this.list_image=list_image;
     }
