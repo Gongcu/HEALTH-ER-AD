@@ -1,39 +1,34 @@
-package com.health.myapplication
+package com.health.myapplication.view_model
 
 import android.app.Application
+import android.content.Context
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.health.myapplication.dialog.TrainingDataDialog
+import com.health.myapplication.listener.DataListener
+import com.health.myapplication.listener.DateRecordCopyListener
 import com.health.myapplication.model.Record
 import com.health.myapplication.model.RecordDate
+import com.health.myapplication.repository.Repository
 import kotlinx.coroutines.*
+import java.util.ArrayList
 
 class RecordViewModel(application: Application): AndroidViewModel(application) {
     private val recordDateDao = Repository(application).getRecordDateDao()
     private val recordDao = Repository(application).getRecordDao()
 
-    fun getAllDate(): LiveData<List<RecordDate>>{
-        return recordDateDao.getAll()
+
+    suspend fun getRecentDate(): List<RecordDate>{
+        return recordDateDao.getRecentDate()
     }
+
     fun getAllRecord(): LiveData<List<Record>>{
         return recordDao.getAll()
     }
     fun getIdByDate(date:String) :Int?{
         return recordDateDao.getRecordDateIdByDate(date)?.id
-    }
-    fun getAllRecordByDatedId(dateId:Int) :LiveData<List<Record>>?{
-        return recordDao.getAllRecordByDateId(dateId)
-    }
-    suspend fun getAllRecordByDate(date:String) :LiveData<List<Record>>?{
-        var dateId :Int? = null
-        val job = viewModelScope.launch(Dispatchers.IO) {
-            dateId= recordDateDao.getRecordDateIdByDate(date)?.id
-        }
-        job.join()
-        if(dateId == null)
-            return null
-        else
-            return recordDao.getAllRecordByDateId(dateId!!)
     }
 
     suspend fun getAllGeneralListRecordByDate(date:String) :List<Record>?{
@@ -42,20 +37,13 @@ class RecordViewModel(application: Application): AndroidViewModel(application) {
             dateId= recordDateDao.getRecordDateIdByDate(date)?.id
         }
         job.join()
+        Log.d("dateId",dateId.toString())
         if(dateId == null)
             return null
         else
             return recordDao.getGeneralListRecordByDateId(dateId!!)
     }
 
-
-    suspend fun getAllRecordByDateAtCalendar(date:String) :LiveData<List<Record>>?{
-        var dateId = recordDateDao.getRecordDateIdByDate(date)?.id
-        if(dateId == null)
-            return null
-        else
-            return recordDao.getAllRecordByDateId(dateId!!)
-    }
 
     fun insert(date:String, exercise: String,set: Int,rep: Int,weight: Double) {
         viewModelScope.launch(Dispatchers.IO) {
@@ -66,6 +54,18 @@ class RecordViewModel(application: Application): AndroidViewModel(application) {
                 recordDao.insert(Record(null,exercise,rep,set,weight,dateId))
             }else {
                 recordDao.insert(Record(null, exercise, rep, set, weight, dateId))
+            }
+        }
+    }
+    fun copyInsert(date:String, selectedDateId: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val todayDateId:Int? = recordDateDao.getRecordDateIdByDate(date)?.id
+            if(todayDateId==null){
+                recordDateDao.insert(RecordDate(null,date))
+                val todayDateId = recordDateDao.getRecordDateIdByDate(date)!!.id
+                recordDao.copyRecord(selectedDateId,todayDateId!!)
+            }else {
+                recordDao.copyRecord(selectedDateId,todayDateId!!)
             }
         }
     }
@@ -92,6 +92,26 @@ class RecordViewModel(application: Application): AndroidViewModel(application) {
     fun deleteById(id: Int){
         viewModelScope.launch(Dispatchers.IO) {
             recordDateDao.deleteById(id)
+        }
+    }
+
+
+
+    suspend fun showAddDialog(context: Context, targetDate:String){
+        val list:ArrayList<RecordDate> =  ArrayList(viewModelScope.async(Dispatchers.IO) {
+            return@async getRecentDate()
+        }.await())
+        val dialog = TrainingDataDialog(context,list)
+        dialog.setDialogListener(DataListener { date, name, set, rep, weight ->
+            insert(targetDate, name, set, rep, weight)
+        })
+        dialog.setDateRecordCopyListener(object: DateRecordCopyListener {
+            override fun onDateSelected(selectedDateId: Int) {
+                copyInsert(targetDate,selectedDateId)
+            }
+        })
+        viewModelScope.launch {
+            dialog.show()
         }
     }
 }

@@ -21,7 +21,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/exerciseNameTextView"
+                android:id="@+id/exercise_name_text_view"
                 android:text="@{record.exercisename.toString()}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -13,6 +13,9 @@ interface RecordDateDao {
     @Query("SELECT * FROM dateTable WHERE date like :date limit 1")
     fun getDate(date:String): RecordDate?
 
+    @Query("SELECT * FROM dateTable ORDER BY date DESC limit 7")
+    fun getRecentDate(): List<RecordDate>
+
     @Query("SELECT * FROM dateTable WHERE date like :date limit 1")
     fun getRecordDateIdByDate(date:String): RecordDate?
 
@@ -24,4 +27,7 @@ interface RecordDateDao {
 
     @Query("DELETE FROM dateTable WHERE _id=:id")
     fun deleteById(id: Int)
+
+    @Query("DELETE FROM dateTable WHERE _id > 0")
+    fun deleteAllForTest()
 }

@@ -1,7 +1,4 @@
-package com.health.myapplication.exceotionHandler;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
+package com.health.myapplication.exception;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +7,6 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.health.myapplication.R;
-import com.health.myapplication.activity.LoadingActivity;
-import com.health.myapplication.activity.MainActivity;
 
 
 public class ErrorActivity extends AppCompatActivity implements View.OnClickListener{

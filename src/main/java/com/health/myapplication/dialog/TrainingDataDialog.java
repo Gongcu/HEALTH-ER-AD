@@ -4,29 +4,39 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.*;
 import com.health.myapplication.R;
+import com.health.myapplication.etc.HintSpinnerAdapter;
 import com.health.myapplication.listener.DataListener;
+import com.health.myapplication.listener.DateRecordCopyListener;
 import com.health.myapplication.listener.DialogListener;
+import com.health.myapplication.model.RecordDate;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class TrainingDataDialog extends Dialog implements View.OnClickListener {
     private Context mContext;
-
+    private DateRecordCopyListener dateRecordCopyListener;
     private DataListener listener;
     private Button saveBtn;
     private Button quitBtn;
 
     private TextView titleText;
 
+    private Spinner dateSpinner;
     private Spinner spinner1;
     private Spinner spinner2;
 
+    ArrayAdapter<String> adapter_date;
     ArrayAdapter<CharSequence> adapter_main, adapter_sub;
 
    //private EditText nameEditText;
@@ -34,6 +44,8 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
     private EditText repEditText;
     private EditText weightEditText;
 
+    private List<RecordDate> recordDateList;
+    private ArrayList<String> dateList = new ArrayList<>() ;
     String choice_main="";
     String choice_sub="";
 
@@ -50,6 +62,7 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
     private EditText directEditText;
 
     private static boolean DIRECT_EDIT=false;
+    private static boolean INIT=false;
 
 
     @Override
@@ -66,13 +79,16 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
         layoutParams.dimAmount = 0.4f;
         getWindow().setAttributes(layoutParams);
 
+        dateSpinner = findViewById(R.id.date_spinner);
+        spinner1 = findViewById(R.id.spinner1);
+        spinner2 = findViewById(R.id.spinner2);
+
         if(edit) {
             titleText = findViewById(R.id.textView3);
             titleText.setText("운동 정보 편집");
+        }{
+            setDateSpinner();
         }
-
-        spinner1 = findViewById(R.id.spinner1);
-        spinner2 = findViewById(R.id.spinner2);
 
         adapter_main = ArrayAdapter.createFromResource(mContext, R.array.spinner_part, android.R.layout.simple_spinner_item);
         adapter_main.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -139,8 +155,21 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
         this.edit=false;
     }
 
+    public TrainingDataDialog(@NonNull Context context, List<RecordDate> list) {
+        super(context);
+        mContext=context;
+        recordDateList = list;
+        for(int i=0; i<list.size(); i++)
+            dateList.add(recordDateList.get(i).getDate());
+        dateList.add("최근 기록 복사");
+        this.edit=false;
+    }
+
     public void setDialogListener(DataListener dialogListener){
         this.listener = dialogListener;
+    }
+    public void setDateRecordCopyListener(DateRecordCopyListener listener){
+        this.dateRecordCopyListener = listener;
     }
 
     @Override
@@ -194,6 +223,24 @@ public class TrainingDataDialog extends Dialog implements View.OnClickListener {
         });
     }
 
+    public void setDateSpinner() {
+        adapter_date = new HintSpinnerAdapter(mContext, android.R.layout.simple_spinner_item,dateList);
+        dateSpinner.setAdapter(adapter_date);
+        dateSpinner.setSelection(adapter_date.getCount());
+        dateSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (INIT && position!=dateList.size()-1 ) {
+                    dateRecordCopyListener.onDateSelected(recordDateList.get(position).getId());
+                    cancel();
+                }
+                INIT=true;
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+    }
 
 
     public EditText getSetEditText() {

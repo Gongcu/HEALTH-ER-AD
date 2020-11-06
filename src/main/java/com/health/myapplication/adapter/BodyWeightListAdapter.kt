@@ -3,7 +3,7 @@ package com.health.myapplication.adapter
 import android.content.Context
 import android.view.*
 import androidx.recyclerview.widget.RecyclerView
-import com.health.myapplication.BodyWeightViewModel
+import com.health.myapplication.view_model.BodyWeightViewModel
 import com.health.myapplication.databinding.ItemDataViewBinding
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener

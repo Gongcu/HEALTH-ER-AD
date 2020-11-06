@@ -22,7 +22,7 @@
             android:name=".activity.ExerciseCategoryActivity"
             android:configChanges="screenSize|orientation" />
         <activity
-            android:name=".exceotionHandler.ErrorActivity"
+            android:name=".exception.ErrorActivity"
             android:configChanges="screenSize|orientation" />
         <activity
             android:name=".activity.CalculatorActivity"

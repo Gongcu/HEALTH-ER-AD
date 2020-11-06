@@ -14,11 +14,11 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.ValueFormatter
 import com.health.myapplication.R
-import com.health.myapplication.BodyWeightViewModel
+import com.health.myapplication.view_model.BodyWeightViewModel
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
 import com.health.myapplication.model.BodyWeight
-import kotlinx.android.synthetic.main.fragment_chart.*
+import kotlinx.android.synthetic.main.fragment_bodyweight_chart.*
 import kotlin.collections.ArrayList
 
 
@@ -36,7 +36,7 @@ class BodyWeightChartFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_chart, container, false)
+        return inflater.inflate(R.layout.fragment_bodyweight_chart, container, false)
     }
 
 

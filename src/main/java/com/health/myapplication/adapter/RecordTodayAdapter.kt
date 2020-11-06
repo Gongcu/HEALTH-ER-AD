@@ -1,12 +1,11 @@
 package com.health.myapplication.adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.*
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.health.myapplication.RecordViewModel
+import com.health.myapplication.view_model.RecordViewModel
 import com.health.myapplication.databinding.ItemRecordTodayBinding
 import com.health.myapplication.dialog.TrainingDataDialog_edit
 import com.health.myapplication.listener.DataListener
@@ -27,7 +26,6 @@ class RecordTodayAdapter(val context: Context, val viewModel: RecordViewModel) :
         return super.getItemCount()
     }
 
-
     inner class ViewHolder(private val binding: ItemRecordTodayBinding): RecyclerView.ViewHolder(binding.root), View.OnCreateContextMenuListener{
         fun bind(model: Record){
             binding.record = model
@@ -45,7 +43,7 @@ class RecordTodayAdapter(val context: Context, val viewModel: RecordViewModel) :
                 1001 -> {
                     val dialog = TrainingDataDialog_edit(context)
                     dialog.setDialogListener(DataListener { time, name, set, rep, weight ->
-                        viewModel.updateRecord(binding.record!!.id!!,name,set,rep,weight.toDouble())
+                        viewModel.updateRecord(binding.record!!.id!!,name,set,rep,weight)
                     })
                     dialog.show()
                     dialog.nameTextView.text=binding.record!!.exercisename
@@ -60,9 +58,9 @@ class RecordTodayAdapter(val context: Context, val viewModel: RecordViewModel) :
             true
         }
     }
+
     companion object RecordDiffUtil: DiffUtil.ItemCallback<Record>(){
         override fun areItemsTheSame(oldItem: Record, newItem: Record): Boolean {
-            //각 아이템들의 고유한 값을 비교해야 한다.
             return oldItem.id==newItem.id
         }
 

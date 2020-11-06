@@ -1,4 +1,4 @@
-package com.health.myapplication.exceotionHandler;
+package com.health.myapplication.exception;
 
 import android.app.Activity;
 import android.content.Intent;

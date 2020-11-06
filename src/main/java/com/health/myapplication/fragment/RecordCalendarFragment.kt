@@ -11,29 +11,26 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.health.myapplication.R
-import com.health.myapplication.RecordViewModel
+import com.health.myapplication.view_model.RecordViewModel
 import com.health.myapplication.adapter.RecordTodayAdapter
 import com.health.myapplication.calendar.OneDayDecorator
 import com.health.myapplication.calendar.SaturdayDecorator
 import com.health.myapplication.calendar.SundayDecorator
-import com.health.myapplication.dialog.TrainingDataDialog
-import com.health.myapplication.listener.DataListener
 import com.health.myapplication.model.Record
+import com.health.myapplication.util.Util
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener
-import kotlinx.android.synthetic.main.fragment_calendar.*
-import kotlinx.android.synthetic.main.fragment_calendar.add_btn
-import kotlinx.android.synthetic.main.fragment_calendar.recycler_view
-import kotlinx.android.synthetic.main.fragment_record.*
+import kotlinx.android.synthetic.main.fragment_record_calendar.*
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class RecordCalendarFragment : Fragment() {
-    val viewModel: RecordViewModel by viewModels()
+    private val viewModel: RecordViewModel by viewModels()
 
     @SuppressLint("SimpleDateFormat")
     private val sdf = SimpleDateFormat("yyyy-MM-dd")
@@ -44,21 +41,28 @@ class RecordCalendarFragment : Fragment() {
     private var selectedDate: String = sdf.format(Date())
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_calendar, container, false)
+        return inflater.inflate(R.layout.fragment_record_calendar, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        calendarInit()
+        recycler_view.adapter = RecordTodayAdapter(requireContext(), viewModel)
+        viewUpdate()
+    }
+
+
+    //call after onViewCreated
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         lifecycleScope.launch {
-            calendarInit()
-            recycler_view.adapter = RecordTodayAdapter(requireContext(), viewModel)
-            update()
+            viewModel.getAllRecord().observe(viewLifecycleOwner, observer)
         }
     }
 
@@ -75,63 +79,57 @@ class RecordCalendarFragment : Fragment() {
                 OneDayDecorator())
 
         calendar_view.setOnDateChangedListener(OnDateSelectedListener { widget, date, selected ->
+            viewModel.viewModelScope.launch(Dispatchers.Main) {
                 val calendar = Calendar.getInstance()
                 calendar.time = date.date
                 day_text_view.text = sdfDay.format(date.date)
-                str_day_text_view.text = dayToString(calendar[Calendar.DAY_OF_WEEK])
-                selectedDate=sdf.format(date.date)
-                (recycler_view.adapter as RecordTodayAdapter).submitList(ArrayList())
+                str_day_text_view.text = Util.dayToString(calendar[Calendar.DAY_OF_WEEK])
+                selectedDate = sdf.format(date.date)
 
-                viewModel.viewModelScope.launch(Dispatchers.IO) {
-                    val list = viewModel.getAllGeneralListRecordByDate(selectedDate)
-                    viewModel.viewModelScope.launch(Dispatchers.Main) {
-                        (recycler_view.adapter as RecordTodayAdapter).submitList(list)
-                    }
+                val list = viewModel.viewModelScope.async(Dispatchers.IO) {
+                    return@async viewModel.getAllGeneralListRecordByDate(selectedDate)
+                }.await()
+                Log.d("date,list",selectedDate+" "+list.toString())
+                viewModel.viewModelScope.launch(Dispatchers.Main) {
+                    (recycler_view.adapter as RecordTodayAdapter).submitList(list)
                 }
+            }
         })
 
         add_btn.setOnClickListener(View.OnClickListener {
-            val dialog = TrainingDataDialog(requireContext())
-            dialog.setDialogListener(DataListener { date, name, set, rep, weight ->
-                viewModel.insert(selectedDate, name, set, rep, weight)
-            })
-            dialog.show()
+            viewModel.viewModelScope.launch {
+                viewModel.showAddDialog(requireContext(),selectedDate)
+            }
         })
     }
 
-    private fun dayToString(dayNum: Int): String? {
-        var day: String? = null
-        when (dayNum) {
-            1 -> day = "Sun"
-            2 -> day = "Mon"
-            3 -> day = "Tue"
-            4 -> day = "Wed"
-            5 -> day = "Thu"
-            6 -> day = "Fri"
-            7 -> day = "Sat"
-        }
-        return day
-    }
-
-    suspend fun update() {
+    private fun viewUpdate() {
         val mDate = Date()
         val strDay = sdfDay.format(mDate)
         val calendar = Calendar.getInstance()
         calendar.time = mDate
         day_text_view.text = strDay
-        str_day_text_view.text = dayToString(calendar[Calendar.DAY_OF_WEEK])
-        //전체 데이터 옵저빙하고 변화 시 리스트 얻어와짐, 그 중에서 dateId로 필터링하여 리스트 제출
-        viewModel.getAllRecord().observe(viewLifecycleOwner, androidx.lifecycle.Observer {
-            var list: List<Record>
-            viewModel.viewModelScope.launch(Dispatchers.IO) {
-                val dateId = viewModel.getIdByDate(selectedDate)
-                list = it.filter {
-                    it.dateid == dateId
-                }
-                viewModel.viewModelScope.launch {
-                    (recycler_view.adapter as RecordTodayAdapter).submitList(ArrayList(list))
-                }
-            }
-        })
+        str_day_text_view.text = Util.dayToString(calendar[Calendar.DAY_OF_WEEK])
     }
+
+    private val observer = androidx.lifecycle.Observer<List<Record>>{ it->
+        var list: List<Record>
+        viewModel.viewModelScope.launch(Dispatchers.IO) {
+            val dateId = viewModel.getIdByDate(selectedDate)
+            list = it.filter {
+                it.dateid == dateId
+            }
+            viewModel.viewModelScope.launch {
+                (recycler_view.adapter as RecordTodayAdapter).submitList(ArrayList(list))
+            }
+        }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        lifecycleScope.launch {
+            viewModel.getAllRecord().removeObserver(observer)
+        }
+    }
+
 }

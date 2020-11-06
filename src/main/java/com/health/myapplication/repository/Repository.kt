@@ -1,4 +1,4 @@
-package com.health.myapplication
+package com.health.myapplication.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData

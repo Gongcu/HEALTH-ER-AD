@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
-import com.health.myapplication.CustomProgramViewModel
+import com.health.myapplication.view_model.CustomProgramViewModel
 import com.health.myapplication.R
 import com.health.myapplication.adapter.BasicDataAdapter
 import com.health.myapplication.dialog.DeleteDialog
@@ -27,7 +27,7 @@ import java.util.*
 
 class CustomProgramActivity : AppCompatActivity() {
     private val context: Context by lazy{this}
-    private val viewModel :CustomProgramViewModel by viewModels()
+    private val viewModel : CustomProgramViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

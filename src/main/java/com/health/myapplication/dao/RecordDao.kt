@@ -15,7 +15,7 @@ interface RecordDao {
     fun getRecordById(id:Int): Record
 
     @Query("SELECT * FROM exerciseNote WHERE dateid=:dateId")
-    fun getAllRecordByDateId(dateId:Int): LiveData<List<Record>>?
+    fun getAllRecordByDateId(dateId:Int): LiveData<List<Record>>
 
     @Query("SELECT * FROM exerciseNote WHERE dateid=:dateId")
     fun getGeneralListRecordByDateId(dateId:Int): List<Record>
@@ -34,4 +34,10 @@ interface RecordDao {
 
     @Query("DELETE FROM exerciseNote WHERE _id=:id")
     fun deleteById(id: Int)
+
+    @Query("INSERT INTO exerciseNote(exerciseName,settime,rep, weight,dateid) SELECT exerciseName,settime,rep, weight, :todayDateId FROM exerciseNote WHERE dateid=:dateId")
+    fun copyRecord(dateId: Int, todayDateId: Int)
+
+    @Query("DELETE FROM exerciseNote WHERE _id > 0")
+    fun deleteAllForTest()
 }

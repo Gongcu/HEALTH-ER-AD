@@ -1,11 +1,11 @@
-package com.health.myapplication
+package com.health.myapplication.view_model
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewModelScope
 import com.health.myapplication.model.BodyWeight
+import com.health.myapplication.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat

@@ -1,8 +1,6 @@
 package com.health.myapplication.activity
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.lifecycleScope
@@ -10,22 +8,19 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.gms.ads.AdRequest
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import com.health.myapplication.CustomProgramViewModel
+import com.health.myapplication.view_model.CustomProgramViewModel
 import com.health.myapplication.R
-import com.health.myapplication.model.BasicDataModel
-import com.health.myapplication.model.CustomProgram
 import com.health.myapplication.util.Util.Companion.createTabView
 import com.health.myapplication.view_pager.ContentsPagerAdapter
 import kotlinx.android.synthetic.main.activity_program_info.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import java.util.ArrayList
 
 class ProgramInfoActivity : FragmentActivity(){
     private val context:FragmentActivity by lazy {
         this
     }
-    private val viewModel:CustomProgramViewModel by viewModels()
+    private val viewModel: CustomProgramViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_program_info)

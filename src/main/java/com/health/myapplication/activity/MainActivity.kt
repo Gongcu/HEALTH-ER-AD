@@ -16,6 +16,7 @@ import com.health.myapplication.db.DbHelper_alarm
 import com.health.myapplication.R
 import com.health.myapplication.alarm.MyAlarmReceiver
 import com.health.myapplication.data.AlarmContract
+import com.health.myapplication.exception.ExceptionHandler
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -32,10 +33,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
+        Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
         setContentView(R.layout.activity_main)
 
-        MobileAds.initialize(this) { }
+        MobileAds.initialize(this,resources.getString(R.string.admob_app_id))
 
         adView = findViewById<View>(R.id.adView) as AdView
         val adRequest = AdRequest.Builder().build()
