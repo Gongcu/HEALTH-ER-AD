@@ -28,7 +28,7 @@ public class DivisionSelectDialog extends Dialog implements View.OnClickListener
     private Spinner spinner;
 
     ArrayList<String> date;
-    String division="";
+    int division=0;
 
     public DivisionSelectDialog(@NonNull Context context) {
         super(context);
@@ -64,7 +64,10 @@ public class DivisionSelectDialog extends Dialog implements View.OnClickListener
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                division=adapter_date.getItem(pos).toString();
+                char item = adapter_date.getItem(pos).charAt(0);
+                if(item=='무')
+                    item = '1';
+                division=item-'0';
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {

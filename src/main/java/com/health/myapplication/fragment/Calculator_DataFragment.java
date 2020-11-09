@@ -23,8 +23,8 @@ import com.health.myapplication.db.DbHelper_Calculator;
 import com.health.myapplication.db.DbHelper_Calculator_sub;
 import com.health.myapplication.R;
 import com.health.myapplication.adapter.RecyclerAdapter_cal;
-import com.health.myapplication.data.CalContract;
-import com.health.myapplication.data.CalDateContract;
+import com.health.myapplication.model.CalContract;
+import com.health.myapplication.model.CalDateContract;
 import com.health.myapplication.dialog.CalculatorDialog;
 import com.health.myapplication.listener.CalculatorDialogListener;
 

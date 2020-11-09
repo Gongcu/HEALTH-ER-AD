@@ -17,7 +17,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.health.myapplication.R;
 import com.health.myapplication.adapter.GuideListAdapter;
-import com.health.myapplication.data.ExerciseData;
+import com.health.myapplication.model.ExerciseData;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

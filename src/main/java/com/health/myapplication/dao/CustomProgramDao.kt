@@ -13,8 +13,8 @@ interface CustomProgramDao {
     @Query("SELECT * FROM program WHERE _id = :id")
     fun getCustomProgramById(id:Int): CustomProgram
 
-    @Query("SELECT * FROM program WHERE activity like :activity")
-    fun isExist(activity:String): CustomProgram?
+    @Query("SELECT * FROM program WHERE activity = :activity")
+    fun isExist(activity:Int): CustomProgram?
 
     @Insert
     fun insert(customProgram: CustomProgram)

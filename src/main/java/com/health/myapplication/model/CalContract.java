@@ -1,4 +1,4 @@
-package com.health.myapplication.data;
+package com.health.myapplication.model;
 
 
 import android.provider.BaseColumns;

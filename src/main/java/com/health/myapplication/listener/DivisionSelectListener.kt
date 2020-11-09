@@ -1,5 +1,5 @@
 package com.health.myapplication.listener
 
 interface DivisionSelectListener {
-    fun onPositiveClicked(division: String)
+    fun onPositiveClicked(division: Int)
 }

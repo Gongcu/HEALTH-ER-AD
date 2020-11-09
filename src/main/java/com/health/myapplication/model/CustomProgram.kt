@@ -9,7 +9,7 @@ import java.util.*
 @Entity(tableName = "program")
 data class CustomProgram(
         @PrimaryKey(autoGenerate = true) @ColumnInfo(name ="_id") var id: Int?,
-        @ColumnInfo(name ="activity" ) var activity: String
+        @ColumnInfo(name ="activity" ) var activity: Int
 ) {
-    constructor(activity: String) : this(null,activity) {}
+    constructor(activity: Int) : this(null,activity) {}
 }

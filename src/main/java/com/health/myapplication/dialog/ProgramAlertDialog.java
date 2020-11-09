@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 
 import com.health.myapplication.db.DbHelper_dialog;
 import com.health.myapplication.R;
-import com.health.myapplication.data.DialogContract;
+import com.health.myapplication.model.DialogContract;
 import com.health.myapplication.listener.DeleteDialogListener;
 
 public class ProgramAlertDialog extends Dialog implements View.OnClickListener {

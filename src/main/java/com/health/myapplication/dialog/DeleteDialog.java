@@ -32,11 +32,9 @@ public class DeleteDialog extends Dialog implements View.OnClickListener {
         layoutParams.dimAmount = 0.4f;
         getWindow().setAttributes(layoutParams);
 
-        //셋팅
         saveBtn=(Button)findViewById(R.id.saveBtn);
         quitBtn=(Button)findViewById(R.id.quitBtn);
 
-        //클릭 리스너 셋팅 (클릭버튼이 동작하도록 만들어줌.)
         saveBtn.setOnClickListener(this);
         quitBtn.setOnClickListener(this);
     }

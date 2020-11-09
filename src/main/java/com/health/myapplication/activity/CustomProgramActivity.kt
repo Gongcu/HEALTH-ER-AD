@@ -46,7 +46,7 @@ class CustomProgramActivity : AppCompatActivity() {
         add_btn.setOnClickListener(View.OnClickListener {
             val dialog = DivisionSelectDialog(this)
             dialog.setDialogListener(object: DivisionSelectListener{
-                override fun onPositiveClicked(division: String) {
+                override fun onPositiveClicked(division: Int) {
                     viewModel.insert(CustomProgram(null,division))
                 }
             })
@@ -90,13 +90,13 @@ class CustomProgramActivity : AppCompatActivity() {
         val newList = ArrayList<BasicDataModel>()
         for (i in list.indices) {
             when (list[i].activity) {
-                "무분할" -> newList.add(BasicDataModel(list[i].id!! ,"무분할", R.drawable.one))
-                "2분할"  -> newList.add(BasicDataModel(list[i].id!! ,"2분할", R.drawable.two))
-                "3분할"  -> newList.add(BasicDataModel(list[i].id!! ,"3분할", R.drawable.three))
-                "4분할"  -> newList.add(BasicDataModel(list[i].id!! ,"4분할", R.drawable.four))
-                "5분할"  -> newList.add(BasicDataModel(list[i].id!! ,"5분할", R.drawable.five))
-                "6분할"  -> newList.add(BasicDataModel(list[i].id!! ,"6분할", R.drawable.six))
-                "7분할"  -> newList.add(BasicDataModel(list[i].id!! ,"7분할", R.drawable.seven))
+                1 -> newList.add(BasicDataModel(list[i].id!! ,"무분할", R.drawable.one))
+                2  -> newList.add(BasicDataModel(list[i].id!! ,"2분할", R.drawable.two))
+                3  -> newList.add(BasicDataModel(list[i].id!! ,"3분할", R.drawable.three))
+                4  -> newList.add(BasicDataModel(list[i].id!! ,"4분할", R.drawable.four))
+                5  -> newList.add(BasicDataModel(list[i].id!! ,"5분할", R.drawable.five))
+                6  -> newList.add(BasicDataModel(list[i].id!! ,"6분할", R.drawable.six))
+                7  -> newList.add(BasicDataModel(list[i].id!! ,"7분할", R.drawable.seven))
             }
         }
         return newList

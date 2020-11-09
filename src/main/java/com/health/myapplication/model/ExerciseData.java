@@ -1,4 +1,4 @@
-package com.health.myapplication.data;
+package com.health.myapplication.model;
 
 public class ExerciseData {
     String name;

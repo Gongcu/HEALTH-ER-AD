@@ -3,7 +3,7 @@ package com.health.myapplication.db;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.health.myapplication.data.CalDateContract;
+import com.health.myapplication.model.CalDateContract;
 
 public class DbHelper_Calculator extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "caldateTable.db";

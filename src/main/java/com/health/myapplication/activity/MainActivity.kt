@@ -15,8 +15,8 @@ import com.google.android.gms.ads.MobileAds
 import com.health.myapplication.db.DbHelper_alarm
 import com.health.myapplication.R
 import com.health.myapplication.alarm.MyAlarmReceiver
-import com.health.myapplication.data.AlarmContract
 import com.health.myapplication.exception.ExceptionHandler
+import com.health.myapplication.model.AlarmContract
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
                     calendar.add(Calendar.SECOND, Integer.parseInt(secondEditText.text.toString()))
                     calendar.add(Calendar.MINUTE, Integer.parseInt(minuteEditText.text.toString()))
 
-                    dbHelper.updateAlarm(AlarmContract(Integer.parseInt(minuteEditText.text.toString()),Integer.parseInt(secondEditText.text.toString())))
+                    dbHelper.updateAlarm(AlarmContract(Integer.parseInt(minuteEditText.text.toString()), Integer.parseInt(secondEditText.text.toString())))
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                         alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)

@@ -21,16 +21,13 @@ import com.health.myapplication.db.DbHelper_program;
 import com.health.myapplication.R;
 import com.health.myapplication.adapter.SpecificProgramListAdapter;
 import com.health.myapplication.callback.ItemTouchHelperCallback;
-import com.health.myapplication.data.ProgramContract;
+import com.health.myapplication.model.ProgramContract;
 import com.health.myapplication.dialog.ProgramDialog;
 import com.health.myapplication.listener.ProgramDialogListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * A simple {@link Fragment} subclass.`
- */
 public class ProgramFragment extends Fragment implements ItemTouchHelperCallback.ItemMoveListener {
     private RecyclerView recyclerView;
     private SpecificProgramListAdapter eAdapter;
@@ -39,7 +36,6 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
     private SQLiteDatabase mDb;
     private DbHelper_program DbHelper;
 
-    private ArrayList<String> part_list;
     private ArrayList<ProgramContract> item_list;
 
     private ProgramDialog dialog;
@@ -85,10 +81,8 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
 
 
         layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);/*
-        pAdapter = new RecyclerAdapter_part(getActivity(), getData(),part_list,DATE,ACTIVITY_NUMBER); //1일차 part
-        recyclerView.setAdapter(pAdapter);
-        */
+        recyclerView.setLayoutManager(layoutManager);
+
         eAdapter = new SpecificProgramListAdapter(getActivity(), getData(),ACTIVITY_NUMBER,DATE,item_list); //1일차 part
         recyclerView.setAdapter(eAdapter);
 
@@ -191,15 +185,6 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
 
     @Override
     public void onItemMove(int fromPosition, int toPosition) {
-        /*
-        ContentValues cv = new ContentValues();
-        cv.put(ProgramContract.ProgramDataEntry.COLUMN_ORDER, item_list.get(fromPosition).getOrder());
-        mDb.update(ProgramContract.ProgramDataEntry.TABLE_NAME, cv,ProgramContract.ProgramDataEntry._ID+"="+item_list.get(toPosition).getId(),null);
-        cv.clear();
-        cv.put(ProgramContract.ProgramDataEntry.COLUMN_ORDER, item_list.get(toPosition).getOrder());
-        mDb.update(ProgramContract.ProgramDataEntry.TABLE_NAME, cv,ProgramContract.ProgramDataEntry._ID+"="+item_list.get(fromPosition).getId(),null);        //db로 order값 바뀍
-        item_list.add(toPosition,item_list.remove(fromPosition));// change position
-        */
         item_list.add(toPosition,item_list.remove(fromPosition));// change position
         ContentValues cv = new ContentValues();
         for(int i=0; i<item_list.size(); i++){
@@ -216,4 +201,6 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
         eAdapter.remove(id);
         eAdapter.notifyDataSetChanged();
     }
+    @Override
+    public void onItemMoveFinished(){}
 }

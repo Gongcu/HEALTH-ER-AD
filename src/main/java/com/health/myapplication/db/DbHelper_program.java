@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.health.myapplication.data.ProgramContract;
+import com.health.myapplication.model.ProgramContract;
 
 
 public class DbHelper_program extends SQLiteOpenHelper {
@@ -37,9 +37,6 @@ public class DbHelper_program extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         // 버전이 바뀌면 예전 버전의 테이블을 삭제 (나중에 ALTER 문으로 대체)
-
-        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + ProgramContract.ProgramDataEntry.TABLE_NAME);
-        onCreate(sqLiteDatabase);
         // If you need to add a column
     }
 }

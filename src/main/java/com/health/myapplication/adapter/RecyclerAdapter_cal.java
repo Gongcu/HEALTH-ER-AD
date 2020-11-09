@@ -8,20 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.ItemTouchHelper;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.health.myapplication.db.DbHelper_Calculator;
 import com.health.myapplication.db.DbHelper_Calculator_sub;
 import com.health.myapplication.R;
-import com.health.myapplication.data.CalContract;
-import com.health.myapplication.data.CalDateContract;
-import com.health.myapplication.data.DateContract;
+import com.health.myapplication.model.CalContract;
+import com.health.myapplication.model.CalDateContract;
+import com.health.myapplication.model.DateContract;
 import com.health.myapplication.listener.AdapterListener;
 
 import java.text.SimpleDateFormat;

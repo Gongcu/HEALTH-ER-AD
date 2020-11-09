@@ -14,7 +14,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.health.myapplication.R;
 import com.health.myapplication.activity.ExerciseGuideActivity;
-import com.health.myapplication.data.ExerciseData;
+import com.health.myapplication.model.ExerciseData;
 
 import java.util.ArrayList;
 

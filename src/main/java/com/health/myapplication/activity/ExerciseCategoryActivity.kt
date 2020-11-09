@@ -8,6 +8,7 @@ import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
 import com.health.myapplication.adapter.BasicAdapter
 import com.health.myapplication.model.ExerciseModel
+import com.health.myapplication.util.Util
 import kotlinx.android.synthetic.main.activity_exercise_guide.*
 import kotlinx.android.synthetic.main.activity_exercise_part_category.*
 import kotlinx.android.synthetic.main.activity_exercise_part_category.ad_view
@@ -30,13 +31,7 @@ class ExerciseCategoryActivity : AppCompatActivity() {
         recycler_view.adapter = BasicAdapter(
                 getExerciseCategoryData(PART_NAME)
         ) { basicModel ->
-            val intent = Intent(applicationContext, ExerciseGuideActivity::class.java)
-            intent.putExtra("name", (basicModel as ExerciseModel).name)
-            intent.putExtra("desc",  basicModel.desc)
-            intent.putExtra("tip",  basicModel.tip)
-            intent.putExtra("imageR", basicModel.imageR)
-            intent.putExtra("imageF", basicModel.imageF)
-            startActivity(intent)
+            Util.startExerciseGuideActivity(applicationContext, basicModel as ExerciseModel)
         }
     }
 

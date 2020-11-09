@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.health.myapplication.db.DbHelper_program;
 import com.health.myapplication.R;
 import com.health.myapplication.activity.ExerciseGuideActivity;
-import com.health.myapplication.data.ProgramContract;
+import com.health.myapplication.model.ProgramContract;
 import com.health.myapplication.dialog.ProgramDialog_Edit;
 import com.health.myapplication.listener.AdapterListener;
 

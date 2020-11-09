@@ -6,10 +6,10 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.health.myapplication.fragment.*
 
 class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, private val ACTIVITY_NUMBER: Int) : FragmentStateAdapter(fa) {
-    private var DIVISION = -1
+    private var ID = -1
 
     constructor(fa: FragmentActivity, mPageCount: Int, LEVEL: Int, ACTIVITY_NUMBER: Int) : this(fa, mPageCount, ACTIVITY_NUMBER) {
-        this.DIVISION = LEVEL
+        this.ID = LEVEL
     }
 
     override fun createFragment(position: Int): Fragment {
@@ -19,14 +19,14 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
                 else -> BodyWeightDataFragment()
             }
         }else if(ACTIVITY_NUMBER== CUSTOM_PROGRAM_ACTIVITY){
-            return ProgramFragment.newInstance(position + 1, DIVISION)
+            return ProgramFragment.newInstance(position + 1, ID)
         }else if(ACTIVITY_NUMBER== RECORD_ACTIVITY){
             return when(position){
                 0 -> RecordTodayFragment()
                 else -> RecordCalendarFragment()
             }
         }else{//PROGRAM_RECOMMEND_ACTIVITY
-            return RecommendFragment.newInstance(position + 1, DIVISION)
+            return RecommendFragment.newInstance(position + 1, ID)
         }
     }
 

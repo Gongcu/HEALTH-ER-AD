@@ -5,7 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import com.health.myapplication.data.AlarmContract;
+import com.health.myapplication.model.AlarmContract;
 
 
 public class DbHelper_alarm extends SQLiteOpenHelper {

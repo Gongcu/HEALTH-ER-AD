@@ -2,14 +2,8 @@ package com.health.myapplication.repository
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import com.health.myapplication.db.BodyWeightDatabase
-import com.health.myapplication.db.CustomProgramDatabase
-import com.health.myapplication.dao.BodyWeightDao
-import com.health.myapplication.dao.CustomProgramDao
-import com.health.myapplication.dao.RecordDao
-import com.health.myapplication.dao.RecordDateDao
-import com.health.myapplication.db.RecordDatabase
-import com.health.myapplication.db.RecordDateDatabase
+import com.health.myapplication.dao.*
+import com.health.myapplication.db.*
 import com.health.myapplication.model.BodyWeight
 
 class Repository(application: Application) {
@@ -25,6 +19,8 @@ class Repository(application: Application) {
     private val recordDatabase: RecordDatabase = RecordDatabase.getInstance(application)!!
     private val recordDao: RecordDao = recordDatabase.recordDao()
 
+
+
     fun getRecordDao():RecordDao {
         return recordDao
     }
@@ -39,5 +35,4 @@ class Repository(application: Application) {
     fun getCustomProgramDao():CustomProgramDao {
         return customProgramDao
     }
-
 }

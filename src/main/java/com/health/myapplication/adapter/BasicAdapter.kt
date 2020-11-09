@@ -1,12 +1,15 @@
 package com.health.myapplication.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.health.myapplication.databinding.ItemDefaultViewBinding
 import com.health.myapplication.model.BasicModel
+import com.health.myapplication.model.CustomProgramItem
+import com.health.myapplication.util.Util
 
-class BasicAdapter(var list: List<BasicModel>,val itemClick: (BasicModel) -> Unit) : RecyclerView.Adapter<BasicAdapter.ViewHolder>() {
+class BasicAdapter(var list: List<BasicModel>, val itemClick: (BasicModel) -> Unit) : RecyclerView.Adapter<BasicAdapter.ViewHolder>() {
     constructor(itemClick: (BasicModel) -> Unit):this(ArrayList(),itemClick)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasicAdapter.ViewHolder {
@@ -26,6 +29,7 @@ class BasicAdapter(var list: List<BasicModel>,val itemClick: (BasicModel) -> Uni
         this.list=list
         notifyDataSetChanged()
     }
+
 
     inner class ViewHolder(private val binding: ItemDefaultViewBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(model: BasicModel){
