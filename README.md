@@ -8,8 +8,10 @@
  ***
  
  ### STACK 📚
- - Android(java)  
- - SQLite  
+ - Android(Java, Kotlin)  
+ - SQLite, Room
+ - MVVM
+ - Android Architecture Component(LiveData, Databinding)
  - [MPAndroidChart][link]  
  - [material-calendarview][link]
  
