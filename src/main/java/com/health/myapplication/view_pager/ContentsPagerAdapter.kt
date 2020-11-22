@@ -25,6 +25,11 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
                 0 -> RecordTodayFragment()
                 else -> RecordCalendarFragment()
             }
+        }else if(ACTIVITY_NUMBER== GUIDE_ACTIVITY){
+            return when(position){
+                0 -> ExerciseGuideFragment()
+                else -> ExerciseGuideCommunityFragment()
+            }
         }else{//PROGRAM_RECOMMEND_ACTIVITY
             return RecommendFragment.newInstance(position + 1, ID)
         }
@@ -39,6 +44,6 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
         const val CUSTOM_PROGRAM_ACTIVITY = 300
         const val PROGRAM_RECOMMEND_ACTIVITY = 200
         const val RECORD_ACTIVITY = 400
-
+        const val GUIDE_ACTIVITY = 100
     }
 }

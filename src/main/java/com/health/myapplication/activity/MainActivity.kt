@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
+        //Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler(this))
         setContentView(R.layout.activity_main)
 
         MobileAds.initialize(this,resources.getString(R.string.admob_app_id))
