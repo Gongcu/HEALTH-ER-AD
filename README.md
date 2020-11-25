@@ -3,7 +3,7 @@
  
 ## 2020.11.02 ~ 리팩토링 진행 중
  
- <img src="./홍보/graphic.png"></img> 
+ <img src="./홍보/배너.png"></img> 
  ### Download: [playstore][link]
  ***
  
