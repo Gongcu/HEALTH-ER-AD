@@ -42,9 +42,6 @@ class MainActivity : AppCompatActivity() {
         val adRequest = AdRequest.Builder().build()
         adView.loadAd(adRequest)
 
-        val intent = Intent(this, LoadingActivity::class.java)
-        startActivity(intent)
-
         dbHelper=DbHelper_alarm(this)
         alarmTime=dbHelper.alarm
         if(!alarmTime.equals("0")) {

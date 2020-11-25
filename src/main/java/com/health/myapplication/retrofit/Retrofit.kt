@@ -8,7 +8,7 @@ object Retrofit{
     fun getInstance():Retrofit{
         if(instance==null){
             instance = Retrofit.Builder()
-                    .baseUrl("http://133.186.212.78:3000/")
+                    .baseUrl("http://211.176.83.66:3000/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
         }

@@ -31,7 +31,7 @@
             android:layout_marginLeft="8dp"
             app:layout_constraintTop_toBottomOf="@+id/title_text_view"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:text="@{guide.datetime}"
+            android:text="@{guide.createdAt}"
             android:hint="2020.11.23">
         </TextView>
 
@@ -66,67 +66,73 @@
             android:hint="15">
         </TextView>
 
-        <TextView
-            android:id="@+id/guide2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-            app:layout_constraintLeft_toRightOf="@+id/view_count_text_view"
-            android:text="|">
-        </TextView>
 
-        <TextView
-            android:id="@+id/like_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-            app:layout_constraintLeft_toRightOf="@+id/guide2"
-            android:text="추천">
-        </TextView>
 
-        <TextView
-            android:id="@+id/like_count_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
+        <LinearLayout
+            android:id="@+id/linear_layout_right"
             app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-            app:layout_constraintLeft_toRightOf="@+id/like_text_view"
-            android:text="@{String.valueOf(guide.likeCount)}"
-            android:hint="19">
-        </TextView>
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/like_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="추천"
+                android:textColor="@color/colorSub4">
+            </TextView>
 
-        <TextView
-            android:id="@+id/guide3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-            app:layout_constraintLeft_toRightOf="@+id/like_count_text_view"
-            android:text="|">
-        </TextView>
+            <TextView
+                android:id="@+id/like_count_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintRight_toLeftOf="@+id/guide3"
+                android:text="@{String.valueOf(guide.likeCount)}"
+                android:textColor="@color/colorSub4"
+                android:hint="19">
+            </TextView>
 
-        <TextView
-            android:id="@+id/comment_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-            app:layout_constraintLeft_toRightOf="@+id/guide3"
-            android:text="댓글">
-        </TextView>
+            <TextView
+                android:id="@+id/guide3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="|">
+            </TextView>
 
-        <TextView
-            android:id="@+id/comment_count_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            app:layout_constraintTop_toBottomOf="@+id/title_text_view"
-            app:layout_constraintLeft_toRightOf="@+id/comment_text_view"
-            android:text="@{String.valueOf(guide.commentCount)}"
-            android:hint="19">
-        </TextView>
+            <TextView
+                android:id="@+id/comment_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="댓글"
+                android:textColor="@color/lightGreen">
+            </TextView>
+
+            <TextView
+                android:id="@+id/comment_count_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="@{String.valueOf(guide.commentCount)}"
+                android:textColor="@color/lightGreen"
+                android:hint="19">
+            </TextView>
+        </LinearLayout>
+
+
+        <View
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="8dp"
+            android:background="@color/colorGray"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            app:layout_constraintTop_toBottomOf="@+id/linear_layout_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+        </View>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

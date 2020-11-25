@@ -28,7 +28,7 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
         }else if(ACTIVITY_NUMBER== GUIDE_ACTIVITY){
             return when(position){
                 0 -> ExerciseGuideFragment()
-                else -> ExerciseGuideCommunityFragment()
+                else -> CommunityFragment()
             }
         }else{//PROGRAM_RECOMMEND_ACTIVITY
             return RecommendFragment.newInstance(position + 1, ID)

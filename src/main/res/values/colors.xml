@@ -8,6 +8,7 @@
     <color name="colorSub2">#ff4682b4</color> <!--steel blue-->
     <color name="colorSub3">#ffb22222</color> <!--fire brick-->
     <color name="colorSub4">#ff1e90ff</color> <!--dodger blue-->
+    <color name="lightGreen">#009688</color> <!--dodger blue-->
 
 
     <color name="colorWhite">#ffffff</color>

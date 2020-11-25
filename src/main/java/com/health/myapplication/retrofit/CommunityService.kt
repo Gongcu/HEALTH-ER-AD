@@ -1,27 +1,35 @@
 package com.health.myapplication.retrofit
 
+import com.health.myapplication.model.CommunityUser
 import com.health.myapplication.model.GuideComment
-import com.health.myapplication.model.GuideInfo
+import com.health.myapplication.model.GuidePost
 import com.health.myapplication.model.GuideItem
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface CommunityService {
-    @GET("exercise/:id")
-    fun getGuideList(id:Int) : List<GuideItem>
+    @GET("post/exercise/{exercise}")
+    fun getPostList(@Path("exercise") exercise:String) : Call<List<GuideItem>>
 
-    @GET("exercise/:id")
-    fun getGuideById(id:Int) : Call<GuideItem>
+    @GET("post/{postId}")
+    fun getPostById(@Path("postId") postId:Int) : Call<GuidePost>
 
-    @GET("exercise/:id/comment")
-    fun getCommentList(id:Int) : List<GuideComment>
+    @GET("post/{postId}/comment")
+    fun getCommentList(@Path("postId") postId:Int) : Call<List<GuideComment>>
 
+    @POST("user")
+    fun postUser(@Body user: CommunityUser) : Call<Void>
 
-    @POST("exercise")
-    fun postGuide(@Body guide: GuideInfo) : Call<Void>
+    @POST("post")
+    fun writePost(@Body guide: GuidePost) : Call<Void>
 
-    @POST("exercise/{id}")
-    fun postComment(@Body comment: GuideComment) : Call<Void>
+    @POST("post/comment/{postId}")
+    fun writeComment(
+            @Path("postId") postId:Int,
+            @Body comment: GuideComment) : Call<Void>
+
+    @POST("post/like/{postId}/{userId}")
+    fun like(
+            @Path("postId") postId:Int,
+            @Path("userId") userId:Int) : Call<Void>
 }

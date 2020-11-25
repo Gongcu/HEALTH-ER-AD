@@ -1,16 +1,17 @@
 package com.health.myapplication.adapter
 
+import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.health.myapplication.activity.CommunityPostDetailActivity
 import com.health.myapplication.databinding.ItemDefaultViewBinding
 import com.health.myapplication.databinding.ItemGuideTitleViewBinding
 import com.health.myapplication.model.GuideItem
 
-class GuideItemAdapter(var list: List<GuideItem>) : RecyclerView.Adapter<GuideItemAdapter.ViewHolder>() {
-    init {
-        list = ArrayList<GuideItem>();
-    }
+class GuideItemAdapter(var list: List<GuideItem>, val context: Context) : RecyclerView.Adapter<GuideItemAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuideItemAdapter.ViewHolder {
         val binding = ItemGuideTitleViewBinding.inflate(LayoutInflater.from(parent.context),parent, false)
         return ViewHolder(binding)
@@ -34,7 +35,9 @@ class GuideItemAdapter(var list: List<GuideItem>) : RecyclerView.Adapter<GuideIt
         fun bind(model: GuideItem){
             binding.guide = model
             binding.root.setOnClickListener {
-                //itemclick
+                val intent = Intent(context,CommunityPostDetailActivity::class.java)
+                intent.putExtra("ID",model.id)
+                context.startActivity(intent)
             }
         }
     }
