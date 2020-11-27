@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/arrow_back_ios/baseline_arrow_back_ios_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/chat_bubble_outline/baseline_chat_bubble_outline_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,9 +28,9 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="2d2d32" />
-                            <entry key="outputName" value="ic_baseline_arrow_back_ios_24" />
-                            <entry key="sourceFile" value="C:\Users\knmy0\android_open_src\MyApplication-oad\MyApplication\app" />
+                            <entry key="color" value="acacb4" />
+                            <entry key="outputName" value="ic_baseline_chat_bubble_outline_24" />
+                            <entry key="sourceFile" value="C:\Users\knmy0\Downloads\reply-black-24dp.svg" />
                           </map>
                         </option>
                       </PersistentState>

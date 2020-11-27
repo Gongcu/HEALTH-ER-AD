@@ -15,21 +15,10 @@
         android:layout_width="24dp"
         android:layout_height="24dp"/>
 
-    <TextView
-        android:id="@+id/back_text_view"
-        android:text="뒤로가기"
-        android:textSize="20dp"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/mapo_peace"
-        android:textColor="@color/colorBlack"
-        app:layout_constraintLeft_toRightOf="@+id/back_btn"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
     <View
         android:id="@+id/guide"
         android:background="@color/colorGray"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:layout_marginHorizontal="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -40,6 +29,7 @@
         android:id="@+id/title_text_view"
         android:textSize="24dp"
         android:text="제목입니다"
+        android:fontFamily="@font/kopub_dotum_light"
         android:textColor="@color/colorBlack"
         android:textStyle="bold"
         android:layout_marginTop="16dp"
@@ -51,10 +41,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/like_btn"
+        app:srcCompat="@drawable/ic_thumb_up_alt_black_24dp"
+        android:tint="@color/colorDeepGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/guide"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+
     <TextView
         android:id="@+id/content_text_view"
         android:textSize="14dp"
         android:text="내용입니다. 헬서 어플리케이션. "
+        android:fontFamily="@font/kopub_dotum_light"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
@@ -82,6 +86,7 @@
             android:id="@+id/like_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kopub_dotum_light"
             android:text="추천"
             android:textColor="@color/colorSub4">
         </TextView>
@@ -90,6 +95,7 @@
             android:id="@+id/like_count_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kopub_dotum_light"
             android:layout_marginLeft="5dp"
             app:layout_constraintRight_toLeftOf="@+id/guide3"
             android:text="0"
@@ -98,18 +104,11 @@
         </TextView>
 
         <TextView
-            android:id="@+id/guide3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="|">
-        </TextView>
-
-        <TextView
             android:id="@+id/comment_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:fontFamily="@font/kopub_dotum_light"
             android:text="댓글"
             android:textColor="@color/lightGreen">
         </TextView>
@@ -128,8 +127,9 @@
         android:id="@+id/datetime_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kopub_dotum_light"
         android:text="2020.11.31"
-        android:textColor="@color/colorGray"
+        android:textColor="@color/colorDeepGray"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         app:layout_constraintRight_toRightOf="parent"
@@ -138,24 +138,66 @@
 
     <View
         android:id="@+id/guide2"
-        android:background="@color/colorGray"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
+        android:background="@color/replyBackgroundColor"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_layout"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"/>
+        android:layout_height="5dp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide2"
+        app:layout_constraintBottom_toTopOf="@+id/linear_layout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linear_layout2"
+        android:orientation="horizontal"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <View
+            android:id="@+id/devide_line"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:background="@color/replyBackgroundColor"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+        <EditText
+            android:id="@+id/comment_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/devide_line"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/comment_write_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:textSize="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginBottom="8dp"
+            android:hint="댓글을 입력하세요"/>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/comment_write_btn"
+            app:srcCompat="@drawable/ic_reply_black_24dp"
+            app:layout_constraintTop_toBottomOf="@+id/devide_line"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

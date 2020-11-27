@@ -2,8 +2,6 @@ package com.health.myapplication.repository
 
 import android.app.Application
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.health.myapplication.dao.BodyWeightDao
 import com.health.myapplication.dao.CustomProgramDao
 import com.health.myapplication.dao.RecordDao
@@ -13,6 +11,7 @@ import com.health.myapplication.db.CustomProgramDatabase
 import com.health.myapplication.db.RecordDatabase
 import com.health.myapplication.db.RecordDateDatabase
 import com.health.myapplication.model.CommunityUser
+import com.health.myapplication.model.Comment
 import com.health.myapplication.model.GuideItem
 import com.health.myapplication.model.GuidePost
 import com.health.myapplication.retrofit.CommunityService
@@ -61,6 +60,10 @@ class Repository(application: Application) {
         return guideApi.getPostList(exercise)
     }
 
+    fun getHotPostList(exercise: String): Call<List<GuideItem>> {
+        return guideApi.getHotPostList(exercise)
+    }
+
     fun writePost(guidePost: GuidePost){
         guideApi.writePost(guidePost).enqueue(object:Callback<Void>{
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
@@ -86,5 +89,28 @@ class Repository(application: Application) {
     }
     fun getPost(id:Int):Call<GuidePost>{
         return guideApi.getPostById(id)
+    }
+
+
+    fun writeComment(postId:Int, guideComment: Comment):Call<List<Comment>>{
+        return guideApi.writeComment(postId,guideComment)
+    }
+
+    fun getComment(postId:Int,userId: Int):Call<List<Comment>>{
+        return guideApi.getComment(postId,userId)
+    }
+    fun replyComment(postId:Int, commentId: Int,comment: Comment):Call<List<Comment>>{
+        return guideApi.replyComment(postId,commentId,comment)
+    }
+
+    fun getLikeState(postId: Int,userId:Int): Call<Boolean>{
+        return guideApi.getLikeState(postId,userId)
+    }
+
+    fun likePost(postId: Int,userId:Int): Call<Boolean>{
+        return guideApi.likePost(postId,userId)
+    }
+    fun likeComment(commentId: Int,userId:Int): Call<Boolean>{
+        return guideApi.likeComment(commentId,userId)
     }
 }

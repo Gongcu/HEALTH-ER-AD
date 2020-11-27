@@ -9,10 +9,14 @@
     <color name="colorSub3">#ffb22222</color> <!--fire brick-->
     <color name="colorSub4">#ff1e90ff</color> <!--dodger blue-->
     <color name="lightGreen">#009688</color> <!--dodger blue-->
+    <color name="backgroundColor">#E9F2FA</color>
+    <color name="replyBackgroundColor">#F3F3F3</color>
 
 
     <color name="colorWhite">#ffffff</color>
     <color name="colorGray">#B8B6B6</color>
+    <color name="colorDeepGray">#939393</color>
+    <color name="colorDarkGray">#5A5A5A</color>
     <color name="colorBlack">#151515</color>
     <color name="androidColor">#a9dbf0cb</color>
 </resources>

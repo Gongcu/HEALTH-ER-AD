@@ -9,4 +9,9 @@
         android:fontStyle = "normal"
         android:fontWeight = "400"
         android:font = "@font/mapo_peace"/>
+
+    <font
+        android:fontStyle = "normal"
+        android:fontWeight = "400"
+        android:font = "@font/kopub_dotum_light"/>
 </font-family>
