@@ -31,7 +31,7 @@
             android:text="@{comment.nickname}"
             android:hint="익명"
             android:layout_marginTop="8dp"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack">
         </TextView>
@@ -46,7 +46,7 @@
             android:layout_marginTop="4dp"
             android:text="@{comment.comment}"
             android:hint="랫풀다운은 이렇게 해라."
-            android:textSize="12dp"
+            android:textSize="12sp"
             android:textColor="@color/colorBlack">
         </TextView>
 
@@ -59,7 +59,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:text="@{comment.createdAt}"
             android:fontFamily="@font/kopub_dotum_light"
-            android:textSize="10dp"
+            android:textSize="10sp"
             android:hint="2020.11.23">
         </TextView>
 
@@ -101,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kopub_dotum_light"
                 android:text="추천"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 android:textColor="@color/colorSub4">
             </TextView>
 
@@ -114,7 +114,7 @@
                 android:fontFamily="@font/kopub_dotum_light"
                 app:layout_constraintRight_toLeftOf="@+id/guide3"
                 android:text="@{String.valueOf(comment.likeCount)}"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 android:textColor="@color/colorSub4"
                 android:hint="19">
             </TextView>

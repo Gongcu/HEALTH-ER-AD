@@ -22,7 +22,7 @@
             android:layout_marginLeft="8dp"
             android:text="@{guide.title}"
             android:fontFamily="@font/kopub_dotum_light"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:hint="타이틀"
             android:textColor="@color/colorBlack">
         </TextView>

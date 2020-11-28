@@ -56,8 +56,8 @@ class Repository(application: Application) {
         return customProgramDao
     }
 
-    fun getList(exercise: String): Call<List<GuideItem>> {
-        return guideApi.getPostList(exercise)
+    fun getList(exercise: String, offset:Int): Call<List<GuideItem>> {
+        return guideApi.getPostList(exercise,offset)
     }
 
     fun getHotPostList(exercise: String): Call<List<GuideItem>> {

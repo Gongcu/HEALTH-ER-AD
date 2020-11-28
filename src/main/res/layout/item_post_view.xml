@@ -22,7 +22,7 @@
             android:text="@{guide.title}"
             android:fontFamily="@font/kopub_dotum_light"
             android:hint="랫풀다운은 이렇게 해라."
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textColor="@color/colorBlack">
         </TextView>
 

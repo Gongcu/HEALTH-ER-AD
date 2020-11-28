@@ -26,6 +26,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class CommunityPostDetailActivity : AppCompatActivity() {
+    private var INIT = true
     private val viewModel :CommunityViewModel by viewModels()
     private var postId = -1
     private var userId = -1
@@ -88,6 +89,7 @@ class CommunityPostDetailActivity : AppCompatActivity() {
         like_btn.setOnClickListener {viewModel.likePost(postId,userId).enqueue(likeCallback)}
 
         back_btn.setOnClickListener {finish()}
+        back_text_view.setOnClickListener {finish()}
         recycler_view.setOnTouchListener(touchListener)
     }
 
@@ -111,10 +113,13 @@ class CommunityPostDetailActivity : AppCompatActivity() {
             if(response.isSuccessful){
                 if(response.body()==true){
                     ImageViewCompat.setImageTintList(like_btn, ColorStateList.valueOf(ContextCompat.getColor(applicationContext, R.color.colorSub)))
+                    if(!INIT) like_count_text_view.text=(like_count_text_view.text.toString().toInt()+1).toString()
                 }else{
                     ImageViewCompat.setImageTintList(like_btn, ColorStateList.valueOf(ContextCompat.getColor(applicationContext, R.color.colorDeepGray)))
+                    if(!INIT) like_count_text_view.text=(like_count_text_view.text.toString().toInt()-1).toString()
                 }
             }
+            INIT = false
             Log.d("RESPONSE", response.body().toString())
         }
 

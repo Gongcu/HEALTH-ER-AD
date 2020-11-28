@@ -9,7 +9,9 @@ import retrofit2.http.*
 
 interface CommunityService {
     @GET("post/exercise/{exercise}")
-    fun getPostList(@Path("exercise") exercise:String) : Call<List<GuideItem>>
+    fun getPostList(
+            @Path("exercise") exercise:String,
+            @Query("offset") offset:Int) : Call<List<GuideItem>>
 
     @GET("post/exercise/{exercise}/hot")
     fun getHotPostList(@Path("exercise") exercise:String) : Call<List<GuideItem>>

@@ -12,8 +12,8 @@ class CommunityViewModel(application: Application): AndroidViewModel(application
     private val repository = Repository(application)
 
 
-    fun getList(exercise:String): Call<List<GuideItem>> {
-        return repository.getList(exercise)
+    fun getList(exercise:String, offset:Int): Call<List<GuideItem>> {
+        return repository.getList(exercise,offset)
     }
     fun getHotPostList(exercise:String): Call<List<GuideItem>> {
         return repository.getHotPostList(exercise)
