@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: org.lucasr.twowayview:core:1.0.0-SNAPSHOT@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b0332ba6a5ef545d7e139f8d9149d724/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b0332ba6a5ef545d7e139f8d9149d724/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b0332ba6a5ef545d7e139f8d9149d724/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c8453c6c420c15c0b952d4744bb05d88/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c8453c6c420c15c0b952d4744bb05d88/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c8453c6c420c15c0b952d4744bb05d88/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

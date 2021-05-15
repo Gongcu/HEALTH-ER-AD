@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.health.myapplication">
+
+    <application
+        android:name=".application.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".ui.custom_program.CustomProgramActivity" />
+        <activity android:name=".ui.custom_program.ProgramInfoActivity" />
+        <activity android:name=".ui.recommend_program.ProgramRecommendActivity" />
+        <activity android:name=".ui.exercise_info.ExerciseGuideActivity" />
+        <activity
+            android:name=".ui.exercise_info.ExercisePartCategoryActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".ui.exercise_info.ExerciseCategoryActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".exception.ErrorActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".ui.one_rm.OneRMActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.one_rm.CalculatorActivity"
+            android:configChanges="screenSize|orientation" />
+
+        <activity
+            android:name=".ui.body_weight.BodyWeightActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".ui.record.RecordActivity"
+            android:configChanges="screenSize|orientation" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:configChanges="screenSize|orientation" />
+
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="@string/kakao_app_key" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id" />
+
+        <receiver android:name=".component.MyAlarmReceiver" />
+
+        <service
+            android:name=".component.AlarmService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+    </application>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+</manifest>

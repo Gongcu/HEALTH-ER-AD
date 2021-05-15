@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="bodyWeight"
+            type="com.health.myapplication.model.body_weight.BodyWeight" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/first_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.5"
+            android:ems="10"
+            android:hint="날짜"
+            android:inputType="date"
+            android:paddingLeft="4dp"
+            android:text="@{bodyWeight.date}"
+            android:textColor="@color/colorMain" />
+
+        <TextView
+            android:id="@+id/second_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ems="10"
+            android:gravity="left"
+            android:hint="값"
+            android:inputType="textPersonName"
+            android:text="@{String.valueOf(bodyWeight.bodyweight)}"
+            android:textColor="@color/colorMain" />
+    </LinearLayout>
+
+</layout>
