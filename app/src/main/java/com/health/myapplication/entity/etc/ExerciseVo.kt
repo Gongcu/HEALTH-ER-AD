@@ -24,6 +24,7 @@ data class ExerciseVo (
     ) {
     }
 
+
     constructor(name: String, desc: String, tip: String, imageR: Int, imageF: Int) : this(name,desc,tip,0,0, imageR, imageF) {}
 
 

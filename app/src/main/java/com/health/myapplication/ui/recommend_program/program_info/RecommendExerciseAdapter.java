@@ -1,4 +1,4 @@
-package com.health.myapplication.ui.recommend_program;
+package com.health.myapplication.ui.recommend_program.program_info;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -15,11 +15,11 @@ import com.health.myapplication.entity.etc.ExerciseVo;
 import com.health.myapplication.util.Util;
 import java.util.List;
 
-public class GuideListAdapter extends RecyclerView.Adapter<GuideListAdapter.ItemViewHolder> {
+public class RecommendExerciseAdapter extends RecyclerView.Adapter<RecommendExerciseAdapter.ItemViewHolder> {
     private List<ExerciseVo> list;
     private Context context;
 
-    public GuideListAdapter(List<ExerciseVo> list) {
+    public RecommendExerciseAdapter(List<ExerciseVo> list) {
         this.list = list;
     }
 

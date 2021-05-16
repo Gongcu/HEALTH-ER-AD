@@ -12,7 +12,15 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.health.myapplication.R
 import com.health.myapplication.listener.ProgramDialogListener
+import kotlinx.android.synthetic.main.dialog_program.*
 import kotlinx.android.synthetic.main.dialog_record.*
+import kotlinx.android.synthetic.main.dialog_record.directEditText
+import kotlinx.android.synthetic.main.dialog_record.exercise_spinner
+import kotlinx.android.synthetic.main.dialog_record.part_spinner
+import kotlinx.android.synthetic.main.dialog_record.quitBtn
+import kotlinx.android.synthetic.main.dialog_record.repEditText
+import kotlinx.android.synthetic.main.dialog_record.saveBtn
+import kotlinx.android.synthetic.main.dialog_record.setEditText
 
 class ProgramDialog(
         context: Context,
@@ -32,10 +40,11 @@ class ProgramDialog(
             height = WindowManager.LayoutParams.WRAP_CONTENT
             flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND
             dimAmount = 0.4f
-
-
         }
         window.attributes = layoutParams
+
+        setEditText.setText("")
+        repEditText.setText("")
 
         val adapter = ArrayAdapter.createFromResource(context, R.array.spinner_part, android.R.layout.simple_spinner_item);
         part_spinner.adapter = adapter

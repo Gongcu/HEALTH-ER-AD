@@ -3,7 +3,6 @@ package com.health.myapplication.ui.custom_program
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -19,6 +18,7 @@ import com.health.myapplication.listener.DeleteDialogListener
 import com.health.myapplication.listener.DivisionSelectListener
 import com.health.myapplication.entity.etc.BaseVo
 import com.health.myapplication.entity.custom_program.CustomProgram
+import com.health.myapplication.ui.custom_program.program_info.CustomProgramInfoActivity
 import kotlinx.android.synthetic.main.activity_custom_program.ad_view
 import kotlinx.android.synthetic.main.activity_custom_program.add_btn
 import kotlinx.android.synthetic.main.activity_custom_program.recycler_view
@@ -27,6 +27,10 @@ import java.util.*
 class CustomProgramActivity : AppCompatActivity() {
     private val context: Context by lazy{this}
     private val viewModel : CustomProgramViewModel by viewModels()
+    private val dialog : DivisionSelectDialog by lazy{
+        DivisionSelectDialog(this)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,20 +39,20 @@ class CustomProgramActivity : AppCompatActivity() {
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.adapter = CommonItemAdapter {
-            moveProgramInfoActivity(it)
+            moveCustomProgramInfoActivity(it)
         }
 
         viewModel.getCustomProgram().observe(this, androidx.lifecycle.Observer {
             (recycler_view.adapter as CommonItemAdapter).setList(listGenerator(ArrayList(it)))
         })
 
+        dialog.setDialogListener(object: DivisionSelectListener{
+            override fun onPositiveClicked(division: Int) {
+                viewModel.insert(CustomProgram(null,division))
+            }
+        })
+
         add_btn.setOnClickListener(View.OnClickListener {
-            val dialog = DivisionSelectDialog(this)
-            dialog.setDialogListener(object: DivisionSelectListener{
-                override fun onPositiveClicked(division: Int) {
-                    viewModel.insert(CustomProgram(null,division))
-                }
-            })
             dialog.show()
         })
 
@@ -77,10 +81,9 @@ class CustomProgramActivity : AppCompatActivity() {
         }).attachToRecyclerView(recycler_view)
     }
 
-    private fun moveProgramInfoActivity(item: BaseVo){
-        val intent = Intent(context, ProgramInfoActivity::class.java)
+    private fun moveCustomProgramInfoActivity(item: BaseVo){
+        val intent = Intent(context, CustomProgramInfoActivity::class.java)
         intent.putExtra("ID",item.id)
-        Log.d("ID", "+"+item.id)
         startActivity(intent)
     }
 

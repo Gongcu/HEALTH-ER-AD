@@ -6,7 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
-import com.health.myapplication.ui.custom_program.ProgramInfoActivity
+import com.health.myapplication.ui.recommend_program.program_info.ProgramInfoActivity
 import kotlinx.android.synthetic.main.activity_program_recommend.*
 
 class ProgramRecommendActivity : AppCompatActivity() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.recommend_program.RecommendFragment">
+    tools:context=".ui.recommend_program.program_info.RecommendFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

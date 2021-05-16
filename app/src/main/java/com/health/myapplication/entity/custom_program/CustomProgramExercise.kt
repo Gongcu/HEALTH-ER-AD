@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "program")
-data class CustomProgramItem(
+data class CustomProgramExercise(
         @PrimaryKey(autoGenerate = true) @ColumnInfo(name ="_id") var id: Int?,
         @ColumnInfo(name ="activity") var activity: Int,
         @ColumnInfo(name ="divide") var divide: Int,
@@ -17,4 +17,7 @@ data class CustomProgramItem(
         ) {
     constructor(activity: Int,divide: Int,part: String, exercise: String,itemorder: Int,settime: Int,rep: Int)
             : this(null,activity,divide,part,exercise,itemorder,settime,rep) {}
+
+    constructor(activity: Int,divide: Int,part: String, exercise: String,settime: Int,rep: Int)
+            : this(null,activity,divide,part,exercise,-1,settime,rep) {}
 }

@@ -1,4 +1,4 @@
-package com.health.myapplication.ui.recommend_program;
+package com.health.myapplication.ui.recommend_program.program_info;
 
 
 
@@ -21,7 +21,7 @@ import java.util.List;
 public class RecommendFragment extends Fragment {
     private TextView textView;
     private RecyclerView recyclerView;
-    private GuideListAdapter adapter;
+    private RecommendExerciseAdapter adapter;
 
     private List<ExerciseVo> list;
 
@@ -72,7 +72,7 @@ public class RecommendFragment extends Fragment {
                 part = expert[TYPE-1];
                 break;
         }
-        adapter = new GuideListAdapter(list);
+        adapter = new RecommendExerciseAdapter(list);
     }
 
     @Override

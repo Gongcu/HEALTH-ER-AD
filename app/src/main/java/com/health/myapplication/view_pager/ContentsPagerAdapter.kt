@@ -5,10 +5,10 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.health.myapplication.ui.body_weight.chart.BodyWeightChartFragment
 import com.health.myapplication.ui.body_weight.record.BodyWeightRecordFragment
-import com.health.myapplication.ui.custom_program.ProgramFragment
+import com.health.myapplication.ui.custom_program.program_info.CustomProgramFragment
 import com.health.myapplication.ui.one_rm.chart.OneRmChartFragment
 import com.health.myapplication.ui.one_rm.record.OneRmRecordFragment
-import com.health.myapplication.ui.recommend_program.RecommendFragment
+import com.health.myapplication.ui.recommend_program.program_info.RecommendFragment
 import com.health.myapplication.ui.record.calendar.RecordCalendarFragment
 import com.health.myapplication.ui.record.today.RecordTodayFragment
 
@@ -26,7 +26,7 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
                 else -> BodyWeightRecordFragment()
             }
         }else if(ACTIVITY_NUMBER== CUSTOM_PROGRAM_ACTIVITY){
-            return ProgramFragment.newInstance(position + 1, ID)
+            return CustomProgramFragment.newInstance(position + 1, ID)
         }else if(ACTIVITY_NUMBER== RECORD_ACTIVITY){
             return when(position){
                 0 -> RecordTodayFragment()

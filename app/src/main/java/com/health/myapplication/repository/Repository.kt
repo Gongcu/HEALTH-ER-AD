@@ -15,6 +15,9 @@ class Repository(application: Application) {
     private val customProgramDatabase: CustomProgramDatabase = CustomProgramDatabase.getInstance(application)!!
     private val customProgramDao: CustomProgramDao = customProgramDatabase.customProgramDao()
 
+    private val customProgramExerciseDatabase: CustomProgramExerciseDatabase = CustomProgramExerciseDatabase.getInstance(application)!!
+    private val customProgramExerciseDao: CustomProgramExerciseDao = customProgramExerciseDatabase.customProgramExerciseDao()
+
     private val oneRMDateDatabase: OneRmDateDatabase = OneRmDateDatabase.getInstance(application)!!
     private val oneRMDateDao: OneRmDateDao = oneRMDateDatabase.oneRMDateDao()
 
@@ -55,6 +58,10 @@ class Repository(application: Application) {
     }
     fun getCustomProgramDao():CustomProgramDao {
         return customProgramDao
+    }
+
+    fun getCustomProgramExerciseDao():CustomProgramExerciseDao {
+        return customProgramExerciseDao
     }
 
 }

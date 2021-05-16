@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.custom_program.program_info.CustomProgramInfoActivity"></activity>
         <activity android:name=".ui.custom_program.CustomProgramActivity" />
-        <activity android:name=".ui.custom_program.ProgramInfoActivity" />
+        <activity android:name=".ui.recommend_program.program_info.ProgramInfoActivity" />
         <activity android:name=".ui.recommend_program.ProgramRecommendActivity" />
         <activity android:name=".ui.exercise_info.ExerciseGuideActivity" />
         <activity
@@ -31,14 +31,13 @@
         <activity
             android:name=".ui.SplashActivity"
             android:configChanges="screenSize|orientation"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.body_weight.BodyWeightActivity"
             android:configChanges="screenSize|orientation" />
@@ -64,10 +63,10 @@
             android:exported="false"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
 </manifest>

@@ -7,15 +7,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.health.myapplication.dao.CustomProgramItemDao
-import com.health.myapplication.entity.custom_program.CustomProgramItem
+import com.health.myapplication.dao.CustomProgramExerciseDao
+import com.health.myapplication.entity.custom_program.CustomProgramExercise
 
-@Database(entities = [CustomProgramItem::class], version = 3)
-abstract class CustomProgramItemDatabase() : RoomDatabase() {
-    abstract fun customProgramItemDao(): CustomProgramItemDao
+@Database(entities = [CustomProgramExercise::class], version = 3)
+abstract class CustomProgramExerciseDatabase() : RoomDatabase() {
+    abstract fun customProgramExerciseDao(): CustomProgramExerciseDao
 
     companion object {
-        private var INSTANCE: CustomProgramItemDatabase? = null
+        private var INSTANCE: CustomProgramExerciseDatabase? = null
         private val sLock = Any()
 
         @VisibleForTesting
@@ -42,11 +42,11 @@ abstract class CustomProgramItemDatabase() : RoomDatabase() {
             }
         }
 
-        fun getInstance(context: Context): CustomProgramItemDatabase? {
+        fun getInstance(context: Context): CustomProgramExerciseDatabase? {
             synchronized(sLock) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.applicationContext,
-                            CustomProgramItemDatabase::class.java, "programTable.db")
+                            CustomProgramExerciseDatabase::class.java, "programTable.db")
                             .addMigrations(MIGRATION_2_3)
                             .build()
                 }
