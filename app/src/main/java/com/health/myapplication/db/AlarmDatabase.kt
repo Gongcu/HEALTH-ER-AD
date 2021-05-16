@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.health.myapplication.dao.AlarmDao
-import com.health.myapplication.model.etc.Alarm
+import com.health.myapplication.entity.etc.Alarm
 
 @Database(entities = [Alarm::class], version = 2)
 abstract class AlarmDatabase() : RoomDatabase() {

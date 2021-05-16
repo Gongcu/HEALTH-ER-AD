@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.health.myapplication.dao.BodyWeightDao
-import com.health.myapplication.model.body_weight.BodyWeight
+import com.health.myapplication.entity.body_weight.BodyWeight
 
 @Database(entities = [BodyWeight::class], version = 2)
 abstract class BodyWeightDatabase() : RoomDatabase() {

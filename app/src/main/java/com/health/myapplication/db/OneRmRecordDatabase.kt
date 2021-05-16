@@ -7,12 +7,12 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.health.myapplication.dao.OneRMRecordDao
-import com.health.myapplication.model.calculator.OneRMRecord
+import com.health.myapplication.dao.OneRmRecordDao
+import com.health.myapplication.entity.one_rm.OneRmRecord
 
-@Database(entities = [OneRMRecord::class], version = 2)
+@Database(entities = [OneRmRecord::class], version = 2)
 abstract class OneRmRecordDatabase() : RoomDatabase() {
-    abstract fun oneRMRecordDao(): OneRMRecordDao
+    abstract fun oneRMRecordDao(): OneRmRecordDao
 
     companion object {
         private var INSTANCE: OneRmRecordDatabase? = null

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="baseModel"
-            type="com.health.myapplication.model.etc.BaseModel" />
+            type="com.health.myapplication.entity.etc.BaseVo" />
     </data>
 
     <androidx.cardview.widget.CardView

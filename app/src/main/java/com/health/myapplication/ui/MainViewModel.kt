@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.health.myapplication.component.MyAlarmReceiver
 import com.health.myapplication.application.BaseApplication
-import com.health.myapplication.model.etc.Alarm
+import com.health.myapplication.entity.etc.Alarm
 import com.health.myapplication.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

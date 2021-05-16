@@ -7,9 +7,10 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.health.myapplication.ui.record.RecordViewModel
 import com.health.myapplication.databinding.ItemRecordTodayBinding
-import com.health.myapplication.dialog.TrainingDataDialog_edit
-import com.health.myapplication.listener.DataListener
-import com.health.myapplication.model.record.Record
+import com.health.myapplication.dialog.DialogType
+import com.health.myapplication.dialog.RecordDialog
+import com.health.myapplication.listener.RecordDialogListener
+import com.health.myapplication.entity.record.Record
 
 class RecordTodayAdapter(val context: Context, val viewModel: RecordViewModel) :ListAdapter<Record, RecordTodayAdapter.ViewHolder>(
     RecordDiffUtil
@@ -43,15 +44,14 @@ class RecordTodayAdapter(val context: Context, val viewModel: RecordViewModel) :
         private val onEditMenu = MenuItem.OnMenuItemClickListener { item ->
             when (item.itemId) {
                 1001 -> {
-                    val dialog = TrainingDataDialog_edit(context)
-                    dialog.setDialogListener(DataListener { time, name, set, rep, weight ->
-                        viewModel.updateRecord(binding.record!!.id!!,name,set,rep,weight)
-                    })
-                    dialog.show()
-                    dialog.nameTextView.text=binding.record!!.exercisename
-                    dialog.setEditText.setText(binding.record!!.set.toString())
-                    dialog.repEditText.setText(binding.record!!.rep.toString())
-                    dialog.weightEditText.setText(binding.record!!.weight.toString())
+                    RecordDialog(context,DialogType.UPDATE).apply {
+                        setRecordDialogListener(object : RecordDialogListener {
+                            override fun onPositiveClicked(time: String, name: String, set: Int, rep: Int, weight: Double) {
+                                viewModel.updateRecord(binding.record!!.id!!, set, rep, weight)
+                            }
+                        })
+                        show()
+                    }
                 }
                 1002 -> {
                     viewModel.deleteRecordById(binding.record!!.id!!)

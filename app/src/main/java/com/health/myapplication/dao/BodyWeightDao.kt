@@ -2,7 +2,7 @@ package com.health.myapplication.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.health.myapplication.model.body_weight.BodyWeight
+import com.health.myapplication.entity.body_weight.BodyWeight
 
 @Dao
 interface BodyWeightDao {

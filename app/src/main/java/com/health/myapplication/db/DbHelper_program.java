@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.health.myapplication.model.etc.ProgramContract;
+import com.health.myapplication.entity.etc.ProgramContract;
 
 
 public class DbHelper_program extends SQLiteOpenHelper {

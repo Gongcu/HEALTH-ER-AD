@@ -7,7 +7,7 @@ import com.health.myapplication.ui.body_weight.BodyWeightViewModel
 import com.health.myapplication.databinding.ItemDataViewBinding
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
-import com.health.myapplication.model.body_weight.BodyWeight
+import com.health.myapplication.entity.body_weight.BodyWeight
 
 
 class BodyWeightAdapter(val context:Context, val viewModel: BodyWeightViewModel) : RecyclerView.Adapter<BodyWeightAdapter.ViewHolder>() {

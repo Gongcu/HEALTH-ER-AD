@@ -2,7 +2,7 @@ package com.health.myapplication.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.health.myapplication.model.record.RecordDate
+import com.health.myapplication.entity.record.RecordDate
 
 @Dao
 interface RecordDateDao {
@@ -19,7 +19,7 @@ interface RecordDateDao {
     fun getRecordDateIdByDate(date:String): RecordDate?
 
     @Insert
-    fun insert(recordDate: RecordDate)
+    fun insert(recordDate: RecordDate) : Long
 
     @Delete
     fun delete(recordDate: RecordDate)

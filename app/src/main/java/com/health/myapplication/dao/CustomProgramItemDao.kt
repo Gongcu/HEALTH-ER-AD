@@ -2,7 +2,7 @@ package com.health.myapplication.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.health.myapplication.model.custom_program.CustomProgramItem
+import com.health.myapplication.entity.custom_program.CustomProgramItem
 
 @Dao
 interface CustomProgramItemDao {

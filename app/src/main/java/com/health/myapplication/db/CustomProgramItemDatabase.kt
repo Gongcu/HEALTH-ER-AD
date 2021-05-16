@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.health.myapplication.dao.CustomProgramItemDao
-import com.health.myapplication.model.custom_program.CustomProgramItem
+import com.health.myapplication.entity.custom_program.CustomProgramItem
 
 @Database(entities = [CustomProgramItem::class], version = 3)
 abstract class CustomProgramItemDatabase() : RoomDatabase() {

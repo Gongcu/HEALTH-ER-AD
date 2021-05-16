@@ -16,10 +16,10 @@ class Repository(application: Application) {
     private val customProgramDao: CustomProgramDao = customProgramDatabase.customProgramDao()
 
     private val oneRMDateDatabase: OneRmDateDatabase = OneRmDateDatabase.getInstance(application)!!
-    private val oneRMDateDao: OneRMDateDao = oneRMDateDatabase.oneRMDateDao()
+    private val oneRMDateDao: OneRmDateDao = oneRMDateDatabase.oneRMDateDao()
 
     private val oneRMRecordDatabase: OneRmRecordDatabase = OneRmRecordDatabase.getInstance(application)
-    private val oneRMRecordDao: OneRMRecordDao = oneRMRecordDatabase.oneRMRecordDao()
+    private val oneRMRecordDao: OneRmRecordDao = oneRMRecordDatabase.oneRMRecordDao()
 
     private val recordDateDatabase: RecordDateDatabase = RecordDateDatabase.getInstance(application)!!
     private val recordDateDao: RecordDateDao = recordDateDatabase.recordDateDao()
@@ -30,11 +30,11 @@ class Repository(application: Application) {
 
 
 
-    fun getOneRMDateDao():OneRMDateDao {
+    fun getOneRMDateDao():OneRmDateDao {
         return oneRMDateDao
     }
 
-    fun getOneRMRecordDao():OneRMRecordDao {
+    fun getOneRMRecordDao():OneRmRecordDao {
         return oneRMRecordDao
     }
 

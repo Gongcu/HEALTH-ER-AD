@@ -26,7 +26,7 @@
             android:name=".exception.ErrorActivity"
             android:configChanges="screenSize|orientation" />
         <activity
-            android:name=".ui.one_rm.OneRMActivity"
+            android:name=".ui.one_rm.OneRmActivity"
             android:configChanges="screenSize|orientation" />
         <activity
             android:name=".ui.SplashActivity"
@@ -38,10 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".ui.one_rm.CalculatorActivity"
-            android:configChanges="screenSize|orientation" />
 
         <activity
             android:name=".ui.body_weight.BodyWeightActivity"

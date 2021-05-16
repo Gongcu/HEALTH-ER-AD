@@ -20,12 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.health.myapplication.db.DbHelper_program;
 import com.health.myapplication.R;
-import com.health.myapplication.model.etc.ExerciseModel;
-import com.health.myapplication.ui.exercise_info.ExerciseGuideActivity;
-import com.health.myapplication.model.etc.ProgramContract;
-import com.health.myapplication.dialog.ProgramDialog_Edit;
+import com.health.myapplication.entity.etc.ExerciseVo;
+import com.health.myapplication.entity.etc.ProgramContract;
+
 import com.health.myapplication.listener.AdapterListener;
-import com.health.myapplication.util.Util;
+import com.health.myapplication.ui.exercise_info.ExerciseGuideActivity;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -43,7 +42,6 @@ public class SpecificProgramAdapter extends RecyclerView.Adapter<SpecificProgram
     private SQLiteDatabase mDb;
     private DbHelper_program DbHelper;
     private AdapterListener listener;
-    private ProgramDialog_Edit dialog;
     private ArrayList<ProgramContract> list;
 
 
@@ -108,7 +106,7 @@ public class SpecificProgramAdapter extends RecyclerView.Adapter<SpecificProgram
         private TextView repTextView;
         private ProgramContract data;
         private long note_id;
-        private ExerciseModel exerciseModel;
+        private ExerciseVo exerciseModel;
         private boolean ITEM;
         private int order;
         // private TextView date;
@@ -138,7 +136,7 @@ public class SpecificProgramAdapter extends RecyclerView.Adapter<SpecificProgram
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject o = jsonArray.getJSONObject(i);
                     if (o.getString("name").equals(exercise)) {
-                         exerciseModel = new ExerciseModel(
+                         exerciseModel = new ExerciseVo(
                                 o.getString("name"),
                                 o.getString("desc"),
                                 o.getString("tip"),
@@ -168,7 +166,9 @@ public class SpecificProgramAdapter extends RecyclerView.Adapter<SpecificProgram
                 Toast.makeText(mContext, "해당 운동의 정보가 없습니다.", Toast.LENGTH_LONG).show();
             } else {
                 Log.d(TAG, "true" + ITEM + "");
-                Util.Companion.startExerciseGuideActivity(mContext,exerciseModel);
+                Intent intent = new Intent(mContext, ExerciseGuideActivity.class);
+                intent.putExtra("exercise", exerciseModel);
+                mContext.startActivity(intent);
             }
         }
     }

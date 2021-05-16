@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.health.myapplication.databinding.ItemDefaultViewBinding
-import com.health.myapplication.model.etc.BaseModel
+import com.health.myapplication.entity.etc.BaseVo
 
-class CommonItemAdapter(var list: List<BaseModel>, val itemClick: (BaseModel) -> Unit) : RecyclerView.Adapter<CommonItemAdapter.ViewHolder>() {
-    constructor(itemClick: (BaseModel) -> Unit):this(ArrayList(),itemClick)
+class CommonItemAdapter(var list: List<BaseVo>, val itemClick: (BaseVo) -> Unit) : RecyclerView.Adapter<CommonItemAdapter.ViewHolder>() {
+    constructor(itemClick: (BaseVo) -> Unit):this(ArrayList(),itemClick)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommonItemAdapter.ViewHolder {
         val binding = ItemDefaultViewBinding.inflate(LayoutInflater.from(parent.context),parent, false)
@@ -22,7 +22,7 @@ class CommonItemAdapter(var list: List<BaseModel>, val itemClick: (BaseModel) ->
         return list.size
     }
 
-    fun setList(list :ArrayList<BaseModel>) {
+    fun setList(list :ArrayList<BaseVo>) {
         this.list=list
         notifyDataSetChanged()
     }
@@ -33,7 +33,7 @@ class CommonItemAdapter(var list: List<BaseModel>, val itemClick: (BaseModel) ->
                 itemClick(binding.baseModel!!)
             }
         }
-        fun bind(model: BaseModel){
+        fun bind(model: BaseVo){
             binding.root.tag = model.id
             binding.baseModel = model
 

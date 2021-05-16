@@ -1,22 +1,19 @@
 package com.health.myapplication.db
 
 import android.app.Application
-import android.content.Context
-import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.health.myapplication.dao.OneRMDateDao
-import com.health.myapplication.model.calculator.OneRMDate
+import com.health.myapplication.dao.OneRmDateDao
+import com.health.myapplication.entity.one_rm.OneRmDate
 
-private const val TAG = "OneRmDateDatabase"
 
-@Database(entities = [OneRMDate::class], version = 2)
+@Database(entities = [OneRmDate::class], version = 2)
 abstract class OneRmDateDatabase() : RoomDatabase() {
-    abstract fun oneRMDateDao(): OneRMDateDao
+    abstract fun oneRMDateDao(): OneRmDateDao
 
     companion object {
         private var INSTANCE: OneRmDateDatabase? = null
@@ -48,7 +45,6 @@ abstract class OneRmDateDatabase() : RoomDatabase() {
                             .addMigrations(MIGRATION_1_2)
                             .build()
                 }
-                Log.d(TAG, "getInstance: ${INSTANCE}")
                 return INSTANCE
             }
         }

@@ -12,7 +12,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.health.myapplication.R
 import com.health.myapplication.ui.record.RecordViewModel
-import com.health.myapplication.model.record.Record
+import com.health.myapplication.entity.record.Record
 import com.health.myapplication.util.Util
 import kotlinx.android.synthetic.main.fragment_record_today.add_btn
 import kotlinx.android.synthetic.main.fragment_record_today.recycler_view

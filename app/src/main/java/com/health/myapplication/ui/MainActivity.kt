@@ -12,7 +12,7 @@ import com.google.android.gms.ads.MobileAds
 import com.health.myapplication.R
 import com.health.myapplication.databinding.ActivityMainBinding
 import com.health.myapplication.ui.body_weight.BodyWeightActivity
-import com.health.myapplication.ui.one_rm.OneRMActivity
+import com.health.myapplication.ui.one_rm.OneRmActivity
 import com.health.myapplication.ui.custom_program.CustomProgramActivity
 import com.health.myapplication.ui.exercise_info.ExercisePartCategoryActivity
 import com.health.myapplication.ui.recommend_program.ProgramRecommendActivity
@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(),View.OnClickListener {
             R.id.daily_note_view ->
                 intent = Intent(this@MainActivity, RecordActivity::class.java)
             R.id.calculator_view ->
-                intent = Intent(this@MainActivity, OneRMActivity::class.java)
+                intent = Intent(this@MainActivity, OneRmActivity::class.java)
             R.id.body_weight_view ->
                 intent = Intent(this@MainActivity, BodyWeightActivity::class.java)
             R.id.recommend_program_view ->

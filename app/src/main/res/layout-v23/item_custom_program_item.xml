@@ -6,11 +6,11 @@
     <data>
         <variable
             name="basicModel"
-            type="com.health.myapplication.model.etc.BaseModel" />
+            type="com.health.myapplication.entity.etc.BaseVo" />
 
         <variable
             name="exercise_item"
-            type="com.health.myapplication.model.custom_program.CustomProgramItem" />
+            type="com.health.myapplication.entity.custom_program.CustomProgramItem" />
     </data>
 
     <androidx.cardview.widget.CardView

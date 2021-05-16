@@ -6,8 +6,8 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.health.myapplication.ui.body_weight.chart.BodyWeightChartFragment
 import com.health.myapplication.ui.body_weight.record.BodyWeightRecordFragment
 import com.health.myapplication.ui.custom_program.ProgramFragment
-import com.health.myapplication.ui.one_rm.chart.OneRMChartFragment
-import com.health.myapplication.ui.one_rm.record.OneRMRecordFragment
+import com.health.myapplication.ui.one_rm.chart.OneRmChartFragment
+import com.health.myapplication.ui.one_rm.record.OneRmRecordFragment
 import com.health.myapplication.ui.recommend_program.RecommendFragment
 import com.health.myapplication.ui.record.calendar.RecordCalendarFragment
 import com.health.myapplication.ui.record.today.RecordTodayFragment
@@ -34,8 +34,8 @@ class ContentsPagerAdapter(fa: FragmentActivity, private val mPageCount: Int, pr
             }
         }else if(ACTIVITY_NUMBER== ONE_RM_ACTIVITY){
             return when(position){
-                0 ->  OneRMChartFragment()
-                else ->  OneRMRecordFragment()
+                0 ->  OneRmChartFragment()
+                else ->  OneRmRecordFragment()
             }
         }
         else{//PROGRAM_RECOMMEND_ACTIVITY

@@ -6,11 +6,12 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.health.myapplication.dialog.TrainingDataDialog
-import com.health.myapplication.listener.DataListener
+import com.health.myapplication.dialog.DialogType
+import com.health.myapplication.dialog.RecordDialog
+import com.health.myapplication.listener.RecordDialogListener
 import com.health.myapplication.listener.DateRecordCopyListener
-import com.health.myapplication.model.record.Record
-import com.health.myapplication.model.record.RecordDate
+import com.health.myapplication.entity.record.Record
+import com.health.myapplication.entity.record.RecordDate
 import com.health.myapplication.repository.Repository
 import kotlinx.coroutines.*
 import java.util.ArrayList
@@ -61,18 +62,17 @@ class RecordViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             val todayDateId:Int? = recordDateDao.getRecordDateIdByDate(date)?.id
             if(todayDateId==null){
-                recordDateDao.insert(RecordDate(null,date))
-                val todayDateId = recordDateDao.getRecordDateIdByDate(date)!!.id
-                recordDao.copyRecord(selectedDateId,todayDateId!!)
+                val todayDateId = recordDateDao.insert(RecordDate(null,date))
+                recordDao.copyRecord(selectedDateId,todayDateId.toInt())
             }else {
                 recordDao.copyRecord(selectedDateId,todayDateId!!)
             }
         }
     }
 
-    fun updateRecord(id:Int,exercise:String, set: Int, rep: Int,  weight:Double) {
+    fun updateRecord(id:Int, set: Int, rep: Int,  weight:Double) {
         viewModelScope.launch(Dispatchers.IO) {
-            recordDao.update(id,exercise,set,rep,weight)
+            recordDao.update(id,set,rep,weight)
         }
     }
     fun deleteRecordById(id:Int) {
@@ -101,9 +101,11 @@ class RecordViewModel(application: Application): AndroidViewModel(application) {
         val list:ArrayList<RecordDate> =  ArrayList(viewModelScope.async(Dispatchers.IO) {
             return@async getRecentDate()
         }.await())
-        val dialog = TrainingDataDialog(context,list)
-        dialog.setDialogListener(DataListener { date, name, set, rep, weight ->
-            insert(targetDate, name, set, rep, weight)
+        val dialog = RecordDialog(context,DialogType.INSERT,list)
+        dialog.setRecordDialogListener(object : RecordDialogListener {
+            override fun onPositiveClicked(time: String, name: String, set: Int, rep: Int, weight: Double) {
+                insert(targetDate, name, set, rep, weight)
+            }
         })
         dialog.setDateRecordCopyListener(object: DateRecordCopyListener {
             override fun onDateSelected(selectedDateId: Int) {

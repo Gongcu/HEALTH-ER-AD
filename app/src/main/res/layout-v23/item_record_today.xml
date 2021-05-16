@@ -4,7 +4,7 @@
     <data>
         <variable
             name="record"
-            type="com.health.myapplication.model.record.Record" />
+            type="com.health.myapplication.entity.record.Record" />
     </data>
 
     <LinearLayout

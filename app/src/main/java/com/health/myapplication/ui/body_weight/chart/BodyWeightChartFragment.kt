@@ -18,7 +18,7 @@ import com.github.mikephil.charting.formatter.ValueFormatter
 import com.health.myapplication.R
 import com.health.myapplication.databinding.FragmentBodyweightChartBinding
 import com.health.myapplication.ui.body_weight.BodyWeightViewModel
-import com.health.myapplication.model.body_weight.BodyWeight
+import com.health.myapplication.entity.body_weight.BodyWeight
 import kotlinx.android.synthetic.main.fragment_bodyweight_chart.*
 import kotlinx.android.synthetic.main.fragment_bodyweight_chart.view.*
 import kotlin.collections.ArrayList

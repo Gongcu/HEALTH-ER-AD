@@ -6,7 +6,7 @@
     <data>
         <variable
             name="record_date"
-            type="com.health.myapplication.model.record.RecordDate" />
+            type="com.health.myapplication.entity.record.RecordDate" />
     </data>
 
     <LinearLayout

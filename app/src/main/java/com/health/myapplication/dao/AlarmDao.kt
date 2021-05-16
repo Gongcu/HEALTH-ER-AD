@@ -2,7 +2,7 @@ package com.health.myapplication.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.health.myapplication.model.etc.Alarm
+import com.health.myapplication.entity.etc.Alarm
 
 @Dao
 interface AlarmDao {

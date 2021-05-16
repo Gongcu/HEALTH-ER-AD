@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
-import com.health.myapplication.model.body_weight.BodyWeight
+import com.health.myapplication.entity.body_weight.BodyWeight
 import com.health.myapplication.repository.Repository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

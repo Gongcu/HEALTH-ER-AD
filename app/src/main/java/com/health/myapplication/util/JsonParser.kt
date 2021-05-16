@@ -1,13 +1,13 @@
 package com.health.myapplication.util
 
 import android.content.Context
-import com.health.myapplication.model.etc.ExerciseModel
+import com.health.myapplication.entity.etc.ExerciseVo
 import org.json.JSONObject
 
 object JsonParser {
-    fun getPartExercise(context: Context, part: String) :List<ExerciseModel>{
+    fun getPartExercise(context: Context, part: String) :List<ExerciseVo>{
         var json: String? = null
-        val exerciseList = ArrayList<ExerciseModel>()
+        val exerciseList = ArrayList<ExerciseVo>()
         try {
             val inputStream = context.assets.open("exercise.json")
             val size = inputStream.available()
@@ -20,7 +20,7 @@ object JsonParser {
             for (i in 0 until jsonArray.length()) {
                 val obj = jsonArray.getJSONObject(i)
                 exerciseList.add(
-                    ExerciseModel(
+                    ExerciseVo(
                         obj.getString("name"),
                         obj.getString("desc"),
                         obj.getString("tip"),
@@ -36,9 +36,9 @@ object JsonParser {
         }
     }
 
-    fun getRecommendProgramInfo(context: Context, program: String) :List<ExerciseModel>{
+    fun getRecommendProgramInfo(context: Context, program: String) :List<ExerciseVo>{
         var json: String? = null
-        val exerciseList = ArrayList<ExerciseModel>()
+        val exerciseList = ArrayList<ExerciseVo>()
         try {
             val inputStream = context.assets.open("exercise.json")
             val size = inputStream.available()
@@ -51,7 +51,7 @@ object JsonParser {
             for (i in 0 until jsonArray.length()) {
                 val obj = jsonArray.getJSONObject(i)
                 exerciseList.add(
-                    ExerciseModel(
+                    ExerciseVo(
                         obj.getString("name"),
                         obj.getString("desc"),
                         obj.getString("tip"),

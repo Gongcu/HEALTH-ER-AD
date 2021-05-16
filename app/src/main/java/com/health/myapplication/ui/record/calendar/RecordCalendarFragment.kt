@@ -16,7 +16,7 @@ import com.health.myapplication.ui.record.today.RecordTodayAdapter
 import com.health.myapplication.ui.record.calendar.decorator.OneDayDecorator
 import com.health.myapplication.ui.record.calendar.decorator.SaturdayDecorator
 import com.health.myapplication.ui.record.calendar.decorator.SundayDecorator
-import com.health.myapplication.model.record.Record
+import com.health.myapplication.entity.record.Record
 import com.health.myapplication.util.Util
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.CalendarMode

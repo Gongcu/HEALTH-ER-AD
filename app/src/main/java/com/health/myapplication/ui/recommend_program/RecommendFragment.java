@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.health.myapplication.R;
-import com.health.myapplication.model.etc.ExerciseModel;
+import com.health.myapplication.entity.etc.ExerciseVo;
 import com.health.myapplication.util.JsonParser;
 
 import java.util.List;
@@ -23,7 +23,7 @@ public class RecommendFragment extends Fragment {
     private RecyclerView recyclerView;
     private GuideListAdapter adapter;
 
-    private List<ExerciseModel> list;
+    private List<ExerciseVo> list;
 
     private static final int BEGINNER=1;
     private static final int NOVICE=2;

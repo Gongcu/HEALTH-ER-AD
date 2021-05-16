@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
-import com.health.myapplication.model.etc.ExerciseModel
+import com.health.myapplication.entity.etc.ExerciseVo
 import com.health.myapplication.view_pager.ViewPagerAdapter
 import kotlinx.android.synthetic.main.activity_exercise_guide.*
 import kotlinx.coroutines.Dispatchers
@@ -16,8 +16,8 @@ import kotlin.concurrent.timer
 
 class ExerciseGuideActivity : AppCompatActivity() {
     private var currentPage: Int = 0
-    private val exercise: ExerciseModel by lazy {
-        intent.extras!!.get("exercise") as ExerciseModel
+    private val exercise: ExerciseVo by lazy {
+        intent.extras!!.get("exercise") as ExerciseVo
     }
 
     private val imgDrawables by lazy {

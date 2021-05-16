@@ -14,7 +14,7 @@ import androidx.annotation.NonNull;
 
 import com.health.myapplication.db.DbHelper_dialog;
 import com.health.myapplication.R;
-import com.health.myapplication.model.etc.DialogContract;
+import com.health.myapplication.entity.etc.DialogContract;
 
 public class ProgramAlertDialog extends Dialog implements View.OnClickListener {
     private CheckBox checkBox;

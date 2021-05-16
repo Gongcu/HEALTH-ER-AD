@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.health.myapplication.dao.RecordDao
-import com.health.myapplication.model.record.Record
+import com.health.myapplication.entity.record.Record
 
 @Database(entities = [Record::class], version = 3)
 abstract class RecordDatabase() : RoomDatabase() {

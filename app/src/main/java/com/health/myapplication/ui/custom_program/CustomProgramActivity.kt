@@ -17,8 +17,8 @@ import com.health.myapplication.dialog.DeleteDialog
 import com.health.myapplication.dialog.DivisionSelectDialog
 import com.health.myapplication.listener.DeleteDialogListener
 import com.health.myapplication.listener.DivisionSelectListener
-import com.health.myapplication.model.etc.BaseModel
-import com.health.myapplication.model.custom_program.CustomProgram
+import com.health.myapplication.entity.etc.BaseVo
+import com.health.myapplication.entity.custom_program.CustomProgram
 import kotlinx.android.synthetic.main.activity_custom_program.ad_view
 import kotlinx.android.synthetic.main.activity_custom_program.add_btn
 import kotlinx.android.synthetic.main.activity_custom_program.recycler_view
@@ -77,7 +77,7 @@ class CustomProgramActivity : AppCompatActivity() {
         }).attachToRecyclerView(recycler_view)
     }
 
-    private fun moveProgramInfoActivity(item: BaseModel){
+    private fun moveProgramInfoActivity(item: BaseVo){
         val intent = Intent(context, ProgramInfoActivity::class.java)
         intent.putExtra("ID",item.id)
         Log.d("ID", "+"+item.id)
@@ -85,17 +85,17 @@ class CustomProgramActivity : AppCompatActivity() {
     }
 
 
-    private fun listGenerator(list: ArrayList<CustomProgram>) : ArrayList<BaseModel> {
-        val newList = ArrayList<BaseModel>()
+    private fun listGenerator(list: ArrayList<CustomProgram>) : ArrayList<BaseVo> {
+        val newList = ArrayList<BaseVo>()
         for (i in list.indices) {
             when (list[i].activity) {
-                1 -> newList.add(BaseModel(list[i].id!! ,"무분할", R.drawable.one))
-                2  -> newList.add(BaseModel(list[i].id!! ,"2분할", R.drawable.two))
-                3  -> newList.add(BaseModel(list[i].id!! ,"3분할", R.drawable.three))
-                4  -> newList.add(BaseModel(list[i].id!! ,"4분할", R.drawable.four))
-                5  -> newList.add(BaseModel(list[i].id!! ,"5분할", R.drawable.five))
-                6  -> newList.add(BaseModel(list[i].id!! ,"6분할", R.drawable.six))
-                7  -> newList.add(BaseModel(list[i].id!! ,"7분할", R.drawable.seven))
+                1 -> newList.add(BaseVo(list[i].id!! ,"무분할", R.drawable.one))
+                2  -> newList.add(BaseVo(list[i].id!! ,"2분할", R.drawable.two))
+                3  -> newList.add(BaseVo(list[i].id!! ,"3분할", R.drawable.three))
+                4  -> newList.add(BaseVo(list[i].id!! ,"4분할", R.drawable.four))
+                5  -> newList.add(BaseVo(list[i].id!! ,"5분할", R.drawable.five))
+                6  -> newList.add(BaseVo(list[i].id!! ,"6분할", R.drawable.six))
+                7  -> newList.add(BaseVo(list[i].id!! ,"7분할", R.drawable.seven))
             }
         }
         return newList

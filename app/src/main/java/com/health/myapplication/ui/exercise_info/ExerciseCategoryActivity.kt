@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
-import com.health.myapplication.model.etc.ExerciseModel
+import com.health.myapplication.entity.etc.ExerciseVo
 import com.health.myapplication.ui.common_adapter.CommonItemAdapter
 import com.health.myapplication.util.JsonParser
 import com.health.myapplication.util.Util
@@ -27,8 +27,9 @@ class ExerciseCategoryActivity : AppCompatActivity() {
         recycler_view.adapter = CommonItemAdapter(
             JsonParser.getPartExercise(applicationContext,part)
         ) { basicModel ->
-            Util.startExerciseGuideActivity(applicationContext, basicModel as ExerciseModel)
+            Util.startExerciseGuideActivity(applicationContext, basicModel as ExerciseVo)
         }
     }
+
 
 }

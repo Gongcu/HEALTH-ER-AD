@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import com.health.myapplication.model.etc.DialogContract;
+import com.health.myapplication.entity.etc.DialogContract;
 
 public class DbHelper_dialog extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "dialog.db";

@@ -20,7 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.health.myapplication.db.DbHelper_program;
 import com.health.myapplication.R;
 import com.health.myapplication.callback.ItemTouchHelperCallback;
-import com.health.myapplication.model.etc.ProgramContract;
+import com.health.myapplication.dialog.DialogType;
+import com.health.myapplication.entity.etc.ProgramContract;
 import com.health.myapplication.dialog.ProgramDialog;
 import com.health.myapplication.listener.ProgramDialogListener;
 
@@ -86,15 +87,15 @@ public class ProgramFragment extends Fragment implements ItemTouchHelperCallback
         recyclerView.setAdapter(eAdapter);
 
 
-        ItemTouchHelper.Callback callback = new ItemTouchHelperCallback(this);// create MyItemTouchHelperCallback
-        ItemTouchHelper touchHelper = new ItemTouchHelper(callback); // Create ItemTouchHelper and pass with parameter the MyItemTouchHelperCallback
-        touchHelper.attachToRecyclerView(recyclerView); // Attach ItemTouchHelper to RecyclerView
+        ItemTouchHelper.Callback callback = new ItemTouchHelperCallback(this);
+        ItemTouchHelper touchHelper = new ItemTouchHelper(callback);
+        touchHelper.attachToRecyclerView(recyclerView);
 
         button.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View v) {
-                dialog = new ProgramDialog(getActivity(), ACTIVITY_NUMBER);
-                dialog.setDialogListener(new ProgramDialogListener() {  // DialogListener 를 구현 추상 클래스이므로 구현 필수 -> dialog의 값을 전달 받음
+                dialog = new ProgramDialog(getActivity(), DialogType.INSERT);
+                dialog.setDialogListener(new ProgramDialogListener() {
                     @Override
                     public void onPositiveClicked(int date, String part, String exercise, int set, int rep) {
                         addProgram(part, exercise, set, rep);

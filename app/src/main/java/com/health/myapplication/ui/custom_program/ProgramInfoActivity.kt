@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.health.myapplication.R
 import com.health.myapplication.util.Util
-import com.health.myapplication.util.Util.Companion.createTabView
+import com.health.myapplication.util.Util.createTabView
 import com.health.myapplication.view_pager.ContentsPagerAdapter
 import kotlinx.android.synthetic.main.activity_program_info.*
 import kotlinx.coroutines.Dispatchers

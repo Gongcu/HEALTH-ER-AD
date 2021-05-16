@@ -19,7 +19,7 @@
         app:fontFamily="@font/mapo_peace" />
 
     <LinearLayout
-
+        android:id="@+id/part_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -27,7 +27,6 @@
 
         <TextView
             android:id="@+id/textView10"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -38,13 +37,14 @@
             app:fontFamily="@font/mapo_peace" />
 
         <Spinner
-            android:id="@+id/spinner1"
+            android:id="@+id/part_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/exercise_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -63,7 +63,7 @@
             app:fontFamily="@font/mapo_peace" />
 
         <Spinner
-            android:id="@+id/spinner2"
+            android:id="@+id/exercise_spinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

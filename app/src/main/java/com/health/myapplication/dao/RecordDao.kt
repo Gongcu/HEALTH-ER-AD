@@ -2,7 +2,7 @@ package com.health.myapplication.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.health.myapplication.model.record.Record
+import com.health.myapplication.entity.record.Record
 
 @Dao
 interface RecordDao {
@@ -27,8 +27,8 @@ interface RecordDao {
     @Delete
     fun delete(record: Record)
 
-    @Query("UPDATE exerciseNote SET exercisename=:exercise,settime=:set,rep=:rep,weight=:weight WHERE _id=:id")
-    fun update(id: Int, exercise:String, set:Int, rep:Int,  weight:Double)
+    @Query("UPDATE exerciseNote SET settime=:set,rep=:rep,weight=:weight WHERE _id=:id")
+    fun update(id: Int, set:Int, rep:Int,  weight:Double)
 
     @Query("DELETE FROM exerciseNote WHERE _id=:id")
     fun deleteById(id: Int)

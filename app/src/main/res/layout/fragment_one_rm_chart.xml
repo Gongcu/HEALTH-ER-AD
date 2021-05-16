@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.health.myapplication.ui.one_rm.OneRMViewModel" />
+            type="com.health.myapplication.ui.one_rm.OneRmViewModel" />
     </data>
 
     <FrameLayout
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:tag="1"
-        tools:context="com.health.myapplication.ui.one_rm.chart.OneRMChartFragment">
+        tools:context="com.health.myapplication.ui.one_rm.chart.OneRmChartFragment">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -89,7 +89,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="8dp"
-
                         android:textColor="@color/colorMain"
                         android:textSize="20dp"
                         android:textStyle="bold"

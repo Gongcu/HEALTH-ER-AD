@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.health.myapplication.dao.AlarmDao;
 import com.health.myapplication.db.AlarmDatabase;
-import com.health.myapplication.model.etc.Alarm;
+import com.health.myapplication.entity.etc.Alarm;
 
 import java.util.Calendar;
 

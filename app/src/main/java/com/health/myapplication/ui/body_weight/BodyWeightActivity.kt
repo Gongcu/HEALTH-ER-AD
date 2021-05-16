@@ -1,19 +1,12 @@
 package com.health.myapplication.ui.body_weight
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
-import androidx.viewpager.widget.ViewPager
-import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import com.google.android.material.tabs.TabLayout.TabLayoutOnPageChangeListener
 import com.health.myapplication.R
-import com.health.myapplication.util.Util.Companion.createTabView
+import com.health.myapplication.util.Util.createTabView
 import com.health.myapplication.view_pager.ContentsPagerAdapter
 import kotlinx.android.synthetic.main.activity_bodyweight.*
 

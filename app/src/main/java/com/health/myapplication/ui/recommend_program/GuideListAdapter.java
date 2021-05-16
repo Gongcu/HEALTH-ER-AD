@@ -11,15 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.health.myapplication.R;
-import com.health.myapplication.model.etc.ExerciseModel;
+import com.health.myapplication.entity.etc.ExerciseVo;
 import com.health.myapplication.util.Util;
 import java.util.List;
 
 public class GuideListAdapter extends RecyclerView.Adapter<GuideListAdapter.ItemViewHolder> {
-    private List<ExerciseModel> list;
+    private List<ExerciseVo> list;
     private Context context;
 
-    public GuideListAdapter(List<ExerciseModel> list) {
+    public GuideListAdapter(List<ExerciseVo> list) {
         this.list = list;
     }
 
@@ -42,23 +42,18 @@ public class GuideListAdapter extends RecyclerView.Adapter<GuideListAdapter.Item
         holder.onBind(list.get(position));
     }
 
-    // 데이터 셋의 크기를 리턴해줍니다.
     @Override
     public int getItemCount() {
         return list.size();
     }
 
-
-
-    // 커스텀 뷰홀더
-// item layout 에 존재하는 위젯들을 바인딩합니다.
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView textView;
         private ImageView imageView;
         private CardView cardView;
         private TextView setTextView;
         private TextView repTextView;
-        private ExerciseModel exercise;
+        private ExerciseVo exercise;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -71,7 +66,7 @@ public class GuideListAdapter extends RecyclerView.Adapter<GuideListAdapter.Item
             cardView.setOnClickListener(this);
         }
 
-        void onBind(ExerciseModel exercise) {
+        void onBind(ExerciseVo exercise) {
             this.exercise = exercise;
             textView.setText(exercise.getName());
             setTextView.setText(exercise.getSet()+"");
@@ -82,7 +77,7 @@ public class GuideListAdapter extends RecyclerView.Adapter<GuideListAdapter.Item
 
         @Override
         public void onClick(View v) {
-            Util.Companion.startExerciseGuideActivity(context,exercise);
+            Util.INSTANCE.startExerciseGuideActivity(context,exercise);
         }
     }
 }

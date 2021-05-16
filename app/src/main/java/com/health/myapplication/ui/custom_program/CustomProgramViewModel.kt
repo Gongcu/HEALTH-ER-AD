@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.health.myapplication.model.custom_program.CustomProgram
+import com.health.myapplication.entity.custom_program.CustomProgram
 import com.health.myapplication.repository.Repository
 import kotlinx.coroutines.*
 
