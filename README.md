@@ -1,16 +1,15 @@
 ## HEALTH-ER
  🏋 Weight training guide application.
  
-## 2020.11.02 ~ 리팩토링 진행 중
- 
  <img src="./홍보/배너.png"></img> 
  ### Download: [playstore][link]
  ***
  
  ### STACK 📚
  - Android(Java, Kotlin)  
- - SQLite, Room
+ - Room
  - MVVM
+ - Coroutine
  - Android Architecture Component(LiveData, Databinding)
  - [MPAndroidChart][link]  
  - [material-calendarview][link]
