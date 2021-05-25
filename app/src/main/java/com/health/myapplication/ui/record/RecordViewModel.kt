@@ -6,13 +6,13 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.health.myapplication.dialog.DialogType
-import com.health.myapplication.dialog.RecordDialog
+import com.health.myapplication.entity.etc.DialogType
 import com.health.myapplication.listener.RecordDialogListener
 import com.health.myapplication.listener.DateRecordCopyListener
 import com.health.myapplication.entity.record.Record
 import com.health.myapplication.entity.record.RecordDate
 import com.health.myapplication.repository.Repository
+import com.health.myapplication.ui.record.dialog.RecordDialog
 import kotlinx.coroutines.*
 import java.util.ArrayList
 
@@ -101,7 +101,7 @@ class RecordViewModel(application: Application): AndroidViewModel(application) {
         val list:ArrayList<RecordDate> =  ArrayList(viewModelScope.async(Dispatchers.IO) {
             return@async getRecentDate()
         }.await())
-        val dialog = RecordDialog(context,DialogType.INSERT,list)
+        val dialog = RecordDialog(context, DialogType.INSERT,list)
         dialog.setRecordDialogListener(object : RecordDialogListener {
             override fun onPositiveClicked(time: String, name: String, set: Int, rep: Int, weight: Double) {
                 insert(targetDate, name, set, rep, weight)

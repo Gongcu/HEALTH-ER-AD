@@ -9,8 +9,8 @@ import android.view.*;
 import android.widget.TextView;
 
 import com.health.myapplication.R;
-import com.health.myapplication.dialog.DialogType;
-import com.health.myapplication.dialog.OneRmDialog;
+import com.health.myapplication.entity.etc.DialogType;
+import com.health.myapplication.ui.one_rm.dialog.OneRmDialog;
 import com.health.myapplication.listener.AdapterListener;
 import com.health.myapplication.listener.OneRmDialogListener;
 import com.health.myapplication.entity.one_rm.OneRmRecord;

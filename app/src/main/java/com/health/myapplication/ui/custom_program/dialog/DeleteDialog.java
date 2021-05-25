@@ -1,4 +1,4 @@
-package com.health.myapplication.dialog;
+package com.health.myapplication.ui.custom_program.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

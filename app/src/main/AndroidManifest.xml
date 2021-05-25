@@ -15,7 +15,7 @@
         <activity android:name=".ui.custom_program.CustomProgramActivity" />
         <activity android:name=".ui.recommend_program.program_info.ProgramInfoActivity" />
         <activity android:name=".ui.recommend_program.ProgramRecommendActivity" />
-        <activity android:name=".ui.exercise_info.ExerciseGuideActivity" />
+        <activity android:name=".ui.exercise_info.ExerciseInfoActivity" />
         <activity
             android:name=".ui.exercise_info.ExercisePartCategoryActivity"
             android:configChanges="screenSize|orientation" />

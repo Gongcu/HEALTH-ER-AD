@@ -1,4 +1,4 @@
-package com.health.myapplication.dialog
+package com.health.myapplication.ui.one_rm.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -10,6 +10,7 @@ import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.health.myapplication.R
+import com.health.myapplication.entity.etc.DialogType
 import com.health.myapplication.listener.OneRmDialogListener
 import kotlinx.android.synthetic.main.dialog_one_rm.*
 import java.text.SimpleDateFormat

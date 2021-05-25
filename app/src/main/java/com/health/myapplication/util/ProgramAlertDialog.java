@@ -1,4 +1,4 @@
-package com.health.myapplication.dialog;
+package com.health.myapplication.util;
 
 import android.app.Dialog;
 import android.content.ContentValues;

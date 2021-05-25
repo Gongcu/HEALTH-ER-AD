@@ -8,8 +8,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.github.mikephil.charting.data.*
 import com.health.myapplication.application.BaseApplication
-import com.health.myapplication.dialog.DialogType
-import com.health.myapplication.dialog.OneRmDialog
+import com.health.myapplication.entity.etc.DialogType
+import com.health.myapplication.ui.one_rm.dialog.OneRmDialog
 import com.health.myapplication.listener.OneRmDialogListener
 import com.health.myapplication.entity.one_rm.OneRmDate
 import com.health.myapplication.entity.one_rm.OneRmRecord

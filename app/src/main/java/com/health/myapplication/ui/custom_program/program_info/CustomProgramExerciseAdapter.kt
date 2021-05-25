@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.health.myapplication.R
 import com.health.myapplication.entity.custom_program.CustomProgramExercise
 import com.health.myapplication.entity.etc.ExerciseVo
-import com.health.myapplication.ui.exercise_info.ExerciseGuideActivity
+import com.health.myapplication.ui.exercise_info.ExerciseInfoActivity
 import com.health.myapplication.util.JsonParser
 
 class CustomProgramExerciseAdapter(
@@ -46,7 +46,7 @@ class CustomProgramExerciseAdapter(
             if (exerciseVo==null) {
                 Toast.makeText(context, "해당 운동의 정보가 없습니다.", Toast.LENGTH_LONG).show()
             } else {
-                val intent = Intent(context, ExerciseGuideActivity::class.java)
+                val intent = Intent(context, ExerciseInfoActivity::class.java)
                 intent.putExtra("exercise", exerciseVo)
                 context.startActivity(intent)
             }

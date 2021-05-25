@@ -9,12 +9,12 @@ import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
 import com.health.myapplication.entity.etc.ExerciseVo
 import com.health.myapplication.view_pager.ViewPagerAdapter
-import kotlinx.android.synthetic.main.activity_exercise_guide.*
+import kotlinx.android.synthetic.main.activity_exercise_info.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlin.concurrent.timer
 
-class ExerciseGuideActivity : AppCompatActivity() {
+class ExerciseInfoActivity : AppCompatActivity() {
     private var currentPage: Int = 0
     private val exercise: ExerciseVo by lazy {
         intent.extras!!.get("exercise") as ExerciseVo
@@ -30,7 +30,7 @@ class ExerciseGuideActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_exercise_guide)
+        setContentView(R.layout.activity_exercise_info)
         ad_view.loadAd(AdRequest.Builder().build())
         exercise_name_text_view.text = "${exercise.name} 자세"
         how_to_text_view.text = exercise.desc

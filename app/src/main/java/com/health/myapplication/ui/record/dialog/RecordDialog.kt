@@ -1,4 +1,4 @@
-package com.health.myapplication.dialog
+package com.health.myapplication.ui.record.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -11,10 +11,9 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.health.myapplication.R
-import com.health.myapplication.etc.HintSpinnerAdapter
+import com.health.myapplication.entity.etc.DialogType
 import com.health.myapplication.listener.DateRecordCopyListener
 import com.health.myapplication.listener.RecordDialogListener
-import com.health.myapplication.entity.record.Record
 import com.health.myapplication.entity.record.RecordDate
 import kotlinx.android.synthetic.main.dialog_record.*
 import java.text.SimpleDateFormat

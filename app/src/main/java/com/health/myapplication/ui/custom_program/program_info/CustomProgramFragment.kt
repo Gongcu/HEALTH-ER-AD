@@ -1,7 +1,7 @@
 package com.health.myapplication.ui.custom_program.program_info
 
 import com.health.myapplication.callback.ItemTouchHelperCallback.ItemMoveListener
-import com.health.myapplication.dialog.ProgramDialog
+import com.health.myapplication.ui.custom_program.dialog.ProgramDialog
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.os.Bundle
@@ -15,7 +15,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
-import com.health.myapplication.dialog.DialogType
+import com.health.myapplication.entity.etc.DialogType
 import com.health.myapplication.entity.custom_program.CustomProgramExercise
 import com.health.myapplication.ui.custom_program.CustomProgramViewModel
 import kotlinx.android.synthetic.main.fragment_bodyweight_data.view.recycler_view
@@ -78,8 +78,8 @@ class CustomProgramFragment : Fragment(), ItemMoveListener {
         }
     }
 
-    override fun onPause() {
-        super.onPause()
+    override fun onStop() {
+        super.onStop()
         if(orderChange) {
             Log.d("onPause","UPDATE LIST")
             viewModel.updateList(list)

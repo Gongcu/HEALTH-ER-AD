@@ -8,10 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import com.health.myapplication.R
-import com.health.myapplication.ui.exercise_info.ExerciseGuideActivity
+import com.health.myapplication.ui.exercise_info.ExerciseInfoActivity
 import com.health.myapplication.entity.etc.DialogContract
 import com.health.myapplication.db.DbHelper_dialog
-import com.health.myapplication.dialog.ProgramAlertDialog
 import com.health.myapplication.entity.etc.ExerciseVo
 import java.text.SimpleDateFormat
 import java.util.*
@@ -47,7 +46,7 @@ object Util {
     }
 
     fun startExerciseGuideActivity(context: Context, model: ExerciseVo) {
-        val intent = Intent(context, ExerciseGuideActivity::class.java)
+        val intent = Intent(context, ExerciseInfoActivity::class.java)
         intent.putExtra("exercise", model)
         context.startActivity(intent)
     }

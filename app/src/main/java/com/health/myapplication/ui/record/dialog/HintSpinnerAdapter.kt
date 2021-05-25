@@ -1,4 +1,4 @@
-package com.health.myapplication.etc
+package com.health.myapplication.ui.record.dialog
 
 import android.content.Context
 import android.widget.ArrayAdapter

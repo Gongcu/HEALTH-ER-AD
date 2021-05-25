@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.ads.AdRequest
 import com.health.myapplication.R
 import com.health.myapplication.ui.common_adapter.CommonItemAdapter
-import com.health.myapplication.dialog.DeleteDialog
-import com.health.myapplication.dialog.DivisionSelectDialog
+import com.health.myapplication.ui.custom_program.dialog.DeleteDialog
+import com.health.myapplication.ui.custom_program.dialog.DivisionSelectDialog
 import com.health.myapplication.listener.DeleteDialogListener
 import com.health.myapplication.listener.DivisionSelectListener
 import com.health.myapplication.entity.etc.BaseVo

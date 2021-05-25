@@ -1,4 +1,4 @@
-package com.health.myapplication.dialog
+package com.health.myapplication.ui.custom_program.dialog
 
 import android.app.Dialog
 import android.content.Context
@@ -11,9 +11,8 @@ import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.health.myapplication.R
+import com.health.myapplication.entity.etc.DialogType
 import com.health.myapplication.listener.ProgramDialogListener
-import kotlinx.android.synthetic.main.dialog_program.*
-import kotlinx.android.synthetic.main.dialog_record.*
 import kotlinx.android.synthetic.main.dialog_record.directEditText
 import kotlinx.android.synthetic.main.dialog_record.exercise_spinner
 import kotlinx.android.synthetic.main.dialog_record.part_spinner

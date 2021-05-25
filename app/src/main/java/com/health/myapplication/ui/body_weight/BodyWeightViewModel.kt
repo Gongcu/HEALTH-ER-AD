@@ -5,7 +5,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.health.myapplication.dialog.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
 import com.health.myapplication.entity.body_weight.BodyWeight
 import com.health.myapplication.repository.Repository

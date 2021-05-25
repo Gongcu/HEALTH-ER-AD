@@ -1,4 +1,4 @@
-package com.health.myapplication.dialog
+package com.health.myapplication.entity.etc
 
 enum class DialogType {
     INSERT, UPDATE

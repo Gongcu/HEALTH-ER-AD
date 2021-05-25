@@ -1,36 +1,36 @@
-package com.health.myapplication.dialog;
+package com.health.myapplication.ui.custom_program.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.*;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+
 import com.health.myapplication.R;
+import com.health.myapplication.listener.DivisionSelectListener;
 import com.health.myapplication.listener.ProgramSelectListener;
 
 import java.util.ArrayList;
 
-public class ProgramSelectDialog extends Dialog implements View.OnClickListener{
-    private ProgramSelectListener listener;
+public class DivisionSelectDialog extends Dialog implements View.OnClickListener{
+    private DivisionSelectListener listener;
     private Context mContext;
-    private static int ACTIVITY_NUMBER;
-
     private Button saveBtn;
     private Button quitBtn;
-
     ArrayAdapter<String> adapter_date;
-
     private Spinner spinner;
 
-
     ArrayList<String> date;
+    int division=0;
 
-    String choice="";
-    //생성자 생성
-    public ProgramSelectDialog(@NonNull Context context) {
+    public DivisionSelectDialog(@NonNull Context context) {
         super(context);
         mContext=context;
         date=new ArrayList<>();
@@ -63,8 +63,11 @@ public class ProgramSelectDialog extends Dialog implements View.OnClickListener{
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                choice=adapter_date.getItem(position).toString();
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                char item = adapter_date.getItem(pos).charAt(0);
+                if(item=='무')
+                    item = '1';
+                division=item-'0';
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -80,8 +83,8 @@ public class ProgramSelectDialog extends Dialog implements View.OnClickListener{
         quitBtn.setOnClickListener(this);
     }
 
-    public void setDialogListener(ProgramSelectListener dialogListener){
-        this.listener = dialogListener;
+    public void setDialogListener(DivisionSelectListener listener){
+        this.listener = listener;
     }
 
     @Override
@@ -89,8 +92,8 @@ public class ProgramSelectDialog extends Dialog implements View.OnClickListener{
         switch (view.getId()){
             case R.id.saveBtn:
                 try{
-                    listener.onPositiveClicked(choice);
-                }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"값을 입력해주세요", Toast.LENGTH_SHORT).show();}
+                    listener.onPositiveClicked(division);
+                }catch (NumberFormatException e){e.printStackTrace(); Toast.makeText(getContext(),"값을 선택해주세요", Toast.LENGTH_SHORT).show();}
                 dismiss();
                 break;
             case R.id.quitBtn:

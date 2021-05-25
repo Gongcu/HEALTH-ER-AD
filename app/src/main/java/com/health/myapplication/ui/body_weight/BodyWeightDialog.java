@@ -1,4 +1,4 @@
-package com.health.myapplication.dialog;
+package com.health.myapplication.ui.body_weight;
 
 import android.app.Dialog;
 import android.content.Context;

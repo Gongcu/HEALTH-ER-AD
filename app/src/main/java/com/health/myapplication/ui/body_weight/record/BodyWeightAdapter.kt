@@ -5,7 +5,7 @@ import android.view.*
 import androidx.recyclerview.widget.RecyclerView
 import com.health.myapplication.ui.body_weight.BodyWeightViewModel
 import com.health.myapplication.databinding.ItemDataViewBinding
-import com.health.myapplication.dialog.BodyWeightDialog
+import com.health.myapplication.ui.body_weight.BodyWeightDialog
 import com.health.myapplication.listener.BodyWeightDialogListener
 import com.health.myapplication.entity.body_weight.BodyWeight
 

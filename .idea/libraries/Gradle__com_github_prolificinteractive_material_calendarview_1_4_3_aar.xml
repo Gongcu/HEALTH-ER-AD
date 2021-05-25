@@ -2,11 +2,15 @@
   <library name="Gradle: com.github.prolificinteractive:material-calendarview:1.4.3@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dd4e93129c99d53e0b5aa2884e59bb55/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/31ec4c325972a41e3a1b9b60599fc6b1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dd4e93129c99d53e0b5aa2884e59bb55/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dd4e93129c99d53e0b5aa2884e59bb55/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dd4e93129c99d53e0b5aa2884e59bb55/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/31ec4c325972a41e3a1b9b60599fc6b1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/31ec4c325972a41e3a1b9b60599fc6b1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/31ec4c325972a41e3a1b9b60599fc6b1/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
